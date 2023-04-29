@@ -5,8 +5,8 @@ useSeoMeta({
 })
 
 defineOgImageStatic({
-  title: 'Welcome to my site!',
-  background: 'lightblue'
+  component: 'OG_CPHMethods',
+  title: 'Welcome to my site!'
 })
 </script>
 
