@@ -4,7 +4,10 @@ useSeoMeta({
   description: 'See a list of all Streamer.bot CPH Methods',
 })
 
-defineOgImageStatic()
+defineOgImageStatic({
+  title: 'Welcome to my site!',
+  background: 'lightblue'
+})
 </script>
 
 <template>
