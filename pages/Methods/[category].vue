@@ -12,38 +12,39 @@ useSeoMeta({
   description: 'See a list of all Streamer.bot CPH Methods',
 })
 
-const methods = GetMethodsFromCategory(route?.params?.category)
+const methodsData = GetMethods()
+const method = methodsData[route?.params?.category]
+let methods = []
 
-console.log(methods)
+Object.entries(method.methods).forEach(methodData => {
+  let data = {
+    ...methodData[1],
+    subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
+    method: methodData[1]
+  }
+
+  methods.push(data)
+});
+
+const linksPageHeaderData = ref({})
+const cardsView = ref(`grid`)
+
+function updateLayout(e) {
+  linksPageHeaderData.value = e
+  cardsView.value = linksPageHeaderData.value.cardsView
+}
 </script>
 
 <template>
-  <div style="display: flex; gap: 1rem;">
-    <div>
-      <MethodAvatar :method="Object.entries(methods.methods)[0][1]" style="height: 100%;" full-size />
-    </div>
-    <div>
-      <h1>{{ methods.title }}</h1>
-      <p class="text-grey-lighten-1">{{ methods.description }}</p>
-    </div>
-  </div>
+  <LinksPageHeader
+    :title="method.title"
+    :description="method.description"
+    :method="Object.entries(method.methods)[0][1]"
+    :model-value="linksPageHeaderData"
+    @update:modelValue="updateLayout"
+  />
 
-  <v-divider style="margin-block: .75rem;"></v-divider>
-
-  <CardGrid>
-    <v-card v-for="method in Object.entries(methods.methods)" :to="method[1].path">
-      <v-card-title>{{ method[1].title }}</v-card-title>
-      <v-card-subtitle>Reference for the {{ method[1].title }} CPH Method</v-card-subtitle>
-
-      <v-card-text>
-        <p>{{ method[1].description }}</p>
-
-        <br>
-
-        <v-chip v-for="tag in method[1].tags" style="margin-right: .5rem;">{{ tag }}</v-chip>
-      </v-card-text>
-    </v-card>
-  </CardGrid>
+  <CardGrid :cards-view="cardsView" :cards="methods"></CardGrid>
 </template>
 
 <style scoped lang="scss">

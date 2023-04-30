@@ -37,9 +37,13 @@ function formatSearch(text) {
     <div style="width: 100%;">
       <v-text-field
         label="Search"
+        :hint="`${searchItems.length} ${searchItems.length === 1 ? `Result` : `Results`}`"
+        persistent-hint
         v-model="search"
         @keydown="updateSearch()"
       ></v-text-field>
+
+      <br>
 
       <v-list
         v-if="searchItems.length > 0"

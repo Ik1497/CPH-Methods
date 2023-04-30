@@ -31,17 +31,11 @@ function isArray(array) {
     :description="method.description"
   />
 
-  <div style="display: flex; gap: 1rem;">
-    <div>
-      <MethodAvatar :method="method" style="height: 100%;" full-size />
-    </div>
-    <div>
-      <h1>{{ method.title }}</h1>
-      <p class="text-grey-lighten-1">{{ method.description }}</p>
-    </div>
-  </div>
-
-  <v-divider style="margin-block: .75rem;"></v-divider>
+  <LinksPageHeader
+    :title="method.title"
+    :description="method.description"
+    :method="method"
+  />
   
   <CPHCodeEditor
     v-if="method.type === `method`"

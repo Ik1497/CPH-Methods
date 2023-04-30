@@ -8,14 +8,14 @@ const props = defineProps([
 const method = props.method
 
 const clipboardClicked = ref(false)
-const editMode = ref(false)
+const editMode = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__editMode`) === `true` ? true : false : false)
 const editData = ref([])
 const editContent = ref(``)
 const editHtml = ref(``)
 
 // Main
 
-if (process.client) editMode.value = localStorage.getItem(`StreambotCPHMethods__editMode`) === `true` ? true : false
+console.log(editMode)
 
 method.fields.forEach((field, fieldIndex) => {
   editData.value[fieldIndex] = {
@@ -109,10 +109,10 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div class="code" :hidden="editMode">
+    <div class="code" :hidden="editMode === true">
       <pre><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
     </div>
-    <div class="code edit-mode" :hidden="!editMode">
+    <div class="code edit-mode" :hidden="editMode === false">
       <pre><code class="language-csharp" v-html="editHtml"></code></pre>
 
       <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem;">
