@@ -4,23 +4,21 @@ const router = useRouter()
 
 let prevRoute = ref(``)
 
-if (route.path.split(`/`)[1] === `Methods`) {
-  prevRoute.value = `/`
-} else if (route.value = `/search`) {
-  prevRoute.value = `/`
-} else {
-  prevRoute.value = `/Methods/${route.path.split(`/`)[1]}`
-}
+handleRoute(route)
 
 watch(route, async (newRoute, oldRoute) => {
-  if (newRoute.path.split(`/`)[1] === `Methods`) {
+  handleRoute(newRoute)
+})
+
+function handleRoute(routeEvent) {
+  if (routeEvent.path.split(`/`)[1] === `Methods`) {
     prevRoute.value = `/`
-  } else if (newRoute.value = `/search`) {
+  } else if (routeEvent.path === `/search`) {
     prevRoute.value = `/`
   } else {
-    prevRoute.value = `/Methods/${newRoute.path.split(`/`)[1]}`
+    prevRoute.value = `/Methods/${routeEvent.path.split(`/`)[1]}`
   }
-})
+}
 
 if (process.client) {
   window.addEventListener(`keydown`, e => {

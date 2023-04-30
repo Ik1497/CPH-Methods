@@ -4,6 +4,7 @@ import Speakerbot from './Speakerbot'
 import LumiaStream from './LumiaStream'
 import VoiceMod from './VoiceMod'
 import Groups from './Groups'
+import ServersAndClients from './ServerAndClients'
 
 export default {
   Groups,
@@ -12,4 +13,5 @@ export default {
   Speakerbot,
   LumiaStream,
   VoiceMod,
+  ServersAndClients,
 }

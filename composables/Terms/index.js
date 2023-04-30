@@ -2,31 +2,43 @@ export default {
   Groups: {
     title: `Groups`,
     description: `Change user groups`,
-    tags: [`Core`, `Users`]
+    tags: [`Core`, `Users`],
+    icon: `mdi-folder`,
+  },
+  ServersAndClients: {
+    title: `Servers and Clients`,
+    description: `Connect Streamer.bot to servers and clients`,
+    tags: [`Core`, `Servers`, `Clients`],
+    icon: `mdi-server`,
   },
   YouTube: {
     title: `YouTube`,
     description: `Enhance your YouTube livestreams`,
-    tags: [`Stream Apps`, `Livestreams`]
+    tags: [`Stream Apps`, `Livestreams`],
+    icon: `mdi-youtube`,
   },
   Discord: {
     title: `Discord`,
     description: `Send webhooks to Discord`,
-    tags: [`Integrations`, `Webhooks`]
+    tags: [`Integrations`, `Webhooks`],
+    image: `https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg`,
   },
   Speakerbot: {
     title: `Speaker.bot`,
     description: `Send TTS requests to Speaker.bot`,
-    tags: [`Integrations`, `TTS`]
+    tags: [`Integrations`, `TTS`],
+    image: `https://streamer.bot/twitchspeaker/logo.svg`,
   },
   LumiaStream: {
     title: `Lumia Stream`,
     description: `Light control`,
-    tags: [`Integrations`, `Lights`]
+    tags: [`Integrations`, `Lights`],
+    image: `https://streamer.bot/img/integrations/lumia.png`,
   },
   VoiceMod: {
     title: `VoiceMod`,
     description: `Control your voice`,
-    tags: [`Integrations`, `Voice`]
+    tags: [`Integrations`, `Voice`],
+    image: `https://streamer.bot/img/integrations/voicemod.png`,
   },
 }

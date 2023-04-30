@@ -22,20 +22,6 @@ function convertFieldText(text) {
 function isArray(array) {
   return Array.isArray(array)
 }
-
-function createCPHMethod(method) {
-  let fields = []
-
-  method.fields.forEach(field => {
-    fields.push(`${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}`)
-  }); 
-
-  return `CPH.${method.method}(${fields.join(`, `)});`
-}
-
-function createCPHProperty(property) {
-  return `CPH.${property};`
-}
 </script>
 
 <template>
@@ -45,17 +31,22 @@ function createCPHProperty(property) {
     :description="method.description"
   />
 
-  <h1>{{ method.title }}</h1>
-  <p class="text-grey-lighten-1">{{ method.description }}</p>
+  <div style="display: flex; gap: 1rem;">
+    <div>
+      <MethodAvatar :method="method" style="height: 100%;" full-size />
+    </div>
+    <div>
+      <h1>{{ method.title }}</h1>
+      <p class="text-grey-lighten-1">{{ method.description }}</p>
+    </div>
+  </div>
 
   <v-divider style="margin-block: .75rem;"></v-divider>
   
-  <CodeHighlighting
+  <CPHCodeEditor
     v-if="method.type === `method`"
-    :clipboard="createCPHMethod(method)"
-  >
-    {{ createCPHMethod(method) }}
-  </CodeHighlighting>
+    :method="method"
+  ></CPHCodeEditor>
 
   <br>
 

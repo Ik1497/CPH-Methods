@@ -25,6 +25,10 @@ export default function () {
         path: `/${method[0]}/${methodName[0]}`,
         ...methodName[1],
       }
+
+      if (Terms[method[0]]?.initials != undefined) methodData[methodName[0]].initials = Terms[method[0]]?.initials
+      if (Terms[method[0]]?.image != undefined) methodData[methodName[0]].image = Terms[method[0]]?.image
+      if (Terms[method[0]]?.icon != undefined) methodData[methodName[0]].icon = Terms[method[0]]?.icon
     });
 
     let methodsArray = Object.entries(methodData)

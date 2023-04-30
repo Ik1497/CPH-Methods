@@ -21,7 +21,9 @@ function updateSearch(e) {
       return formatSearch(value.title).includes(e) ||
         formatSearch(value.categoryName).includes(e) ||
         formatSearch(value.method).includes(e)
-    }) 
+    })
+
+    console.log(searchItems.value)
   });
 }
 
@@ -50,7 +52,13 @@ function formatSearch(text) {
           :title="searchItem.title"
           :subtitle="searchItem.categoryName"
           :to="searchItem.path"
-        ></v-list-item>
+        >
+
+        <template #prepend>
+          <MethodAvatar :method="searchItem" />
+        </template>
+      
+        </v-list-item>
       </v-list>
     </div>
   </div>

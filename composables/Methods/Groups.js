@@ -99,4 +99,54 @@ export default {
       },
     ],
   },
+  RemoveUserIdFromGroup: {
+    title: `Remove user id from group`,
+    description: `Add a user to a group by id.`,
+    tags: [`Remove user from group`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userId`,
+      },
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  TwitchRemoveUserFromGroup: {
+    method: `RemoveUserFromGroup`,
+    title: `Twitch remove user from group`,
+    description: `Remove a user from a group.`,
+    tags: [`Remove user from group`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  YouTubeRemoveUserFromGroup: {
+    method: `RemoveUserFromGroup`,
+    title: `YouTube remove user from group`,
+    description: `Remove a user from a group.`,
+    tags: [`Remove user from group`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userId`,
+      },
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
 }

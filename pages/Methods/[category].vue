@@ -18,8 +18,15 @@ console.log(methods)
 </script>
 
 <template>
-  <h1>{{ methods.title }}</h1>
-  <p class="text-grey-lighten-1">{{ methods.description }}</p>
+  <div style="display: flex; gap: 1rem;">
+    <div>
+      <MethodAvatar :method="Object.entries(methods.methods)[0][1]" style="height: 100%;" full-size />
+    </div>
+    <div>
+      <h1>{{ methods.title }}</h1>
+      <p class="text-grey-lighten-1">{{ methods.description }}</p>
+    </div>
+  </div>
 
   <v-divider style="margin-block: .75rem;"></v-divider>
 
