@@ -4,7 +4,7 @@ export default {
     description: `Set your lights to default.`,
     tags: [`Lights`],
     return: `void`,
-    fields: []
+    fields: [],
   },
   LumiaSendCommand: {
     title: `Send command`,
@@ -16,6 +16,6 @@ export default {
         datatype: `string`,
         name: `command`,
       },
-    ]
-  }
+    ],
+  },
 }
