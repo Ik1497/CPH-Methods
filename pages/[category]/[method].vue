@@ -45,11 +45,6 @@ function createCPHProperty(property) {
     :description="method.description"
   />
 
-  <iframe
-    :src="`${method.path}/__og_image__`"
-    style="width: 100%; border: none; height: 800px"
-  ></iframe>
-
   <h1>{{ method.title }}</h1>
   <p class="text-grey-lighten-1">{{ method.description }}</p>
 
