@@ -4,14 +4,24 @@ useSeoMeta({
   description: 'See a list of all Streamer.bot CPH Methods',
 })
 
-defineOgImageStatic({
-  component: 'OG_CPHMethods',
-  title: 'Welcome to my site!'
-})
+const methods = GetMethods()
 </script>
 
 <template>
+  <CardGrid>
+    <v-card v-for="category in Object.entries(methods)" :to="`/Methods/${category[0]}`">
+      <v-card-title>{{ category[1].title }}</v-card-title>
+      <v-card-subtitle>Reference for all {{ category[1].title }} CPH Methods</v-card-subtitle>
 
+      <v-card-text>
+        <p>{{ category[1].description }}</p>
+
+        <br>
+
+        <v-chip v-for="tag in category[1].tags" style="margin-right: .5rem;">{{ tag }}</v-chip>
+      </v-card-text>
+    </v-card>
+  </CardGrid>
 </template>
 
 <style scoped lang="scss">
