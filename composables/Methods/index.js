@@ -1,7 +1,7 @@
 import General from './General'
 import GlobalVariables from './GlobalVariables'
 import Groups from './Groups'
-import ServersAndClients from './ServerAndClients'
+import ServersAndClients from './ServersAndClients'
 import Commands from './Commands'
 
 import YouTube from './YouTube'
