@@ -26,7 +26,7 @@ console.log(route)
   <CardGrid>
     <v-card v-for="method in Object.entries(methods.methods)" :to="`/${route?.params?.category}/${method[0]}`">
       <v-card-title>{{ method[1].title }}</v-card-title>
-      <v-card-subtitle>Reference for all {{ method[1].title }} CPH Methods</v-card-subtitle>
+      <v-card-subtitle>Reference for the {{ method[1].title }} CPH Method</v-card-subtitle>
 
       <v-card-text>
         <p>{{ method[1].description }}</p>

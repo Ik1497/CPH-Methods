@@ -7,6 +7,7 @@ export default function () {
   Object.entries(Methods).forEach(method => {
     const methodData = {}
 
+    // Method
     Object.entries(method[1]).forEach(methodName => {
       methodData[methodName[0]] = {
         ...methodName[1],
@@ -15,10 +16,12 @@ export default function () {
       }
     });
 
+    // Methods
     formattedMethods[method[0]] = {
       methods: methodData
     }
 
+    // Catgories
     if (Terms[method[0]] != undefined) {
       formattedMethods[method[0]] = {
         ...Terms[method[0]],

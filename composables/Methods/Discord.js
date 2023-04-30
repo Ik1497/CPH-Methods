@@ -3,6 +3,7 @@ export default {
     title: `Post Text To Webhook`,
     description: `Post basic text to a Discord webhook.`,
     tags: [`Webhooks`],
+    return: `void`,
     fields: [
       {
         datatype: `string`,
@@ -21,7 +22,7 @@ export default {
         datatype: `bool`,
         name: `textToSpeech`,
         default: `false`,
-      }
+      },
     ],
-  }
+  },
 }
