@@ -18,7 +18,7 @@ const editHtml = ref(``)
 method.fields.forEach((field, fieldIndex) => {
   editData.value[fieldIndex] = {
     fieldData: {...field},
-    value: ``,
+    value: field.default != undefined ? field.default : ``,
   }
 });
 
@@ -57,7 +57,11 @@ function convertDataToCPH() {
 function clipboardClick() {
   clipboardClicked.value = true
   
-  navigator.clipboard.writeText(props.contents.join(`\n`))
+  if (editMode.value) {
+    navigator.clipboard.writeText(editContent.value)
+  } else {
+    navigator.clipboard.writeText(convertMethodToCPHTemplate())
+  }
   
   setTimeout(() => {
     clipboardClicked.value = false
@@ -69,7 +73,6 @@ function toggleEditMode() {
 }
 
 function convertToCode(code) {
-  console.log(code, Prism, Prism.highlight(`csharp`, Prism.languages.csharp, code))
   return Prism.highlight(code, Prism.languages.csharp, `csharp`)
 }
 
@@ -108,9 +111,9 @@ onMounted(() => {
     <div class="code edit-mode" :hidden="!editMode">
       <pre><code class="language-csharp" v-html="editHtml"></code></pre>
 
-      <template v-for="(editField, editFieldIndex) in editData">
+      <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem;">
         <DataType :field="editField" v-model="editData[editFieldIndex].value" />
-      </template>
+      </div>
     </div>
   </div>
 </template>

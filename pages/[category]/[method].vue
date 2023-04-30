@@ -11,7 +11,7 @@ const method = GetMethod(route?.params?.category, route?.params?.method)
 console.log(method)
 
 useSeoMeta({
-  title: `${route.params.category} - ${route.params.method}`,
+  title: `${method.categoryName} - ${method.title}`,
   description: `${method.categoryName} CPH Methods reference`,
 })
 

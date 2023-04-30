@@ -7,11 +7,11 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `voiceAlias`
+        name: `voiceAlias`,
       },
       {
         datatype: `string`,
-        name: `message`
+        name: `message`,
       },
       {
         datatype: `bool`,
