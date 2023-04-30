@@ -4,7 +4,8 @@ import Prism from '~/plugins/prism'
 const slots = useSlots()
 
 const props = defineProps([
-  `language`
+  `language`,
+  `clipboard`
 ])
 
 const code = slots.default()[0].children
@@ -13,7 +14,7 @@ const clipboardClicked = ref(false)
 function clipboardClick() {
   clipboardClicked.value = true
   
-  navigator.clipboard.writeText(code)
+  navigator.clipboard.writeText(props.clipboard)
   
   setTimeout(() => {
     clipboardClicked.value = false
@@ -32,6 +33,7 @@ onMounted(() => {
         <p>{{ props?.language === undefined ? `csharp` : props?.language }}</p>
         <p>Code Preview</p>
         <v-btn
+          v-if="props.clipboard"
           icon
           variant="text"
           density="comfortable"

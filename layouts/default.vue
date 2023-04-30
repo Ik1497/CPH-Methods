@@ -1,5 +1,6 @@
 <script setup>
 const route = useRoute()
+const router = useRouter()
 
 let prevRoute = ref(``)
 
@@ -16,6 +17,14 @@ watch(route, async (newRoute, oldRoute) => {
     prevRoute.value = `/Methods/${newRoute.path.split(`/`)[1]}`
   }
 })
+
+if (process.client) {
+  window.addEventListener(`keydown`, e => {
+    if (e.key === `/`) {
+      router.push(`/search`)
+    }
+  })
+}
 </script>
 
 <template>
@@ -23,6 +32,8 @@ watch(route, async (newRoute, oldRoute) => {
     <v-toolbar color="primary">
       <v-btn v-if="route.path != `/`" icon :to="prevRoute"><v-icon>mdi-chevron-left</v-icon></v-btn>
       <v-toolbar-title>Streamer.bot CPH Methods</v-toolbar-title>
+
+      <v-btn icon to="/search"><v-icon>mdi-magnify</v-icon></v-btn>
     </v-toolbar>
 
     <v-main style="margin: 1rem; padding-inline: 1rem; max-width: 1200px; margin-inline: auto; width: 100%;">

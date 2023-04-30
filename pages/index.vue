@@ -5,11 +5,12 @@ useSeoMeta({
 })
 
 const methods = GetMethods()
+console.log(methods)
 </script>
 
 <template>
   <CardGrid>
-    <v-card v-for="category in Object.entries(methods)" :to="`/Methods/${category[0]}`">
+    <v-card v-for="category in Object.entries(methods)" :to="category[1].path">
       <v-card-title>{{ category[1].title }}</v-card-title>
       <v-card-subtitle>Reference for all {{ category[1].title }} CPH Methods</v-card-subtitle>
 

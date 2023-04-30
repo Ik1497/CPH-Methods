@@ -7,14 +7,19 @@ definePageMeta({
   }
 })
 
+const method = GetMethod(route?.params?.category, route?.params?.method)
+console.log(method)
+
 useSeoMeta({
   title: `${route.params.category} - ${route.params.method}`,
-  description: `See a list of all Streamer.bot CPH Methods`,
+  description: `${method.categoryName} CPH Methods reference`,
 })
 
-const method = GetMethod(route?.params?.category, route?.params?.method)
-
-console.log(method)
+defineOgImageStatic({
+  component: 'OG_CPHMethod',
+  title: method.title,
+  description: method.description,
+})
 
 function convertFieldText(text) {
   return text.replaceAll(`\n`, `<br>`)
@@ -22,6 +27,20 @@ function convertFieldText(text) {
 
 function isArray(array) {
   return Array.isArray(array)
+}
+
+function createCPHMethod(method) {
+  let fields = []
+
+  method.fields.forEach(field => {
+    fields.push(`${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}`)
+  }); 
+
+  return `CPH.${method.method}(${fields.join(`, `)});`
+}
+
+function createCPHProperty(property) {
+  return `CPH.${property};`
 }
 </script>
 
@@ -31,8 +50,11 @@ function isArray(array) {
 
   <v-divider style="margin-block: .75rem;"></v-divider>
   
-  <CodeHighlighting v-if="method.type === `method`">
-    CPH.{{ method.method }}(<template v-for="(field, fieldIndex) in method.fields"><template v-if="!isArray(field.datatype) && !isArray(field.name)">{{ field.datatype }} {{ field.name }}</template><template v-else v-for="(fieldOption, fieldOptionIndex) in field.datatype">{{ field.datatype[fieldOptionIndex] }} {{ field.name[fieldOptionIndex] }}<template v-if="fieldOptionIndex != field.datatype.length - 1"> | </template></template><template v-if="field.default"> = {{ field.default }}</template><template v-if="fieldIndex != method.fields.length - 1">, </template></template>);
+  <CodeHighlighting
+    v-if="method.type === `method`"
+    :clipboard="createCPHMethod(method)"
+  >
+    {{ createCPHMethod(method) }}
   </CodeHighlighting>
 
   <br>

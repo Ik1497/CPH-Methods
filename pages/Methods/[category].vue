@@ -14,7 +14,7 @@ useSeoMeta({
 
 const methods = GetMethodsFromCategory(route?.params?.category)
 
-console.log(route)
+console.log(methods)
 </script>
 
 <template>
@@ -24,7 +24,7 @@ console.log(route)
   <v-divider style="margin-block: .75rem;"></v-divider>
 
   <CardGrid>
-    <v-card v-for="method in Object.entries(methods.methods)" :to="`/${route?.params?.category}/${method[0]}`">
+    <v-card v-for="method in Object.entries(methods.methods)" :to="method[1].path">
       <v-card-title>{{ method[1].title }}</v-card-title>
       <v-card-subtitle>Reference for the {{ method[1].title }} CPH Method</v-card-subtitle>
 
