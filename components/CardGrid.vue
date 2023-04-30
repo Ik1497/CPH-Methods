@@ -11,6 +11,15 @@ const style = {
 </script>
 
 <template>
+  <v-text-field
+    label="Search"
+    placeholder="Search..."
+    :hint="`0 Results`"
+    persistent-hint
+  ></v-text-field>
+  
+  <br>
+
   <div :style="style[props.cardsView]">
     <Card
       v-for="card in props.cards"

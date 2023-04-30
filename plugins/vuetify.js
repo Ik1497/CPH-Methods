@@ -14,7 +14,9 @@ export default defineNuxtPlugin(nuxtApp => {
         dark: {
           colors: {
             primary: colors.blue.darken1,
-            secondary: colors.blue.lighten1
+            secondary: colors.blue.lighten1,
+            background: `#0f0f0f`,
+            surface: `#202020`
           }
         }
       }

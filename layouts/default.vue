@@ -31,7 +31,7 @@ if (process.client) {
 
 <template>
   <v-app>
-    <v-toolbar color="primary">
+    <v-toolbar color="surface">
       <v-btn v-if="route.path != `/`" icon :to="prevRoute"><v-icon>mdi-chevron-left</v-icon></v-btn>
       <v-toolbar-title>Streamer.bot CPH Methods</v-toolbar-title>
 

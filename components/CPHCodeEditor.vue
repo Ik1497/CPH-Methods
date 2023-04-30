@@ -15,8 +15,6 @@ const editHtml = ref(``)
 
 // Main
 
-console.log(editMode)
-
 method.fields.forEach((field, fieldIndex) => {
   editData.value[fieldIndex] = {
     fieldData: {...field},

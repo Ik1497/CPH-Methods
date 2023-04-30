@@ -25,7 +25,7 @@ const props = defineProps([
   </v-card>
 
   <v-card v-else-if="props.cardsView === `compact-list`" :to="props.path">
-    <div style="display: flex; gap: .5rem; padding-block: .25rem;">
+    <div style="display: flex; gap: .5rem; padding: .5rem;">
       <div>
         <MethodAvatar :method="props.method" />
       </div>
