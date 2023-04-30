@@ -14,7 +14,7 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `command`
+        name: `command`,
       },
     ]
   }

@@ -1,4 +1,10 @@
 export default {
+  General: {
+    title: `General`,
+    description: `Interaction with all things solely related to the application`,
+    tags: [`Core`, `Misc`],
+    icon: `mdi-application-brackets`,
+  },
   Groups: {
     title: `Groups`,
     description: `Change user groups`,
@@ -10,6 +16,12 @@ export default {
     description: `Connect Streamer.bot to servers and clients`,
     tags: [`Core`, `Servers`, `Clients`],
     icon: `mdi-server`,
+  },
+  GlobalVariables: {
+    title: `Global Variables`,
+    description: `Control your global variables`,
+    tags: [`Core`, `Cariables`],
+    icon: `mdi-earth`,
   },
   YouTube: {
     title: `YouTube`,

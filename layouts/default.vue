@@ -22,7 +22,7 @@ function handleRoute(routeEvent) {
 
 if (process.client) {
   window.addEventListener(`keydown`, e => {
-    if (e.key === `/`) {
+    if (e.target === document.body && e.key === `/`) {
       router.push(`/search`)
     }
   })

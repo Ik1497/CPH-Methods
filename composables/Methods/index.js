@@ -5,13 +5,17 @@ import LumiaStream from './LumiaStream'
 import VoiceMod from './VoiceMod'
 import Groups from './Groups'
 import ServersAndClients from './ServerAndClients'
+import GlobalVariables from './GlobalVariables'
+import General from './General'
 
 export default {
+  General,
+  GlobalVariables,
+  ServersAndClients,
   Groups,
-  Discord,
   YouTube,
+  Discord,
   Speakerbot,
   LumiaStream,
   VoiceMod,
-  ServersAndClients,
 }

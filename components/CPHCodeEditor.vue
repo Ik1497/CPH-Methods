@@ -40,7 +40,7 @@ function convertMethodToCPHTemplate() {
   let fields = []
 
   method.fields.forEach(field => {
-    fields.push(`${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}`)
+    fields.push(`${field.datatype} ${field.name}${field?.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`)
   });
 
   return `${method.return} ${method.method}(${fields.join(`, `)});`

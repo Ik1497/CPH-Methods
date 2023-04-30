@@ -9,6 +9,8 @@ export default function (datatype, text) {
       return `"${text}"`
     case `object`:
       return text
+    case `float`:
+      return `${text}f`
     default:
       return text
   }

@@ -9,6 +9,12 @@ console.log(methods)
 </script>
 
 <template>
+  <v-alert type="warning" variant="tonal">
+    WIP: Not all methods are available, and some types may not work as expected.
+  </v-alert>
+
+  <br>
+
   <CardGrid>
     <v-card v-for="category in Object.entries(methods)" :to="category[1].path">
       <v-card-title>{{ category[1].title }}</v-card-title>
