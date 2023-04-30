@@ -28,6 +28,14 @@ watch(value, async (newValue, oldValue) => {
   ></v-text-field>
 
   <v-text-field
+    v-if="datatype === `object`"
+    v-model="value"
+    :label="name"
+    hint='insert any type, make sure to include "" with strings'
+    clearable
+  ></v-text-field>
+
+  <v-text-field
     v-else-if="datatype === `int` || datatype === `byte[]` || datatype === `float` || datatype === `double` || datatype === `decimal`"
     v-model="value"
     :label="name"

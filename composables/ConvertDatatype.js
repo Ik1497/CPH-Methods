@@ -2,15 +2,14 @@ export default function (datatype, text) {
   switch (text) {
     case `null`:
       return `null`
-      break;
   }
 
   switch (datatype) {
     case `string`:
       return `"${text}"`
-      break;
+    case `object`:
+      return text
     default:
-      return `${text}`
-      break;
+      return text
   }
 }

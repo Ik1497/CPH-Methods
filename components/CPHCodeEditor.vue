@@ -8,12 +8,14 @@ const props = defineProps([
 const method = props.method
 
 const clipboardClicked = ref(false)
-const editMode = ref(true)
+const editMode = ref(false)
 const editData = ref([])
 const editContent = ref(``)
 const editHtml = ref(``)
 
 // Main
+
+if (process.client) editMode.value = localStorage.getItem(`StreambotCPHMethods__editMode`) === `true` ? true : false
 
 method.fields.forEach((field, fieldIndex) => {
   editData.value[fieldIndex] = {
@@ -48,7 +50,7 @@ function convertDataToCPH() {
   let fields = []
 
   editData.value.forEach(editField => {
-    fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value))
+    fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value === `` ? `null` : editField.value))
   });
 
   return `CPH.${method.method}(${fields.join(`, `)});`
@@ -70,6 +72,8 @@ function clipboardClick() {
 
 function toggleEditMode() {
   editMode.value = !editMode.value
+
+  if (process.client) localStorage.setItem(`StreambotCPHMethods__editMode`, `${editMode.value}`)
 }
 
 function convertToCode(code) {
