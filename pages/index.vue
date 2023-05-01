@@ -25,8 +25,6 @@ const cardsView = ref(`grid`)
 function updateLayout(e) {
   linksPageHeaderData.value = e
   cardsView.value = linksPageHeaderData.value.cardsView
-
-  console.log(`INDEX`, cardsView.value)
 }
 </script>
 

@@ -50,7 +50,7 @@ export default {
     ],
   },
   AddUserIdToGroup: {
-    title: `User id in group`,
+    title: `Add user id to group`,
     description: `Add a user to a group by id.`,
     tags: [`Add user to group`],
     return: `bool`,
