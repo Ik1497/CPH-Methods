@@ -107,11 +107,11 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div class="code" :hidden="editMode === true">
-      <pre><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
+    <div class="code" v-show="editMode === false">
+      <pre class="language-csharp"><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
     </div>
-    <div class="code edit-mode" :hidden="editMode === false">
-      <pre><code class="language-csharp" v-html="editHtml"></code></pre>
+    <div class="code edit-mode" v-show="editMode === true">
+      <pre class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
 
       <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem;">
         <DataType :field="editField" v-model="editData[editFieldIndex].value" />
@@ -156,18 +156,6 @@ onMounted(() => {
 
   .code {
     padding-top: 2.5rem;
-
-    .token.boolean, .token.number, .token.function {
-      color: #9be6ff;
-    }
-    
-    .token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin {
-      color: #ff8ae6;
-    }
-    
-    .token.operator, .token.entity, .token.url {
-      color: #7f7f7f;
-    }
   }
 }
 </style>

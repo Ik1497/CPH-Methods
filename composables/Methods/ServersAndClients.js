@@ -12,7 +12,7 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `data`
+        name: `data`,
       },
     ]
   },
@@ -24,7 +24,8 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `data`
+        name: `data`,
+        type: `json`,
       },
     ]
   },

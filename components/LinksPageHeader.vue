@@ -4,6 +4,7 @@ const props = defineProps([
   `description`,
   `method`,
   `model-value`,
+  `hide-cards-view`
 ])
 
 const emits = defineEmits([
@@ -30,7 +31,7 @@ watch(data.value, async (newValue, oldValue) => {
       <h1>{{ title }}</h1>
       <p class="text-grey-lighten-1">{{ description }}</p>
     </div>
-    <div>
+    <div v-show="props.hideCardsView === undefined">
       <CardsView v-model="data.cardsView" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);" />
     </div>
   </div>

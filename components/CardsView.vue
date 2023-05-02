@@ -40,7 +40,7 @@ watch(activeItem, async (newValue, oldValue) => {
     item-value="value"
     variant="outlined"
     v-model="activeItem"
-    style="width: fit-content; height: fit-content;"
+    style="max-width: fit-content; max-height: fit-content;"
   >
     <template #prepend-inner="{ props, item }">
       {{ item?.raw?.icon }}

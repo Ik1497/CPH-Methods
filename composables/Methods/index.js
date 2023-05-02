@@ -5,9 +5,9 @@ import ServersAndClients from './ServersAndClients'
 import Commands from './Commands'
 
 import YouTube from './YouTube'
-// import Twitch from './Twitch'
+import Twitch from './Twitch'
 
-// import OBSStudio from './OBSStudio'
+import OBSStudio from './OBSStudio'
 import StreamLabsDesktop from './StreamLabsDesktop'
 
 import Speakerbot from './Speakerbot'
@@ -22,10 +22,10 @@ export default {
   ServersAndClients,
   Commands,
 
-  // Twitch,
+  Twitch,
   YouTube,
 
-  // OBSStudio,
+  OBSStudio,
   StreamLabsDesktop,
 
   Speakerbot,

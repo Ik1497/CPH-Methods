@@ -32,7 +32,7 @@ function updateLayout(e) {
   <LinksPageHeader
     title="CPH Methods"
     description="See a list of all Streamer.bot CPH Methods"
-    :method="{icon: `mdi-home`}"
+    :method="{icon: `mdi-language-csharp`}"
     :model-value="linksPageHeaderData"
     @update:modelValue="updateLayout"
   />

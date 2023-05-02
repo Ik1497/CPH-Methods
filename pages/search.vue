@@ -36,9 +36,10 @@ function formatSearch(text) {
   <div style="height: 100%; width: 100%; display: grid; place-items: center;">
     <div style="width: 100%;">
       <v-text-field
-        label="Search"
-        :hint="`${searchItems.length} ${searchItems.length === 1 ? `Result` : `Results`}`"
         persistent-hint
+        label="Search"
+        autofocus
+        :hint="`${searchItems.length} ${searchItems.length === 1 ? `Result` : `Results`}`"
         v-model="search"
         @keydown="updateSearch()"
       ></v-text-field>
@@ -46,23 +47,29 @@ function formatSearch(text) {
       <br>
 
       <v-list
-        v-if="searchItems.length > 0"
         lines="one"
-        style="max-height: 500px;"
+        style="height: 500px; position: relative;"
       >
-        <v-list-item
-          v-for="searchItem in searchItems"
-          :key="searchItem"
-          :title="searchItem.title"
-          :subtitle="searchItem.categoryName"
-          :to="searchItem.path"
-        >
 
-        <template #prepend>
-          <MethodAvatar :method="searchItem" />
-        </template>
-      
-        </v-list-item>
+        <div v-if="searchItems.length <= 0" style="position: absolute; inset: 0; height: 100%; width: 100%; display: grid; place-items: center;">
+          <p style="font-size: 2rem;">No Results Found</p>
+        </div>
+
+        <TransitionGroup tag="div" name="slide-from-top" class="container">
+          <v-list-item
+            v-for="searchItem in searchItems"
+            :key="searchItem"
+            :title="searchItem.title"
+            :subtitle="searchItem.categoryName"
+            :to="searchItem.path"
+          >
+
+          <template #prepend>
+            <MethodAvatar :method="searchItem" />
+          </template>
+        
+          </v-list-item>
+        </TransitionGroup>
       </v-list>
     </div>
   </div>

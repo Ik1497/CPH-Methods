@@ -4,13 +4,11 @@ const props = defineProps([
   `model-value`
 ])
 
+console.log(props)
+
 const emits = defineEmits([
   `update:modelValue`
 ])
-
-const field = props.field.fieldData
-const datatype = field.datatype
-const name = field.name
 
 const value = ref(props.modelValue)
 
@@ -20,33 +18,51 @@ watch(value, async (newValue, oldValue) => {
 </script>
 
 <template>
-  <v-text-field
-    v-if="datatype === `string`"
+  <!-- Special Types -->
+  
+  <JsonEditor
+  v-if="props.field.fieldData.datatype === `string` && props.field.fieldData?.type === `json`"
+  v-model="value"
+  />
+  
+  <!-- Special Options -->
+
+  <v-combobox
+    v-else-if="props.field.fieldData.suggestedItems != undefined"
     v-model="value"
-    :label="name"
+    :label="props.field.fieldData.name"
+    clearable
+    :items="props.field.fieldData.suggestedItems"
+  ></v-combobox>
+
+  <!-- Default Types -->
+  <v-text-field
+    v-else-if="props.field.fieldData.datatype === `string`"
+    v-model="value"
+    :label="props.field.fieldData.name"
     clearable
   ></v-text-field>
 
   <v-text-field
-    v-if="datatype === `object`"
+    v-if="props.field.fieldData.datatype === `object`"
     v-model="value"
-    :label="name"
+    :label="props.field.fieldData.name"
     hint='insert any type, make sure to include "" with strings'
     clearable
   ></v-text-field>
 
   <v-text-field
-    v-else-if="datatype === `int` || datatype === `byte[]` || datatype === `float` || datatype === `double` || datatype === `decimal`"
+    v-else-if="props.field.fieldData.datatype === `int` || props.field.fieldData.datatype === `byte[]` || props.field.fieldData.datatype === `float` || props.field.fieldData.datatype === `double` || props.field.fieldData.datatype === `decimal`"
     v-model="value"
-    :label="name"
+    :label="props.field.fieldData.name"
     clearable
     type="number"
   ></v-text-field>
 
   <v-select
-    v-else-if="datatype === `bool`"
+    v-else-if="props.field.fieldData.datatype === `bool`"
     v-model="value"
-    :label="name"
+    :label="props.field.fieldData.name"
     clearable
     :items="[`true`, `false`]"
   ></v-select>

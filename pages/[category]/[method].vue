@@ -32,6 +32,7 @@ function isArray(array) {
   />
 
   <LinksPageHeader
+    hide-cards-view
     :title="method.title"
     :description="method.description"
     :method="method"
@@ -52,6 +53,7 @@ function isArray(array) {
     </template>
     <p>Type: <v-code>{{ isArray(field.datatype) ? field.datatype.join(` | `) : field.datatype }}</v-code></p>
     <p v-if="field.default != undefined">Default: <v-code>{{ field.default }}</v-code></p>
+    <p v-if="field.suggestedItems != undefined">Suggested: <template v-for="(suggestedItem, suggestedItemIndex) in field.suggestedItems"><v-code>{{ suggestedItem }}</v-code><template v-if="suggestedItemIndex != field.suggestedItems.length - 1">, </template></template></p>
     <br>
   </template>
 </template>

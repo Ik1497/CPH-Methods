@@ -3,7 +3,8 @@ export default defineNuxtConfig({
     'nuxt-og-image',
   ],
   css: [
-    'vuetify/lib/styles/main.sass'
+    'vuetify/lib/styles/main.sass',
+    '~/assets/style.css'
   ],
   plugins: [
     {
