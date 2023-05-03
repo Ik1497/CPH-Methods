@@ -33,7 +33,7 @@ function addItem() {
 }
 
 function removeItem(index) {
-  value.splice(index, 1)
+  value = value.splice(index, 1)
 }
 </script>
 

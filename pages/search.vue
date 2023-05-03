@@ -33,7 +33,7 @@ function formatSearch(text) {
 <template>
   <div style="height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <h1>Search</h1>
-    <p>Press <v-code>/</v-code></p>
+    <p>Press <v-kbd>/</v-kbd></p>
     <br>
     <div style="width: 100%;">
       <v-text-field
