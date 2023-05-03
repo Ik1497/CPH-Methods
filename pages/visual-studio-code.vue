@@ -26,11 +26,20 @@ methodList.forEach(method => {
     }
   });
 
-  methods[`${method.return} ${method.method}(${fields})`] = {
-    prefix: `CPH${method.methodName}`,
-    body: [
-      `CPH.${method.method}(${fieldsWithOptions})`
-    ]
+  if (method.type === `method`) {
+    methods[`${method.return} ${method.method}(${fields});`] = {
+      prefix: `CPH${method.methodName}`,
+      body: [
+        `CPH.${method.method}(${fieldsWithOptions});`
+      ]
+    }
+  } else if (method.type === `property`) {
+    methods[`${method.return} ${method.method};`] = {
+      prefix: `CPH${method.methodName}`,
+      body: [
+        `CPH.${method.method};`
+      ]
+    }
   }
 });
 

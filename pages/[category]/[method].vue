@@ -39,7 +39,6 @@ function isArray(array) {
   />
   
   <CPHCodeEditor
-    v-if="method.type === `method`"
     :method="method"
   ></CPHCodeEditor>
 

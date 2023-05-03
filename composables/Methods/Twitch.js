@@ -674,4 +674,21 @@ export default {
   /////////////////////////////
   // TODO: OAuth & Client Id //
   /////////////////////////////
+
+  TwitchOAuthToken: {
+    type: `property`,
+    title: `OAuth token`,
+    description: `Get the Twitch OAuth token.`,
+    tags: [`OAuth & Client Id`],
+    return: `string`,
+    fields: [],
+  },
+  TwitchClientId: {
+    type: `property`,
+    title: `Client id`,
+    description: `Get the Twitch client id.`,
+    tags: [`OAuth & Client Id`],
+    return: `string`,
+    fields: [],
+  },
 }

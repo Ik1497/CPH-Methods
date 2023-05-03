@@ -35,6 +35,8 @@ watch(editData.value, async (newValue, oldValue) => {
 // Helper
 
 function convertMethodToCPHTemplate() {
+  if (method.type === `property`) return `${method.return} ${method.method};`
+
   let fields = []
 
   method.fields.forEach(field => {
@@ -45,6 +47,8 @@ function convertMethodToCPHTemplate() {
 }
 
 function convertDataToCPH() {
+  if (method.type === `property`) return `CPH.${method.method};`
+
   let fields = []
 
   editData.value.forEach(editField => {
