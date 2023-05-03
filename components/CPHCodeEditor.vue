@@ -48,6 +48,7 @@ function convertDataToCPH() {
   let fields = []
 
   editData.value.forEach(editField => {
+    if (editField.fieldData.default != undefined && editField.value === ``) return
     fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value === `` ? `null` : editField.value))
   });
 
