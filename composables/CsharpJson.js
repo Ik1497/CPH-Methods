@@ -9,7 +9,5 @@ export default function (json) {
 
   data = data.replaceAll(`"`, `\\"`)
 
-  console.log(data)
-
   return data
 }

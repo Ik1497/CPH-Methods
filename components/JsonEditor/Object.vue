@@ -62,7 +62,7 @@ watch(value, async (newValue, oldValue) => {
         <v-icon>mdi-delete</v-icon>
       </v-btn>
 
-      <JsonEditorDatatypeSelect v-model="value[itemIndex].datatype" />
+      <DatatypeSelect v-model="value[itemIndex].datatype" />
 
       <v-text-field
         label="Name"

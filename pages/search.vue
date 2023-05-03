@@ -22,8 +22,6 @@ function updateSearch(e) {
         formatSearch(value.categoryName).includes(e) ||
         formatSearch(value.method).includes(e)
     })
-
-    console.log(searchItems.value)
   });
 }
 
@@ -33,7 +31,10 @@ function formatSearch(text) {
 </script>
 
 <template>
-  <div style="height: 100%; width: 100%; display: grid; place-items: center;">
+  <div style="height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <h1>Search</h1>
+    <p>Press <v-code>/</v-code></p>
+    <br>
     <div style="width: 100%;">
       <v-text-field
         persistent-hint

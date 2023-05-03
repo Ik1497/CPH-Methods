@@ -266,6 +266,7 @@ export default {
       {
         datatype: `List<string>`,
         name: `tags`,
+        itemName: `Tag`,
       },
     ],
   },
@@ -416,6 +417,7 @@ export default {
       {
         datatype: `List<string>`,
         name: `choices`,
+        itemName: `Choice`,
       },
       {
         datatype: `int`,
@@ -470,6 +472,7 @@ export default {
       {
         datatype: `List<string>`,
         name: `options`,
+        itemName: `Option`,
       },
       {
         datatype: `int`,
@@ -630,9 +633,9 @@ export default {
     fields: [],
   },
 
-  ////////////////////////
-  // TODO: Announcement //
-  ////////////////////////
+  //////////////////
+  // Announcement //
+  //////////////////
 
   TwitchAnnounce: {
     title: `Announce`,

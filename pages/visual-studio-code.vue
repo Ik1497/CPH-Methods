@@ -34,13 +34,10 @@ methodList.forEach(method => {
   }
 });
 
-console.log(methodList, methods)
-
 methodsFormatted = JSON.stringify(methods, null, 2)
 
 onMounted(() => {
   Prism.highlightAll()
-  console.log(Prism)
 })
 
 const clipboardClicked = ref(false)

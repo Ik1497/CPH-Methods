@@ -4,8 +4,6 @@ const props = defineProps([
   `model-value`
 ])
 
-console.log(props)
-
 const emits = defineEmits([
   `update:modelValue`
 ])
@@ -21,8 +19,17 @@ watch(value, async (newValue, oldValue) => {
   <!-- Special Types -->
   
   <JsonEditor
-  v-if="props.field.fieldData.datatype === `string` && props.field.fieldData?.type === `json`"
-  v-model="value"
+    v-if="props.field.fieldData.datatype === `string` && props.field.fieldData?.type === `json`"
+    v-model="value"
+  />
+
+  <List
+    v-if="props.field.fieldData.datatype.match(/List<([\S\s]*?)>/g)"
+    :field="{
+      ...props.field.fieldData,
+      datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)
+    }"
+    v-model="value"
   />
   
   <!-- Special Options -->

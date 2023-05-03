@@ -26,7 +26,7 @@ watch(value, async (newValue, oldValue) => {
 
 <template>
   {{ value }}
-  <JsonEditorWrapper v-model="type">
+  <ItemWrapper v-model="type">
     <JsonEditorArray v-if="type === `Array`" v-model="value" />
     <JsonEditorObject v-else-if="type === `Object`" v-model="value" />
     <JsonEditorDefault v-else-if="type === `Other`" v-model="value" />
@@ -34,7 +34,7 @@ watch(value, async (newValue, oldValue) => {
     <template #child>
       test
     </template>
-  </JsonEditorWrapper>
+  </ItemWrapper>
 </template>
 
 <style scoped lang="scss">

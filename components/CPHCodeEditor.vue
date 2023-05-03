@@ -110,7 +110,7 @@ onMounted(() => {
     <div class="code" v-show="editMode === false">
       <pre class="language-csharp"><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
     </div>
-    <div class="code edit-mode" v-show="editMode === true">
+    <div class="code edit-mode" v-show="editMode === true" style="padding-bottom: .5rem;">
       <pre class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
 
       <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem;">

@@ -31,14 +31,56 @@ if (process.client) {
 
 <template>
   <v-app>
-    <v-toolbar color="surface">
-      <v-btn v-if="route.path != `/`" icon :to="prevRoute"><v-icon>mdi-chevron-left</v-icon></v-btn>
-      <v-toolbar-title>Streamer.bot CPH Methods</v-toolbar-title>
+    <v-toolbar
+      color="surface"
+      density="comfortable"
+      :style="{
+        borderBottom: `var(--applicaton-border)`
+      }"
+    >
+      <v-btn
+        v-if="route.path != `/`"
+        icon
+        size="small"
+        :to="prevRoute"
+      ><v-icon>mdi-chevron-left</v-icon></v-btn>
+
+      <div
+        :style="{
+          fontFamily: `Poppins`,
+          fontSize: `1.25rem`,
+          paddingLeft: `1rem`,
+          fontWeight: `200`,
+          display: `flex`,
+          alignItems: `center`,
+          gap: `.25rem`,
+        }"
+      >
+        <img
+          src="https://streamer.bot/logo-transparent.svg"
+          alt="favicon"
+          :style="{
+            height: `2rem`,
+          }"
+        >
+
+        <p>
+          Streamer.bot
+          <span
+            :style="{
+              fontWeight: `500`,
+            }"
+          >CPH Methods</span>
+        </p>
+      </div>
+
+      <v-spacer></v-spacer>
 
       <v-btn
         v-if="route.path != `/search`"
         icon
         to="/search"
+        size="small"
       ><v-icon>mdi-magnify</v-icon></v-btn>
     </v-toolbar>
 
