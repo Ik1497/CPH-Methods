@@ -7,14 +7,19 @@ definePageMeta({
   }
 })
 
-useSeoMeta({
-  title: 'CPH Methods',
-  description: 'See a list of all Streamer.bot CPH Methods',
-})
-
 const methodsData = GetMethods()
 const method = methodsData[route?.params?.category]
 let methods = []
+
+console.log(method)
+
+useHead(BuildMeta(
+  `${method.title} CPH Methods`,
+  `Reference of all ${method.title} CPH Methods.`,
+  {
+    keywords: method.tags
+  }
+))
 
 Object.entries(method.methods).forEach(methodData => {
   let data = {

@@ -1,6 +1,11 @@
 <script setup>
 import Prism from '~/plugins/prism';
 
+useHead(BuildMeta(
+  `Visual Studio Code extension generator`,
+  `Generate all the code for the Streamer.bot Visual Studio Code extension`
+))
+
 let methodData = GetMethods()
 let methodList = []
 let methods = {}
@@ -19,10 +24,10 @@ methodList.forEach(method => {
   method.fields.forEach((field, fieldIndex) => {
     if (fieldIndex != method.fields.length - 1) {
       fields += `${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}, `
-      fieldsWithOptions += `\$\{${fieldIndex + 1}:${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}\}, `
+      fieldsWithOptions += `\$\{${fieldIndex + 1}:${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}\}, `
     } else {
       fields += `${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}`
-      fieldsWithOptions += `\$\{${fieldIndex + 1}:${field.datatype} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}\}`
+      fieldsWithOptions += `\$\{${fieldIndex + 1}:${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field?.default != undefined ? ` = ${field.default}` : ``}\}`
     }
   });
 

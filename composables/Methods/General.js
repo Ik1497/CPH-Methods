@@ -68,12 +68,12 @@ export default {
   // Source & Event Type //
   /////////////////////////
 
-  
   GetSource: {
     title: `Get source`,
     description: `Get the source for this action.`,
     tags: [`Source & Event Type`],
     return: `EventSource`,
+    returnType: `class`,
     fields: [],
   },
   GetEventType: {
@@ -81,6 +81,7 @@ export default {
     description: `Get the event type for this action.`,
     tags: [`Source & Event Type`],
     return: `EventType`,
+    returnType: `class`,
     fields: [],
   },
 

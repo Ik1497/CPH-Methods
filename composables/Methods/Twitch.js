@@ -396,9 +396,308 @@ export default {
     ],
   },
 
-  ///////////////////////////
-  // TODO: Channel Rewards //
-  ///////////////////////////
+  /////////////////////
+  // Channel Rewards //
+  /////////////////////
+
+    ///////////////////////
+    // TODO: Get Rewards //
+    ///////////////////////
+
+    //////////////////////
+    // Get Reward Usage //
+    //////////////////////
+
+    TwitchGetChannelPointsUsedByUserId: {
+      title: `Get channel points used by user id`,
+      description: `Get the amount of channel points used by a user's id.`,
+      tags: [`Channel Rewards`, `Get Reward Usage`],
+      return: `long`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userId`,
+        },
+      ],
+    },
+
+    ///////////////////
+    // Reward States //
+    ///////////////////
+
+    DisableReward: {
+      title: `Disable reward`,
+      description: `Disable a Twitch reward.`,
+      tags: [`Channel Rewards`, `Reward States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+      ],
+    },
+    EnableReward: {
+      title: `Enable reward`,
+      description: `Enable a Twitch reward.`,
+      tags: [`Channel Rewards`, `Reward States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+      ],
+    },
+    PauseReward: {
+      title: `Pause reward`,
+      description: `Pause a Twitch reward.`,
+      tags: [`Channel Rewards`, `Reward States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+      ],
+    },
+    UnPauseReward: {
+      title: `Unpause reward`,
+      description: `Unpause a Twitch reward.`,
+      tags: [`Channel Rewards`, `Reward States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+      ],
+    },
+
+    /////////////////////////
+    // Reward Group States //
+    /////////////////////////
+
+    TwitchRewardGroupEnable: {
+      title: `Enable reward group`,
+      description: `Enable a Twitch reward group.`,
+      tags: [`Channel Rewards`, `Reward Group States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `groupName`,
+        },
+      ],
+    },
+    TwitchRewardGroupDisable: {
+      title: `Disable reward group`,
+      description: `Disable a Twitch reward group.`,
+      tags: [`Channel Rewards`, `Reward Group States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `groupName`,
+        },
+      ],
+    },
+    TwitchRewardGroupToggleEnable: {
+      title: `Toggle enable reward group`,
+      description: `Toggle enable a Twitch reward group.`,
+      tags: [`Channel Rewards`, `Reward Group States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `groupName`,
+        },
+      ],
+    },
+    TwitchRewardGroupPause: {
+      title: `Pause reward group`,
+      description: `Pause a Twitch reward group.`,
+      tags: [`Channel Rewards`, `Reward Group States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `groupName`,
+        },
+      ],
+    },
+    TwitchRewardGroupUnPause: {
+      title: `Unpause reward group`,
+      description: `Unpause a Twitch reward group.`,
+      tags: [`Channel Rewards`, `Reward Group States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `groupName`,
+        },
+      ],
+    },
+    TwitchRewardGroupTogglePause: {
+      title: `Toggle pause reward group`,
+      description: `Toggle pause a Twitch reward group.`,
+      tags: [`Channel Rewards`, `Reward Group States`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `groupName`,
+        },
+      ],
+    },
+
+    ////////////////////
+    // Update Rewards //
+    ////////////////////
+
+    UpdateRewardTitle: {
+      title: `Update reward title`,
+      description: `Update the title of a Twitch reward.`,
+      tags: [`Channel Rewards`, `Update Rewards`],
+      return: `bool`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `string`,
+          name: `title`,
+        },
+      ],
+    },
+    UpdateRewardPrompt: {
+      title: `Update reward prompt`,
+      description: `Update the prompt of a Twitch reward.`,
+      tags: [`Channel Rewards`, `Update Rewards`],
+      return: `bool`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `string`,
+          name: `prompt`,
+        },
+      ],
+    },
+    UpdateRewardCost: {
+      title: `Update reward cost`,
+      description: `Update the cost of a Twitch reward.`,
+      tags: [`Channel Rewards`, `Update Rewards`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `int`,
+          name: `cost`,
+        },
+        {
+          datatype: `bool`,
+          name: `additive`,
+          default: `null`,
+        },
+      ],
+    },
+    UpdateRewardCooldown: {
+      title: `Update reward cooldown`,
+      description: `Update the cooldown of a Twitch reward.`,
+      tags: [`Channel Rewards`, `Update Rewards`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `int`,
+          name: `cooldown`,
+        },
+        {
+          datatype: `bool`,
+          name: `additive`,
+          default: `null`,
+        },
+      ],
+    },
+    UpdateReward: {
+      title: `Update reward`,
+      description: `Update a Twitch reward.`,
+      tags: [`Channel Rewards`, `Update Rewards`],
+      return: `bool`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `string`,
+          name: `title`,
+          default: `null`,
+        },
+        {
+          datatype: `string`,
+          name: `prompt`,
+          default: `null`,
+        },
+        {
+          datatype: `int`,
+          nullable: true,
+          name: `cost`,
+          default: `null`,
+        },
+      ],
+    },
+
+    ////////////////////
+    // Fulfill/Cancel //
+    ////////////////////
+
+    TwitchRedemptionFulfill: {
+      title: `Redemption fulfill`,
+      description: `Fulfill a Twitch reward redemption.`,
+      tags: [`Channel Rewards`, `Fulfill/Cancel`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `string`,
+          name: `redemptionId`,
+        },
+      ],
+    },
+    TwitchRedemptionCancel: {
+      title: `Redemption Cancel`,
+      description: `Cancel a Twitch reward redemption.`,
+      tags: [`Channel Rewards`, `Fulfill/Cancel`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `string`,
+          name: `redemptionId`,
+        },
+      ],
+    },
+
+    ///////////////////////////
+    // Reset Reward Counters //
+    ///////////////////////////
 
   ///////////
   // Polls //
@@ -542,9 +841,23 @@ export default {
   // TODO: Clips //
   /////////////////
 
-  ///////////////////
-  // TODO: Markers //
-  ///////////////////
+  /////////////
+  // Markers //
+  /////////////
+
+  CreateStreamMarker: {
+    title: `Create stream marker`,
+    description: `Create a stream marker at the current poiny in your stream.`,
+    tags: [`Markers`],
+    return: `StreamMarker`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `description`,
+      },
+    ],
+  },
 
   ////////////////////
   // Run Commercial //
@@ -579,11 +892,19 @@ export default {
       },
     ],
   },
-
-  /******************/
-  /* TODO: 1 method */
-  /******************/
-
+  SetChannelGame: {
+    title: `Set channel game`,
+    description: `Set the game on your Twitch channel.`,
+    tags: [`Stream Information`],
+    return: `GameInfo`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `game`,
+      },
+    ],
+  },
   SetChannelGameById: {
     title: `Set channel game id`,
     description: `Set the game by id on your Twitch channel.`,
@@ -671,9 +992,9 @@ export default {
   // TODO: Team Information //
   ////////////////////////////
 
-  /////////////////////////////
-  // TODO: OAuth & Client Id //
-  /////////////////////////////
+  ///////////////////////
+  // OAuth & Client Id //
+  ///////////////////////
 
   TwitchOAuthToken: {
     type: `property`,

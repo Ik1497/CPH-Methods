@@ -1,4 +1,9 @@
 <script setup>
+useHead(BuildMeta(
+  `Search`,
+  `Search between all CPH methods to easily find the one you're looking for.`
+))
+
 let methodData = GetMethods()
 let methods = []
 

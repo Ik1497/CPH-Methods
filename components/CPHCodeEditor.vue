@@ -40,7 +40,7 @@ function convertMethodToCPHTemplate() {
   let fields = []
 
   method.fields.forEach(field => {
-    fields.push(`${field.datatype} ${field.name}${field?.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`)
+    fields.push(`${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field?.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`)
   });
 
   return `${method.return} ${method.method}(${fields.join(`, `)});`
@@ -51,8 +51,22 @@ function convertDataToCPH() {
 
   let fields = []
 
-  editData.value.forEach(editField => {
-    if (editField.fieldData.default != undefined && editField.value === ``) return
+  let indexStopped = editData.value.length - 1
+
+  editData.value.forEach((editField, editFieldIndex) => {
+    if (editField.fieldData.default != undefined && editField.value === ``) {
+      if (indexStopped != (editData.value - 1)) {
+        indexStopped--
+      } else {
+        console.log(`STOP`)
+      }
+    }
+  });
+
+  editData.value.forEach((editField, editFieldIndex) => {
+  
+    console.log(editFieldIndex, indexStopped)
+
     fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value === `` ? `null` : editField.value))
   });
 

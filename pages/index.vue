@@ -1,8 +1,5 @@
 <script setup>
-useSeoMeta({
-  title: 'CPH Methods',
-  description: 'See a list of all Streamer.bot CPH Methods',
-})
+useHead(BuildMeta())
 
 const methodsData = GetMethods()
 let methods = []
