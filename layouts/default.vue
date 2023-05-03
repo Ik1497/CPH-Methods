@@ -13,7 +13,7 @@ watch(route, async (newRoute, oldRoute) => {
 function handleRoute(routeEvent) {
   if (routeEvent.path.split(`/`)[1] === `Methods`) {
     prevRoute.value = `/`
-  } else if (routeEvent.path === `/search`) {
+  } else if (routeEvent.path.split(`/`).length === 2) {
     prevRoute.value = `/`
   } else {
     prevRoute.value = `/Methods/${routeEvent.path.split(`/`)[1]}`

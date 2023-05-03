@@ -20,6 +20,7 @@ export default function () {
       methodData[methodName[0]] = {
         type: `method`,
         method: methodName[0],
+        methodName: methodName[0],
         category: method[0],
         categoryName: formattedMethods[method[0]].title,
         path: `/${method[0]}/${methodName[0]}`,
