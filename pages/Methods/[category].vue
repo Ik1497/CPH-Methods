@@ -1,6 +1,5 @@
 <script setup>
 const route = useRoute()
-
 const client = process.client
 
 definePageMeta({
@@ -21,17 +20,15 @@ useHead(BuildMeta(
   }
 ))
 
-if (process.client) {
-  Object.entries(method.methods).forEach(methodData => {
-    let data = {
-      ...methodData[1],
-      subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
-      method: methodData[1]
-    }
+Object.entries(method.methods).forEach(methodData => {
+  let data = {
+    ...methodData[1],
+    subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
+    method: methodData[1]
+  }
 
-    methods.push(data)
-  });
-}
+  methods.push(data)
+});
 
 console.log(methods)
 console.log(method)
