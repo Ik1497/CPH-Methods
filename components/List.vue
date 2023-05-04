@@ -47,6 +47,14 @@ function arrayToObject(array) {
 
   return returnData
 }
+
+function keydown(e) {
+  switch (e.key) {
+    case `Enter`:
+      addItem()
+      break;
+  }
+}
 </script>
 
 <template>
@@ -72,14 +80,15 @@ function arrayToObject(array) {
           <v-icon>mdi-delete</v-icon>
         </v-btn>
         <DataType
+          :autofocus="`${itemIndex}` === `${value.length - 1}` && value.length != 1"
+          @keydown="keydown"
+          v-model="value[itemIndex]"
           :field="{
             fieldData: {
               datatype: props.field.datatype,
               name: `${props.field.itemName} ${itemIndex + 1}`
             }
           }"
-      
-          v-model="value[itemIndex]"
         ></DataType>
       </div>
     </TransitionGroupSlideFromTop>

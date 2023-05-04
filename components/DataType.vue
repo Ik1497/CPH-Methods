@@ -1,7 +1,8 @@
 <script setup>
 const props = defineProps([
   `field`,
-  `model-value`
+  `model-value`,
+  `autofocus`
 ])
 
 const emits = defineEmits([
@@ -10,8 +11,6 @@ const emits = defineEmits([
 
 const value = ref(props.modelValue)
 const checkbox = ref(true)
-
-console.log(props.field)
 
 watch(value, async (newValue, oldValue) => {
   if (!checkbox.value) {
@@ -28,6 +27,20 @@ watch(checkbox, async (newValue, oldValue) => {
     emits(`update:modelValue`, value.value)
   }
 })
+
+// Validators
+
+function validateInt(e) {
+  if (e === `` || e === undefined || e === null) {
+    return true
+    
+  } else if (!Number.isInteger(parseFloat(e))) {
+    return `Value must be an integer`
+    
+  } else {
+    return true
+  }
+}
 </script>
 
 <template>
@@ -56,37 +69,57 @@ watch(checkbox, async (newValue, oldValue) => {
       <v-combobox
         v-else-if="props.field.fieldData.suggestedItems != undefined"
         v-model="value"
-        :label="props.field.fieldData.name"
         clearable
+        :label="props.field.fieldData.name"
         :items="props.field.fieldData.suggestedItems"
+        :autofocus="props.autofocus"
       ></v-combobox>
+
       <!-- Default Types -->
       <v-text-field
         v-else-if="props.field.fieldData.datatype === `string`"
-        v-model="value"
-        :label="props.field.fieldData.name"
         clearable
+        :label="props.field.fieldData.name"
+        :autofocus="props.autofocus"
+        v-model="value"
       ></v-text-field>
+
       <v-text-field
         v-if="props.field.fieldData.datatype === `object`"
-        v-model="value"
-        :label="props.field.fieldData.name"
-        hint='insert any type, make sure to include "" with strings'
         clearable
-      ></v-text-field>
-      <v-text-field
-        v-else-if="props.field.fieldData.datatype === `int` || props.field.fieldData.datatype === `byte[]` || props.field.fieldData.datatype === `float` || props.field.fieldData.datatype === `double` || props.field.fieldData.datatype === `decimal`"
-        v-model="value"
+        hint='insert any type, make sure to include "" with strings'
         :label="props.field.fieldData.name"
+        :autofocus="props.autofocus"
+        v-model="value"
+      ></v-text-field>
+
+      <v-text-field
+        v-else-if="props.field.fieldData.datatype === `int`"
         clearable
         type="number"
+        inputmode="numeric"
+        :label="props.field.fieldData.name"
+        :autofocus="props.autofocus"
+        :rules="[validateInt]"
+        v-model="value"
       ></v-text-field>
+
+      <v-text-field
+        v-else-if="props.field.fieldData.datatype === `byte[]` || props.field.fieldData.datatype === `float` || props.field.fieldData.datatype === `double` || props.field.fieldData.datatype === `decimal`"
+        type="number"
+        :label="props.field.fieldData.name"
+        :autofocus="props.autofocus"
+        clearable
+        v-model="value"
+      ></v-text-field>
+
       <v-select
         v-else-if="props.field.fieldData.datatype === `bool`"
-        v-model="value"
         :label="props.field.fieldData.name"
-        clearable
         :items="[`true`, `false`]"
+        :autofocus="props.autofocus"
+        clearable
+        v-model="value"
       ></v-select>
     </div>
   </div>

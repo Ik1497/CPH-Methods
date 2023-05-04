@@ -90,7 +90,11 @@ function toggleEditMode() {
 }
 
 function convertToCode(code) {
-  return Prism.highlight(code, Prism.languages.csharp, `csharp`)
+  if (process.client) {
+    return Prism.highlight(code, Prism.languages.csharp, `csharp`)
+  } else {
+    return code
+  }
 }
 
 // Default
