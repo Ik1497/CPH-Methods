@@ -52,7 +52,7 @@ function updateLayout(e) {
     @update:modelValue="updateLayout"
   />
 
-  <CardGrid :cards-view="cardsView" :cards="methods"></CardGrid>
+  <CardGrid v-if="process.client" :cards-view="cardsView" :cards="methods"></CardGrid>
 </template>
 
 <style scoped lang="scss">
