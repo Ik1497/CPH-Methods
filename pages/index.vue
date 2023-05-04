@@ -1,4 +1,6 @@
 <script setup>
+const client = process.client
+
 useHead(BuildMeta())
 
 const methodsData = GetMethods()
@@ -34,7 +36,7 @@ function updateLayout(e) {
     @update:modelValue="updateLayout"
   />
 
-  <CardGrid :cards-view="cardsView" :cards="methods"></CardGrid>
+  <CardGrid v-if="client" :cards-view="cardsView" :cards="methods"></CardGrid>
 </template>
 
 <style scoped lang="scss">
