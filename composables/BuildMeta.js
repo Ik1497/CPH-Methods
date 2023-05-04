@@ -1,8 +1,4 @@
-export default function (
-  title = `Streamer.bot CPH Methods Builder`,
-  description = `Build any Streamer.bot C# CPH method.`,
-  options = {}
-) {
+export default function (title = `Streamer.bot CPH Methods Builder`, description = `Build any Streamer.bot C# CPH method.`, options = {}) {
   return {
     title,
     meta: [
