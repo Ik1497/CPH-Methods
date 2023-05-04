@@ -1,6 +1,5 @@
 <script setup>
 const route = useRoute()
-const client = process.client
 
 definePageMeta({
   validate: (route) => {
@@ -51,7 +50,7 @@ function updateLayout(e) {
     @update:modelValue="updateLayout"
   />
 
-  <CardGrid v-if="client" :cards-view="cardsView" :cards="methods"></CardGrid>
+  <CardGrid :cards-view="cardsView" :cards="methods"></CardGrid>
 </template>
 
 <style scoped lang="scss">

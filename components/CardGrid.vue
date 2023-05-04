@@ -27,24 +27,30 @@ watch(search, async (newValue, oldValue) => {
   handleSearch(newValue)
 })
 
+watch(process.client, async (newValue, oldValue) => {
+  handleSearch(newValue)
+})
+
 function handleSearch(searchTerm) {
-  if (searchTerm === null) searchTerm = ``
-
-  searchTerm = searchText(searchTerm)
-
-  cards.value = []
-
-  props.cards.forEach(card => {
-    if (
-      searchText(card.title).includes(searchTerm) ||
-      searchText(card.description).includes(searchTerm) ||
-      searchText(card.subtitle).includes(searchTerm)
-    ) {
-      cards.value.push({
-        ...card
-      })
-    }
-  });
+  if (process.client) {
+    if (searchTerm === null) searchTerm = ``
+  
+    searchTerm = searchText(searchTerm)
+  
+    cards.value = []
+  
+    props.cards.forEach(card => {
+      if (
+        searchText(card.title).includes(searchTerm) ||
+        searchText(card.description).includes(searchTerm) ||
+        searchText(card.subtitle).includes(searchTerm)
+      ) {
+        cards.value.push({
+          ...card
+        })
+      }
+    });
+  }
 }
 
 function searchText(text) {
