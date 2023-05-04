@@ -11,8 +11,6 @@ const methodsData = GetMethods()
 const method = methodsData[route?.params?.category]
 let methods = []
 
-console.log(method)
-
 useHead(BuildMeta(
   `${method.title} CPH Methods`,
   `Reference of all ${method.title} CPH Methods.`,
@@ -30,6 +28,9 @@ Object.entries(method.methods).forEach(methodData => {
 
   methods.push(data)
 });
+
+console.log(methods)
+console.log(method)
 
 const linksPageHeaderData = ref({})
 const cardsView = ref(`grid`)
