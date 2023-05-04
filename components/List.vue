@@ -8,7 +8,7 @@ const emits = defineEmits([
   `update:modelValue`
 ])
 
-const value = reactive([
+let value = reactive([
   ``
 ])
 
@@ -33,7 +33,19 @@ function addItem() {
 }
 
 function removeItem(index) {
-  value = value.splice(index, 1)
+  index = parseInt(index)
+  value.splice(index, 1)
+}
+
+function arrayToObject(array) {
+  let arrayData = Object.entries(array)
+  let returnData = []
+
+  arrayData.forEach(([itemIndex, item]) => {
+    returnData.push([item, parseInt(itemIndex)])
+  });
+
+  return returnData
 }
 </script>
 
@@ -41,34 +53,36 @@ function removeItem(index) {
   <ItemWrapper
     :title="props.field.name"
   >
-    <div
-      v-for="(item, itemIndex) in value"
-      :style="{
-        display: `flex`,
-        gap: `.5rem`,
-      }"
-    >
-      <v-btn
-        color="error"
-        variant="tonal"
-        style="height: 3.5rem;"
-        :disabled="value.length <= 1"
-        @click="removeItem(itemIndex)"
-      >
-        <v-icon>mdi-delete</v-icon>
-      </v-btn>
-
-      <DataType
-        :field="{
-          fieldData: {
-            datatype: props.field.datatype,
-            name: `${props.field.itemName} ${itemIndex + 1}`
-          }
+    <TransitionGroupSlideFromTop>
+      <div
+        v-for="([item, itemIndex]) in arrayToObject(value)"
+        :style="{
+          display: `flex`,
+          gap: `.5rem`,
+          width: `100%`,
         }"
-        
-        v-model="value[itemIndex]"
-      ></DataType>
-    </div>
+      >
+        <v-btn
+          color="error"
+          variant="tonal"
+          style="height: 3.5rem;"
+          :disabled="value.length <= 1"
+          @click="removeItem(`${itemIndex}`)"
+        >
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
+        <DataType
+          :field="{
+            fieldData: {
+              datatype: props.field.datatype,
+              name: `${props.field.itemName} ${itemIndex + 1}`
+            }
+          }"
+      
+          v-model="value[itemIndex]"
+        ></DataType>
+      </div>
+    </TransitionGroupSlideFromTop>
     <div
       :style="{
         display: `flex`,

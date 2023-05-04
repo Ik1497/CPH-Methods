@@ -58,15 +58,11 @@ function convertDataToCPH() {
       if (indexStopped != (editData.value - 1)) {
         indexStopped--
       } else {
-        console.log(`STOP`)
       }
     }
   });
 
   editData.value.forEach((editField, editFieldIndex) => {
-  
-    console.log(editFieldIndex, indexStopped)
-
     fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value === `` ? `null` : editField.value))
   });
 

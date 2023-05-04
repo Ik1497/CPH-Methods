@@ -31,7 +31,7 @@ watch(checkbox, async (newValue, oldValue) => {
 </script>
 
 <template>
-  <div style="display: flex; gap: 1rem;">
+  <div style="display: flex; gap: 1rem; width: 100%;">
     <div v-if="props.field.fieldData.default != undefined">
       <v-checkbox v-model="checkbox"></v-checkbox>
     </div>
