@@ -44,8 +44,8 @@ export default defineNuxtConfig({
 
         { name: `twitter:site`, content: `Streamer.bot CPH Methods Builder` },
         { name: `twitter:domain`, content: `cph-methods.vercel.app` },
-        { name: `twitter:card`, content: `summary` },
-        { name: `twitter:image`, content: `https://streamer.bot/logo.png` },
+        // { name: `twitter:card`, content: `summary` },
+        // { name: `twitter:image`, content: `https://streamer.bot/logo.png` },
         
         // Misc
         { charset: `utf-8` },

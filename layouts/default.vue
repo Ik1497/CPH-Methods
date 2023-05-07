@@ -31,9 +31,10 @@ if (process.client) {
 
 <template>
   <v-app>
-    <v-toolbar
+    <v-app-bar
       color="surface"
       density="comfortable"
+      elevation="0"
       :style="{
         borderBottom: `var(--applicaton-border)`
       }"
@@ -63,7 +64,6 @@ if (process.client) {
             height: `2rem`,
           }"
         >
-
         <p>
           Streamer.bot
           <span
@@ -71,6 +71,7 @@ if (process.client) {
               fontWeight: `500`,
             }"
           >CPH Methods</span>
+          <v-chip label variant="tonal" size="x-small" color="primary" class="mb-1 ml-2">Pre Release</v-chip>
         </p>
       </div>
 
@@ -82,7 +83,7 @@ if (process.client) {
         to="/search"
         size="small"
       ><v-icon>mdi-magnify</v-icon></v-btn>
-    </v-toolbar>
+    </v-app-bar>
 
     <v-main style="margin: 1rem; padding-inline: 1rem; max-width: 1200px; margin-inline: auto; width: 100%;">
       <slot></slot>

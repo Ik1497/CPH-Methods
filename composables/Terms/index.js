@@ -26,7 +26,7 @@ export default {
   GlobalVariables: {
     title: `Global Variables`,
     description: `Control your global variables.`,
-    tags: [`Core`, `Cariables`],
+    tags: [`Core`, `Variables`],
     icon: `mdi-earth`,
   },
   YouTube: {

@@ -1,10 +1,11 @@
 <script setup>
-const props = defineProps([
+const { title, description } = defineProps([
   `title`,
   `description`,
 ]);
 </script>
+
 <template>
-  <p>Title: {{ props.title }}</p>
-  <p>Description: {{ props.description }}</p>
+  <p>Title: {{ title }}</p>
+  <p>Description: {{ description }}</p>
 </template>

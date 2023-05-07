@@ -1,11 +1,9 @@
 <script setup>
 import Prism from '~/plugins/prism'
 
-const props = defineProps([
+const { method } = defineProps([
   `method`
 ])
-
-const method = props.method
 
 const clipboardClicked = ref(false)
 const editMode = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__editMode`) === `true` ? true : false : false)
@@ -128,9 +126,13 @@ onMounted(() => {
     </div>
     <div class="code" v-show="editMode === false">
       <pre class="language-csharp"><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
+
+      <CPHCodeEditorAlertBox :method="method" end />
     </div>
     <div class="code edit-mode" v-show="editMode === true" style="padding-bottom: .5rem;">
       <pre class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
+
+      <CPHCodeEditorAlertBox :method="method" />
 
       <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem;">
         <DataType :field="editField" v-model="editData[editFieldIndex].value" />
@@ -145,11 +147,13 @@ onMounted(() => {
 }
 
 .code-wrapper {
+  $border: 1px solid #222;
+
   background: #191919;
   position: relative;
 
   .toolbar {
-    border-bottom: 1px solid #222;
+    border-bottom: $border;
 
     position: absolute;
     top: 0;
@@ -172,9 +176,14 @@ onMounted(() => {
       }
     }
   }
-
+  
   .code {
     padding-top: 2.5rem;
+
+    pre {
+      border-bottom: $border;
+      margin-bottom: 1rem;
+    }
   }
 }
 </style>

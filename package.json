@@ -18,6 +18,7 @@
     "nuxt-og-image": "^1.5.9",
     "prismjs": "^1.29.0",
     "sass": "^1.62.0",
+    "showdown": "^2.1.0",
     "vuetify": "^3.1.15"
   }
 }
