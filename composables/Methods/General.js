@@ -322,18 +322,6 @@ export default {
       },
     ],
   },
-  LogWarn: {
-    title: `Log warn`,
-    description: `Add a warning log to your log file.`,
-    tags: [`Logging`],
-    return: `void`,
-    fields: [
-      {
-        datatype: `string`,
-        name: `logLine`,
-      },
-    ],
-  },
   LogDebug: {
     title: `Log debug`,
     description: `Add a debug log to your log file.`,
@@ -349,6 +337,30 @@ export default {
   LogVerbose: {
     title: `Log verbose`,
     description: `Add a verbose log to your log file.`,
+    tags: [`Logging`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `logLine`,
+      },
+    ],
+  },
+  LogWarn: {
+    title: `Log warn`,
+    description: `Add a warning log to your log file.`,
+    tags: [`Logging`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `logLine`,
+      },
+    ],
+  },
+  LogError: {
+    title: `Log error`,
+    description: `Add an error log to your log file.`,
     tags: [`Logging`],
     return: `void`,
     fields: [

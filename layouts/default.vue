@@ -36,7 +36,7 @@ if (process.client) {
       density="comfortable"
       elevation="0"
       :style="{
-        borderBottom: `var(--applicaton-border)`
+        borderBottom: `var(--application-border)`
       }"
     >
       <v-btn
