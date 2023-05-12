@@ -10,7 +10,11 @@ const emits = defineEmits([
 const activeItem = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__cardsView`) || `grid` : `grid`)
 
 onMounted(() => {
-  emits(`update:modelValue`, localStorage.getItem(`StreambotCPHMethods__cardsView`) || `grid`)
+  if (process.client) {
+    emits(`update:modelValue`, localStorage.getItem(`StreambotCPHMethods__cardsView`) || `grid`)
+  } else {
+    emits(`update:modelValue`, `grid`)
+  }
 })
   
 const items = [

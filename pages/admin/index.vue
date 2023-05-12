@@ -1,5 +1,5 @@
 <script setup>
-const { data } = await useFetch(`/api/get-users`)
+const { data } = await useFetch(`/api/methods`)
 console.log(data)
 </script>
 
