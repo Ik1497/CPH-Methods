@@ -29,6 +29,8 @@ watch(search, async (newValue, oldValue) => {
   handleSearch(newValue)
 })
 
+handleSearch(``)
+
 function handleSearch(searchTerm) {
   if (process.client) {
     if (searchTerm === null) searchTerm = ``
