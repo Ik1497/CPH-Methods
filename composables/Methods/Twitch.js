@@ -88,9 +88,18 @@ export default {
     ],
   },
 
-  //////////////////////
-  // TODO: Cheermotes //
-  //////////////////////
+  ////////////////
+  // Cheermotes //
+  ////////////////
+
+  GetCheermotes: {
+    title: `Get cheermotes`,
+    description: `Get all the cheer motes.`,
+    tags: [`Cheermotes`],
+    return: `List<Cheermote>`,
+    returnType: `class`,
+    fields: [],
+  },
 
   /////////////
   // Whisper //
@@ -400,9 +409,18 @@ export default {
   // Channel Rewards //
   /////////////////////
 
-    ///////////////////////
-    // TODO: Get Rewards //
-    ///////////////////////
+    /////////////////
+    // Get Rewards //
+    /////////////////
+
+    TwitchGetRewards: {
+      title: `Get rewards`,
+      description: `Get a list of all your Twitch rewards.`,
+      tags: [`Channel Rewards`, `Get Rewards`],
+      return: `List<TwitchReward>`,
+      returnType: `class`,
+      fields: [],
+    },
 
     //////////////////////
     // Get Reward Usage //
@@ -837,9 +855,411 @@ export default {
     ],
   },
 
+  ///////////
+  // Clips //
+  ///////////
+
+    ///////////////////
+    // Get all clips //
+    ///////////////////
+
+    GetAllClips: {
+      title: `Get all clips`,
+      description: `Get a list of all created clips.`,
+      tags: [`Get Clips`, `Get all clips`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [],
+    },
+
+    /////////////////////////////
+    // Get clips for user name //
+    /////////////////////////////
+
+    GetClipsForUserName: {
+      method: `GetClipsForUser`,
+      title: `Get clips for username`,
+      description: `Get a list of all created clips for a username.`,
+      tags: [`Get Clips`, `Get clips for username`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `username`,
+        },
+      ],
+    },
+    GetClipsForUserNameWithCount: {
+      method: `GetClipsForUser`,
+      title: `Get clips for username with count`,
+      description: `Get a list of all created clips for a username.`,
+      tags: [`Get Clips`, `Get clips for username`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userName`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+    GetClipsForUserNameWithDateTime: {
+      method: `GetClipsForUser`,
+      title: `Get clips for username with date time`,
+      description: `Get a list of all created clips for a username.`,
+      tags: [`Get Clips`, `Get clips for username`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userName`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `start`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `end`,
+        },
+      ],
+    },
+    GetClipsForUserNameWithDateTimeAndCount: {
+      method: `GetClipsForUser`,
+      title: `Get clips for username with date time and count`,
+      description: `Get a list of all created clips for a username.`,
+      tags: [`Get Clips`, `Get clips for username`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userName`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `start`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `end`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+    GetClipsForUserNameWithTimespan: {
+      method: `GetClipsForUser`,
+      title: `Get clips for username with timespan`,
+      description: `Get a list of all created clips for a username.`,
+      tags: [`Get Clips`, `Get clips for username`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userName`,
+        },
+        {
+          datatype: `TimeSpan`,
+          name: `duration`,
+        },
+      ],
+    },
+    GetClipsForUserNameWithTimespanAndCount: {
+      method: `GetClipsForUser`,
+      title: `Get clips for username with timespan and count`,
+      description: `Get a list of all created clips for a username.`,
+      tags: [`Get Clips`, `Get clips for username`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userName`,
+        },
+        {
+          datatype: `TimeSpan`,
+          name: `duration`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+
+    ///////////////////////////
+    // Get clips for user id //
+    ///////////////////////////
+
+    GetClipsForUserId: {
+      method: `GetClipsForUser`,
+      title: `Get clips for user id`,
+      description: `Get a list of all created clips for a user id.`,
+      tags: [`Get Clips`, `Get clips for user id`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `userId`,
+        },
+      ],
+    },
+    GetClipsForUserIdWithCount: {
+      method: `GetClipsForUser`,
+      title: `Get clips for user id with count`,
+      description: `Get a list of all created clips for a user id.`,
+      tags: [`Get Clips`, `Get clips for user id`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `userId`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+    GetClipsForUserIdWithDateTime: {
+      method: `GetClipsForUser`,
+      title: `Get clips for user id with date time`,
+      description: `Get a list of all created clips for a user id.`,
+      tags: [`Get Clips`, `Get clips for user id`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `userId`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `start`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `end`,
+        },
+      ],
+    },
+    GetClipsForUserIdWithDateTimeAndCount: {
+      method: `GetClipsForUser`,
+      title: `Get clips for user id with date time and count`,
+      description: `Get a list of all created clips for a user id.`,
+      tags: [`Get Clips`, `Get clips for user id`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `userId`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `start`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `end`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+    GetClipsForUserIdWithTimespan: {
+      method: `GetClipsForUser`,
+      title: `Get clips for user id with timespan`,
+      description: `Get a list of all created clips for a user id.`,
+      tags: [`Get Clips`, `Get clips for user id`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `userId`,
+        },
+        {
+          datatype: `TimeSpan`,
+          name: `duration`,
+        },
+      ],
+    },
+    GetClipsForUserIdWithTimespanAndCount: {
+      method: `GetClipsForUser`,
+      title: `Get clips for user id with timespan and count`,
+      description: `Get a list of all created clips for a user id.`,
+      tags: [`Get Clips`, `Get clips for user id`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `userId`,
+        },
+        {
+          datatype: `TimeSpan`,
+          name: `duration`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+
+
+    ////////////////////////
+    // Get clips for game //
+    ////////////////////////
+
+    GetClipsForGame: {
+      method: `GetClipsForGame`,
+      title: `Get clips for game`,
+      description: `Get a list of all created clips for a game.`,
+      tags: [`Get Clips`, `Get clips for game`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `gameId`,
+        },
+      ],
+    },
+    GetClipsForGameWithCount: {
+      method: `GetClipsForGame`,
+      title: `Get clips for game with count`,
+      description: `Get a list of all created clips for a game.`,
+      tags: [`Get Clips`, `Get clips for game`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `gameId`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+    GetClipsForGameWithDateTime: {
+      method: `GetClipsForGame`,
+      title: `Get clips for game with date time`,
+      description: `Get a list of all created clips for a game.`,
+      tags: [`Get Clips`, `Get clips for game`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `gameId`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `start`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `end`,
+        },
+      ],
+    },
+    GetClipsForGameWithDateTimeAndCount: {
+      method: `GetClipsForGame`,
+      title: `Get clips for game with date time and count`,
+      description: `Get a list of all created clips for a game.`,
+      tags: [`Get Clips`, `Get clips for game`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `gameId`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `start`,
+        },
+        {
+          datatype: `DateTime`,
+          name: `end`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+    GetClipsForGameWithTimespan: {
+      method: `GetClipsForGame`,
+      title: `Get clips for game with timespan`,
+      description: `Get a list of all created clips for a game.`,
+      tags: [`Get Clips`, `Get clips for game`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `gameId`,
+        },
+        {
+          datatype: `TimeSpan`,
+          name: `duration`,
+        },
+      ],
+    },
+    GetClipsForGameWithTimespanAndCount: {
+      method: `GetClipsForGame`,
+      title: `Get clips for game with timespan and count`,
+      description: `Get a list of all created clips for a game.`,
+      tags: [`Get Clips`, `Get clips for game`],
+      return: `List<ClipData>`,
+      returnType: `class`,
+      fields: [
+        {
+          datatype: `int`,
+          name: `gameId`,
+        },
+        {
+          datatype: `TimeSpan`,
+          name: `duration`,
+        },
+        {
+          datatype: `int`,
+          name: `count`,
+        },
+      ],
+    },
+
   /////////////////
-  // TODO: Clips //
+  // Create Clip //
   /////////////////
+
+  CreateClip: {
+    title: `Create clip`,
+    description: `Create a clip.`,
+    tags: [`Create Clip`],
+    return: `ClipData`,
+    returnType: `class`,
+    fields: [],
+  },
 
   /////////////
   // Markers //
@@ -988,9 +1408,36 @@ export default {
     ],
   },
 
-  ////////////////////////////
-  // TODO: Team Information //
-  ////////////////////////////
+  //////////////////////
+  // Team Information //
+  //////////////////////
+
+  GetTeamInfoById: {
+    title: `Get team info by id`,
+    description: `Get the team info from a user id.`,
+    tags: [`Team Information`],
+    return: `List<TeamInfo>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userId`,
+      },
+    ],
+  },
+  GetTeamInfoByLogin: {
+    title: `Get team info by login`,
+    description: `Get the team info from a user login.`,
+    tags: [`Team Information`],
+    return: `List<TeamInfo>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userLogin`,
+      },
+    ],
+  },
 
   ///////////////////////
   // OAuth & Client Id //
