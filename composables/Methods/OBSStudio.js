@@ -841,6 +841,7 @@ export default {
       {
         datatype: `string`,
         name: `data`,
+        type: `json`,
       },
       {
         datatype: `int`,
