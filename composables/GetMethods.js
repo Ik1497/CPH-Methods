@@ -24,12 +24,25 @@ export default function () {
         category: method[0],
         categoryName: formattedMethods[method[0]].title,
         path: `/${method[0]}/${methodName[0]}`,
+        formatted: {
+          CPH: ``,
+          CSharp: ``
+        },
         ...methodName[1],
       }
 
       if (Terms[method[0]]?.initials != undefined) methodData[methodName[0]].initials = Terms[method[0]]?.initials
       if (Terms[method[0]]?.image != undefined) methodData[methodName[0]].image = Terms[method[0]]?.image
       if (Terms[method[0]]?.icon != undefined) methodData[methodName[0]].icon = Terms[method[0]]?.icon
+
+      let fields = methodData[methodName[0]].fields.map((field) => {
+        return `${field.datatype} ${field.name}${field.default != undefined ? ` = ${field.default}` : ``}`
+      })
+      
+      fields = fields.join(`, `)
+
+      methodData[methodName[0]].formatted.CSharp = `${methodData[methodName[0]].return} ${methodData[methodName[0]].method}(${fields});`
+      methodData[methodName[0]].formatted.CPH = `CPH.${methodData[methodName[0]].method}(${fields});`
     });
 
     let methodsArray = Object.entries(methodData)

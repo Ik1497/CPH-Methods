@@ -21,15 +21,15 @@ const style = {
 
 const search = ref(``)
 
-if (process.client) {
-  handleSearch(search.value)
-}
-
 watch(search, async (newValue, oldValue) => {
   handleSearch(newValue)
 })
 
-handleSearch(``)
+onMounted(() => {
+  if (process.client) {
+    handleSearch(search.value)
+  }
+})
 
 function handleSearch(searchTerm) {
   if (process.client) {
