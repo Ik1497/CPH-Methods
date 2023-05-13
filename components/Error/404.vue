@@ -1,10 +1,10 @@
 <script setup>
-const props = defineProps([`error`])
+const { error } = defineProps([`error`])
 </script>
 
 <template>
   <h1>404</h1>
-  <p>{{ props.error.message }}</p>
+  <p>{{ error.message }}</p>
 </template>
 
 <style scoped lang="scss">
