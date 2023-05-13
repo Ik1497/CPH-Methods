@@ -832,6 +832,7 @@ export default {
     description: `Send a raw request to the OBS Studio websocket.`,
     tags: [`Raw`],
     return: `string`,
+    success: `Use the <a href="https://obs-raw.streamer.bot" target="_blank">OBS raw generator</a> for this method.`,
     fields: [
       {
         datatype: `string`,

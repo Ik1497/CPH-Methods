@@ -36,7 +36,7 @@ export default function () {
       if (Terms[method[0]]?.icon != undefined) methodData[methodName[0]].icon = Terms[method[0]]?.icon
 
       let fields = methodData[methodName[0]].fields.map((field) => {
-        return `${field.datatype} ${field.name}${field.default != undefined ? ` = ${field.default}` : ``}`
+        return `${field.datatype} ${field.name}${field.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`
       })
       
       fields = fields.join(`, `)

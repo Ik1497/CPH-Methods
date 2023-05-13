@@ -49,18 +49,20 @@ function convertDataToCPH() {
 
   let fields = []
 
-  let indexStopped = editData.value.length - 1
+  let indexStopped = editData.value.length
+  let indexDontCancel = true
 
-  editData.value.forEach((editField, editFieldIndex) => {
-    if (editField.fieldData.default != undefined && editField.value === ``) {
-      if (indexStopped != (editData.value - 1)) {
-        indexStopped--
-      } else {
-      }
+  Array.from(([...editData.value]).reverse()).forEach((editfield, editFieldIndex) => {
+    if (editfield.fieldData.default != undefined && editfield.value === `` && indexDontCancel) {
+      indexStopped--
+    } else {
+      indexDontCancel = false
     }
   });
 
   editData.value.forEach((editField, editFieldIndex) => {
+    if (editFieldIndex >= indexStopped) return
+
     fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value === `` ? `null` : editField.value))
   });
 
@@ -114,13 +116,25 @@ onMounted(() => {
             variant="text"
             density="comfortable"
             @click="toggleEditMode"
-          ><v-icon>{{ editMode ? `mdi-eye` : `mdi-pencil` }}</v-icon></v-btn>
+          >
+            <v-icon>{{ editMode ? `mdi-eye` : `mdi-pencil` }}</v-icon>
+            <v-tooltip
+              activator="parent"
+              location="top"
+            >{{ editMode ? `Change to preview mode` : `Change to edit mode` }}</v-tooltip>
+          </v-btn>
           <v-btn
             icon
             variant="text"
             density="comfortable"
             @click="clipboardClick"
-          ><v-icon>{{ clipboardClicked ? `mdi-check` : `mdi-clipboard-text-outline` }}</v-icon></v-btn>
+          >
+            <v-icon>{{ clipboardClicked ? `mdi-check` : `mdi-clipboard-text-outline` }}</v-icon>
+            <v-tooltip
+              activator="parent"
+              location="top"
+            >Copy to clipboard</v-tooltip>
+          </v-btn>
         </div>
       </div>
     </div>

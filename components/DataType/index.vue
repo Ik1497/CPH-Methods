@@ -21,13 +21,11 @@ watch(value, async (newValue, oldValue) => {
 })
 
 watch(checkbox, async (newValue, oldValue) => {
-  checkbox.value = true
-
-  // if (!checkbox.value) {
-  //   emits(`update:modelValue`, ``)
-  // } else {
-  //   emits(`update:modelValue`, value.value)
-  // }
+  if (!checkbox.value) {
+    emits(`update:modelValue`, ``)
+  } else {
+    emits(`update:modelValue`, value.value)
+  }
 })
 
 // Validators
@@ -48,11 +46,11 @@ function validateInt(e) {
 <template>
   <div style="display: flex; gap: 1rem; width: 100%;">
     <div v-if="props.field.fieldData.default != undefined">
-      <v-checkbox v-model="checkbox" style="opacity: 40%;">
+      <v-checkbox v-model="checkbox">
         <v-tooltip
           activator="parent"
           location="top"
-        >Soon!</v-tooltip>
+        >Disable this option</v-tooltip>
       </v-checkbox>
     </div>
     
