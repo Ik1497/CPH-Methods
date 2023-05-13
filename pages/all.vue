@@ -19,7 +19,6 @@ Object.entries(methodData).forEach(([methodCategoryId, methodCategoryData]) => {
 
 methodList.forEach(method => {
   methods.push(method.formatted.CSharp)
-  console.log(method)
 });
 
 methodsFormatted = methods.join(`\n`)

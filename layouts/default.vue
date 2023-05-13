@@ -83,6 +83,13 @@ if (process.client) {
         to="/search"
         size="small"
       ><v-icon>mdi-magnify</v-icon></v-btn>
+
+      <v-btn
+        v-if="route.path != `/about`"
+        icon
+        to="/about"
+        size="small"
+      ><v-icon>mdi-information-outline</v-icon></v-btn>
     </v-app-bar>
 
     <v-main style="margin: 1rem; padding-inline: 1rem; max-width: 1200px; margin-inline: auto; width: 100%;">
