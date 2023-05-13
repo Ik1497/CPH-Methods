@@ -59,8 +59,26 @@ function validateInt(e) {
     <div style="width: 100%;">
       <!-- Special Types -->
     
-      <List
+      <DataTypeList
         v-if="props.field.fieldData.datatype.match(/List<([\S\s]*?)>/g)"
+        :field="{
+          ...props.field.fieldData,
+          datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)
+        }"
+        v-model="value"
+      />
+
+      <DataTypeTimeSpan
+        v-else-if="props.field.fieldData.datatype === `TimeSpan`"
+        :field="{
+          ...props.field.fieldData,
+          datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)
+        }"
+        v-model="value"
+      />
+
+      <DataTypeDateTime
+        v-else-if="props.field.fieldData.datatype === `DateTime`"
         :field="{
           ...props.field.fieldData,
           datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)

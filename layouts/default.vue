@@ -71,7 +71,7 @@ if (process.client) {
               fontWeight: `500`,
             }"
           >CPH Methods</span>
-          <v-chip label variant="tonal" size="x-small" color="primary" class="mb-1 ml-2">Pre Release</v-chip>
+          <v-chip label variant="tonal" size="x-small" color="primary" class="mb-1 ml-2">RC</v-chip>
         </p>
       </div>
 
