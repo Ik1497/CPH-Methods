@@ -40,8 +40,8 @@ if (endClass === `` && method.success != undefined) endClass = `success`
     padding: .1rem 1rem;
 
     &.end {
-      border-bottom: $border;
-      padding-bottom: 1rem;
+      border-top: $border;
+      padding-top: 1rem;
     }
   }
 

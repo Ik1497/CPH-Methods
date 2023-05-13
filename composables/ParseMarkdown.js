@@ -1,6 +1,11 @@
 import Showdown from 'showdown'
+import ParseMarkdownVuetifyExtension from './ParseMarkdown/vuetifyExtension'
 
-let converter = new Showdown.Converter()
+let converter = new Showdown.Converter({
+  extensions: [
+    ParseMarkdownVuetifyExtension,
+  ]
+})
 
 converter.setOption(`tables`, true)
 converter.setOption(`emoji`, true)

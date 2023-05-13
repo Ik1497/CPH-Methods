@@ -65,7 +65,6 @@ function searchText(text) {
     persistent-hint
     clearable
     label="Search"
-    placeholder="Search..."
     :hint="`${cards.length} ${cards.length === 1 ? `Result` : `Results`}`"
     v-model="search"
   ></v-text-field>

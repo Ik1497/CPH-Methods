@@ -21,11 +21,13 @@ watch(value, async (newValue, oldValue) => {
 })
 
 watch(checkbox, async (newValue, oldValue) => {
-  if (!checkbox.value) {
-    emits(`update:modelValue`, ``)
-  } else {
-    emits(`update:modelValue`, value.value)
-  }
+  checkbox.value = true
+
+  // if (!checkbox.value) {
+  //   emits(`update:modelValue`, ``)
+  // } else {
+  //   emits(`update:modelValue`, value.value)
+  // }
 })
 
 // Validators
@@ -46,16 +48,17 @@ function validateInt(e) {
 <template>
   <div style="display: flex; gap: 1rem; width: 100%;">
     <div v-if="props.field.fieldData.default != undefined">
-      <v-checkbox v-model="checkbox"></v-checkbox>
+      <v-checkbox v-model="checkbox" style="opacity: 40%;">
+        <v-tooltip
+          activator="parent"
+          location="top"
+        >Soon!</v-tooltip>
+      </v-checkbox>
     </div>
     
     <div style="width: 100%;">
       <!-- Special Types -->
     
-      <JsonEditor
-        v-if="props.field.fieldData.datatype === `string` && props.field.fieldData?.type === `json`"
-        v-model="value"
-      />
       <List
         v-if="props.field.fieldData.datatype.match(/List<([\S\s]*?)>/g)"
         :field="{

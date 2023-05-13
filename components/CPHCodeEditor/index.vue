@@ -129,13 +129,15 @@ onMounted(() => {
 
       <CPHCodeEditorAlertBox :method="method" end />
     </div>
-    <div class="code edit-mode" v-show="editMode === true" style="padding-bottom: .5rem;">
+    <div class="code edit-mode" v-show="editMode === true">
       <pre class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
 
       <CPHCodeEditorAlertBox :method="method" />
 
-      <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem;">
-        <DataType :field="editField" v-model="editData[editFieldIndex].value" />
+      <div class="code-fields">
+        <div v-if="editData.length > 0" v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem; padding-bottom: .5rem;">
+          <DataType :field="editField" v-model="editData[editFieldIndex].value" />
+        </div>
       </div>
     </div>
   </div>
@@ -179,10 +181,10 @@ onMounted(() => {
   
   .code {
     padding-top: 2.5rem;
-
-    pre {
-      border-bottom: $border;
-      margin-bottom: 1rem;
+    
+    .code-fields {
+      padding-top: 1.5rem;
+      border-top: $border;
     }
   }
 }

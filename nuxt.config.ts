@@ -64,6 +64,9 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+  routes: {
+    '/**': { cors: true }
   }
 })
 
