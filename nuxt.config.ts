@@ -19,6 +19,17 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
+  ogImage: {
+    host: 'https://cph-methods.vercel.app',
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        `/General/Between`
+      ]
+    }
+  },
   app: {
     head: {
       charset: `utf-8`,
@@ -64,9 +75,6 @@ export default defineNuxtConfig({
         }
       ]
     }
-  },
-  routes: {
-    '/**': { cors: true }
   }
 })
 
