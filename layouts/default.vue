@@ -22,8 +22,14 @@ function handleRoute(routeEvent) {
 
 if (process.client) {
   window.addEventListener(`keydown`, e => {
-    if (e.target === document.body && e.key === `/`) {
-      router.push(`/search`)
+    if (e.target === document.body) {
+      if (e.key === `/`) {
+        e.preventDefault()
+        router.push(`/search`)
+      } else if (e.key === `k` && e.ctrlKey === true) {
+        e.preventDefault()
+        router.push(`/search`)
+      }
     }
   })
 }

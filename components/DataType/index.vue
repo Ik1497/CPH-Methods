@@ -2,6 +2,7 @@
 const props = defineProps([
   `field`,
   `model-value`,
+  `default`,
   `autofocus`
 ])
 
@@ -9,23 +10,24 @@ const emits = defineEmits([
   `update:modelValue`
 ])
 
-const value = ref(props.modelValue)
 const checkbox = ref(true)
+const value = ref(props.default ?? ``)
 
-watch(value, async (newValue, oldValue) => {
-  if (!checkbox.value) {
-    emits(`update:modelValue`, ``)
-  } else {
-    emits(`update:modelValue`, newValue)
+const data = computed(() => {
+  return {
+    enabled: checkbox.value,
+    value: value.value
   }
 })
 
+emits(`update:modelValue`, data)
+
+watch(value, async (newValue, oldValue) => {
+  emits(`update:modelValue`, data)
+})
+
 watch(checkbox, async (newValue, oldValue) => {
-  if (!checkbox.value) {
-    emits(`update:modelValue`, ``)
-  } else {
-    emits(`update:modelValue`, value.value)
-  }
+  emits(`update:modelValue`, data)
 })
 
 // Validators
@@ -50,11 +52,14 @@ function validateInt(e) {
         <v-tooltip
           activator="parent"
           location="top"
-        >Disable this option</v-tooltip>
+        >{{ checkbox ? `Remove this option` : `Bring back this option` }}</v-tooltip>
       </v-checkbox>
     </div>
     
-    <div style="width: 100%;">
+    <div :style="{
+      width: `100%`,
+      opacity: `${checkbox ? `100%` : `60%`}`,
+    }">
       <!-- Special Types -->
     
       <DataTypeList

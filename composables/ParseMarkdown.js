@@ -26,8 +26,6 @@ export default function (markdown = ``) {
   markdown = markdown.trim()
   if (Array.isArray(markdown)) markdown.join(`\n`)
 
-  console.log(markdown)
-  
   let html = converter.makeHtml(markdown)
     .replaceAll(`\n`, `<br>`)
 

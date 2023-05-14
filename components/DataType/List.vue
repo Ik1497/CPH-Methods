@@ -9,7 +9,10 @@ const emits = defineEmits([
 ])
 
 let value = reactive([
-  ``
+  {
+    value: ``,
+    enabled: true
+  }
 ])
 
 watch(value, async (newValue, oldValue) => {
@@ -20,7 +23,7 @@ function convertArrayToList() {
   let items = []
 
   value.forEach(item => {
-    item = ConvertDatatype(props.field.datatype, item)
+    item = ConvertDatatype(props.field.datatype, item.value.value)
 
     items.push(item)
   });
@@ -29,7 +32,10 @@ function convertArrayToList() {
 }
 
 function addItem() {
-  value.push(``)
+  value.push({
+    value: ``,
+    enabled: true
+  })
 }
 
 function removeItem(index) {
@@ -79,6 +85,7 @@ function keydown(e) {
         >
           <v-icon>mdi-delete</v-icon>
         </v-btn>
+
         <DataType
           :autofocus="`${itemIndex}` === `${value.length - 1}` && value.length != 1"
           @keydown="keydown"

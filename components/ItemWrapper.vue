@@ -5,7 +5,7 @@ const props = defineProps([
 </script>
 
 <template>
-  <v-sheet rounded="lg" style="padding: 1rem; margin-bottom: 1rem;">
+  <v-sheet rounded="lg" style="padding: 1rem; margin-bottom: 1rem; border-bottom: var(--application-border); border-bottom-left-radius: 0!important; border-bottom-right-radius: 0!important;">
     <div v-if="props.title">
       <p
         :style="{

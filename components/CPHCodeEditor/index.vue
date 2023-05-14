@@ -16,7 +16,7 @@ const editHtml = ref(``)
 method.fields.forEach((field, fieldIndex) => {
   editData.value[fieldIndex] = {
     fieldData: {...field},
-    value: field.default != undefined ? field.default : ``,
+    value: ``,
   }
 });
 
@@ -53,7 +53,7 @@ function convertDataToCPH() {
   let indexDontCancel = true
 
   Array.from(([...editData.value]).reverse()).forEach((editfield, editFieldIndex) => {
-    if (editfield.fieldData.default != undefined && editfield.value === `` && indexDontCancel) {
+    if (editfield.fieldData.default != undefined && editfield.value.enabled === false && indexDontCancel) {
       indexStopped--
     } else {
       indexDontCancel = false
@@ -63,7 +63,7 @@ function convertDataToCPH() {
   editData.value.forEach((editField, editFieldIndex) => {
     if (editFieldIndex >= indexStopped) return
 
-    fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value === `` ? `null` : editField.value))
+    fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value.value === `` ? `null` : editField.value.value))
   });
 
   return `CPH.${method.method}(${fields.join(`, `)});`
@@ -150,7 +150,7 @@ onMounted(() => {
 
       <div class="code-fields">
         <div v-if="editData.length > 0" v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem; padding-bottom: .5rem;">
-          <DataType :field="editField" v-model="editData[editFieldIndex].value" />
+          <DataType :field="editField" v-model="editData[editFieldIndex].value" :default="editField.fieldData.default != undefined ? editField.fieldData.default : ``" />
         </div>
       </div>
     </div>
