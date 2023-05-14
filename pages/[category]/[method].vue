@@ -25,10 +25,14 @@ function isArray(array) {
 </script>
 
 <template>
+  <iframe
+    :src="`${method.path}/__og_image__`"
+    style="width: 100%; border: none; height: 800px"
+  ></iframe>
+
   <OgImageStatic
     component="CPHMethod"
-    :title="method.title"
-    :description="method.description"
+    :method="method"
   />
 
   <LinksPageHeader
