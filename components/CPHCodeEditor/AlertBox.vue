@@ -44,10 +44,11 @@ if (endClass === `` && method.success != undefined) endClass = `success`
       padding-top: 1rem;
     }
   }
-
+  
   .alert-box-wrapper.end {
     .alert-box.end {
       border-bottom: none;
+      padding-bottom: 1rem;
     }
   }
 </style>

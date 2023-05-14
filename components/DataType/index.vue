@@ -52,14 +52,15 @@ function validateInt(e) {
         <v-tooltip
           activator="parent"
           location="top"
-        >{{ checkbox ? `Remove this option` : `Bring back this option` }}</v-tooltip>
+        >{{ checkbox ? `Remove this option` : `Bring this option back` }}</v-tooltip>
       </v-checkbox>
     </div>
     
     <div :style="{
       width: `100%`,
-      opacity: `${checkbox ? `100%` : `60%`}`,
+      opacity: `${checkbox ? `100%` : `40%`}`,
     }">
+
       <!-- Special Types -->
     
       <DataTypeList

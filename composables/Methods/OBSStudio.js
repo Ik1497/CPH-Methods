@@ -407,7 +407,7 @@ export default {
     description: `Set an OBS Studio GDI+ text.`,
     tags: [`GDI+ Text Sources`],
     return: `void`,
-    information: `Use \`\\n\` for a new line e.g. line 1\\nline 2`,
+    information: `Use \\n for a new line e.g. line 1\\nline 2`,
     fields: [
       {
         datatype: `string`,

@@ -1,14 +1,26 @@
+const codeReplacements = {
+  opening: {
+    hr: `<hr class="v-divider v-theme--dark" aria-orientation="horizontal" role="separator" style="margin-block: 0.75rem;">`,
+    code: `<div class="v-code">`,
+    kbd: `<div class="v-kbd">`,
+  },
+  closing: {
+    code: `</div>`,
+    kbd: `</div>`,
+  }
+}
+
 export default {
   type: `output`,
   filter: function (text) {
     text = text
-      .replaceAll(`<hr>`, `<v-divider style="margin-block: 1rem;"></v-divider>`)
-      .replaceAll(`<hr/>`, `<v-divider style="margin-block: 1rem;"></v-divider>`)
-      .replaceAll(`<hr />`, `<v-divider style="margin-block: 1rem;"></v-divider>`)
-      .replaceAll(`<code>`, `<v-code style="display: inline;">`)
-      .replaceAll(`</code>`, `</v-code>`)
-      .replaceAll(`<kbd>`, `<v-kbd style="display: inline;">`)
-      .replaceAll(`</kbd>`, `</v-kbd>`)
+      .replaceAll(`<hr>`, codeReplacements.opening.hr)
+      .replaceAll(`<hr/>`, codeReplacements.opening.hr)
+      .replaceAll(`<hr />`, codeReplacements.opening.hr)
+      .replaceAll(`<code>`, codeReplacements.opening.code)
+      .replaceAll(`</code>`, codeReplacements.closing.code)
+      .replaceAll(`<kbd>`, codeReplacements.opening.kbd)
+      .replaceAll(`</kbd>`, codeReplacements.closing.kbd)
       .replace(
         /<blockquote>([\S\s]*?)<p class="([\S\s]*?)">([\S\s]*?)<\/p>([\S\s]*?)<\/blockquote>/gm, 
         `<v-alert text="$3" type="$2" variant="tonal"></v-alert>`
