@@ -116,6 +116,7 @@ export default {
   WebsocketCustomServerStart: {
     title: `Start custom websocket server`,
     description: `Start a custom websocket server.`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `void`,
     fields: [
@@ -129,6 +130,7 @@ export default {
   WebsocketCustomServerStop: {
     title: `Stop custom websocket server`,
     description: `Stop a custom websocket server.`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `void`,
     fields: [
@@ -142,6 +144,7 @@ export default {
   WebsocketCustomServerIsListening: {
     title: `Custom websocket server is listening`,
     description: `Check if a custom websocket server is listening.`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `bool`,
     fields: [
@@ -155,6 +158,7 @@ export default {
   WebsocketCustomServerCloseAllSessions: {
     title: `Close all custom websocket server sessions`,
     description: `Close all sessions from a custom websocket server.`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `void`,
     fields: [
@@ -168,6 +172,7 @@ export default {
   WebsocketCustomServerCloseSession: {
     title: `Close a custom websocket server session`,
     description: `Close a session from a custom websocket server.`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `void`,
     fields: [
@@ -185,6 +190,7 @@ export default {
   WebsocketCustomServerBroadcast: {
     title: `Broadcast to custom websocket server`,
     description: `Broadcast a message to a custom websocket server.`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `void`,
     fields: [
@@ -206,6 +212,8 @@ export default {
   WebsocketCustomServerGetConnectionByName: {
     title: `Get custom websocket server connection by name`,
     description: `Get the name of a custom websocket server by name.`,
+    version: `0.1.8`,
+    version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `int`,
     fields: [

@@ -34,6 +34,7 @@ methodList.forEach(method => {
   if (method.type === `method`) {
     methods[`${method.return} ${method.method}(${fields});`] = {
       prefix: `CPH${method.methodName}`,
+      description: method.description,
       body: [
         `CPH.${method.method}(${fieldsWithOptions});`
       ]
@@ -41,6 +42,7 @@ methodList.forEach(method => {
   } else if (method.type === `property`) {
     methods[`${method.return} ${method.method};`] = {
       prefix: `CPH${method.methodName}`,
+      description: method.description,
       body: [
         `CPH.${method.method};`
       ]

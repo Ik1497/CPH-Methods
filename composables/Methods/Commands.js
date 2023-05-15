@@ -6,6 +6,7 @@ export default {
   EnableCommand: {
     title: `Enable command`,
     description: `Enable a command.`,
+    version: `0.1.4`,
     tags: [`Enable/Disable Commands`],
     return: `void`,
     fields: [
@@ -18,6 +19,7 @@ export default {
   DisableCommand: {
     title: `Disable command`,
     description: `Disable a command.`,
+    version: `0.1.4`,
     tags: [`Enable/Disable Commands`],
     return: `void`,
     fields: [
@@ -72,6 +74,7 @@ export default {
   CommandAddToGlobalCooldown: {
     title: `Add to global cooldown`,
     description: `Add to the global command cooldown.`,
+    version: `0.1.5`,
     tags: [`Add to Commands Cooldowns`],
     return: `void`,
     fields: [
@@ -88,6 +91,7 @@ export default {
   CommandAddToUserCooldown: {
     title: `Add to user cooldown`,
     description: `Add to the command user cooldown.`,
+    version: `0.1.5`,
     tags: [`Add to Commands Cooldowns`],
     return: `void`,
     fields: [
@@ -108,6 +112,7 @@ export default {
   CommandAddToAllUserCooldowns: {
     title: `Add to all user cooldowns`,
     description: `Add to all command user cooldowns.`,
+    version: `0.1.5`,
     tags: [`Add to Commands Cooldowns`],
     return: `void`,
     fields: [
@@ -129,6 +134,7 @@ export default {
   CommandResetGlobalCooldown: {
     title: `Reset global cooldown`,
     description: `Reset the command global cooldown.`,
+    version: `0.1.5`,
     tags: [`Reset Command Cooldowns`],
     return: `void`,
     fields: [
@@ -141,6 +147,7 @@ export default {
   CommandResetUserCooldown: {
     title: `Reset user cooldown`,
     description: `Reset the command user cooldown.`,
+    version: `0.1.5`,
     tags: [`Reset Command Cooldowns`],
     return: `void`,
     fields: [
@@ -157,6 +164,7 @@ export default {
   CommandResetAllUserCooldowns: {
     title: `Reset all user cooldowns`,
     description: `Reset all the command user cooldowns.`,
+    version: `0.1.5`,
     tags: [`Reset Command Cooldowns`],
     return: `void`,
     fields: [
@@ -174,6 +182,7 @@ export default {
   CommandRemoveGlobalCooldown: {
     title: `Remove global cooldown`,
     description: `Remove the command global cooldown.`,
+    version: `0.1.17`,
     tags: [`Remove Command Cooldowns`],
     return: `void`,
     fields: [
@@ -186,6 +195,7 @@ export default {
   CommandRemoveUserCooldown: {
     title: `Remove user cooldown`,
     description: `Remove the command user cooldown.`,
+    version: `0.1.17`,
     tags: [`Remove Command Cooldowns`],
     return: `void`,
     fields: [
@@ -202,6 +212,7 @@ export default {
   CommandRemoveAllUserCooldowns: {
     title: `Remove all user cooldowns`,
     description: `Remove all the command user cooldowns.`,
+    version: `0.1.17`,
     tags: [`Remove Command Cooldowns`],
     return: `void`,
     fields: [

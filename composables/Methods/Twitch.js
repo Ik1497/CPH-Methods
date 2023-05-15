@@ -6,6 +6,7 @@ export default {
   TwitchSubscriberOnly: {
     title: `Subscriber only`,
     description: `Change your Twitch chat to subscriber only.`,
+    version: `0.1.3`,
     tags: [`General`],
     return: `void`,
     fields: [
@@ -19,6 +20,7 @@ export default {
   TwitchEmoteOnly: {
     title: `Emote only`,
     description: `Change your Twitch chat to emote only.`,
+    version: `0.1.3`,
     tags: [`General`],
     return: `void`,
     fields: [
@@ -50,6 +52,7 @@ export default {
   TwitchFollowMode: {
     title: `Follow mode`,
     description: `Change your Twitch chat to Follow mode.`,
+    version: `0.1.15`,
     tags: [`General`],
     return: `void`,
     fields: [
@@ -73,6 +76,7 @@ export default {
   TwitchIsUserSubscribed: {
     title: `Is user subscribed`,
     description: `Check if a Twitch user is subscribed.`,
+    version: `0.1.18`,
     tags: [`User Information`],
     return: `bool`,
     fields: [
@@ -108,6 +112,7 @@ export default {
   SendWhisper: {
     title: `Send whisper`,
     description: `Send a whisper.`,
+    version: `0.1.14`,
     tags: [`Whisper`],
     return: `bool`,
     fields: [
@@ -134,6 +139,7 @@ export default {
   TwitchAddModerator: {
     title: `Add moderator`,
     description: `Add a moderator to your channel.`,
+    version: `0.1.14`,
     tags: [`Moderator`],
     return: `bool`,
     fields: [
@@ -146,6 +152,7 @@ export default {
   TwitchRemoveModerator: {
     title: `Remove moderator`,
     description: `Remove a moderator from your channel.`,
+    version: `0.1.14`,
     tags: [`Moderator`],
     return: `bool`,
     fields: [
@@ -164,6 +171,7 @@ export default {
   TwitchAddVip: {
     title: `Add vip`,
     description: `Add a vip to your channel.`,
+    version: `0.1.14`,
     tags: [`Vip`],
     return: `bool`,
     fields: [
@@ -176,6 +184,7 @@ export default {
   TwitchRemoveVip: {
     title: `Remove vip`,
     description: `Remove a vip from your channel.`,
+    version: `0.1.14`,
     tags: [`Vip`],
     return: `bool`,
     fields: [
@@ -227,6 +236,7 @@ export default {
   TwitchClearChatMessages: {
     title: `Clear chat messages`,
     description: `Clear the chat messages from your channel.`,
+    version: `0.1.14`,
     tags: [`Messages`],
     return: `bool`,
     fields: [
@@ -240,6 +250,7 @@ export default {
   TwitchDeleteChatMessage: {
     title: `Delete chat message`,
     description: `Delete a chat message from your channel.`,
+    version: `0.1.14`,
     tags: [`Messages`],
     return: `bool`,
     fields: [
@@ -262,6 +273,7 @@ export default {
   TwitchClearChannelTags: {
     title: `Clear channel tags`,
     description: `Clear all the channel tags from your channel.`,
+    version: `0.1.17`,
     tags: [`Channel Tags`],
     return: `bool`,
     fields: [],
@@ -269,6 +281,7 @@ export default {
   TwitchSetChannelTags: {
     title: `Set channel tags`,
     description: `Set new channel tags on your channel.`,
+    version: `0.1.17`,
     tags: [`Channel Tags`],
     return: `bool`,
     fields: [
@@ -282,6 +295,7 @@ export default {
   TwitchAddChannelTag: {
     title: `Add channel tag`,
     description: `Add a new channel tag on your channel.`,
+    version: `0.1.17`,
     tags: [`Channel Tags`],
     return: `bool`,
     fields: [
@@ -294,6 +308,7 @@ export default {
   TwitchRemoveChannelTag: {
     title: `Remove channel tag`,
     description: `Remove a new channel tag from your channel.`,
+    version: `0.1.17`,
     tags: [`Channel Tags`],
     return: `bool`,
     fields: [
@@ -311,6 +326,7 @@ export default {
   TwitchSendShoutoutById: {
     title: `Send shoutout by id`,
     description: `Send a shoutout by id.`,
+    version: `0.1.17`,
     tags: [`Shoutout`],
     return: `bool`,
     fields: [
@@ -323,6 +339,7 @@ export default {
   TwitchSendShoutoutByLogin: {
     title: `Send shoutout by login`,
     description: `Send a shoutout by login.`,
+    version: `0.1.17`,
     tags: [`Shoutout`],
     return: `bool`,
     fields: [
@@ -340,6 +357,7 @@ export default {
   TwitchBanUser: {
     title: `Ban user`,
     description: `Ban a twitch user from your channel.`,
+    version: `0.1.14`,
     tags: [`Timeouts / Bans`],
     return: `bool`,
     fields: [
@@ -362,6 +380,7 @@ export default {
   TwitchUnbanUser: {
     title: `Unban user`,
     description: `Unban a twitch user from your channel.`,
+    version: `0.1.14`,
     tags: [`Timeouts / Bans`],
     return: `bool`,
     information: `This will unban and untimeout users`,
@@ -380,6 +399,7 @@ export default {
   TwitchTimeoutUser: {
     title: `Timeout user`,
     description: `Timeout a twitch user from your channel.`,
+    version: `0.1.14`,
     tags: [`Timeouts / Bans`],
     return: `bool`,
     information: `A duration of 0 will result in a ban`,
@@ -416,6 +436,7 @@ export default {
     TwitchGetRewards: {
       title: `Get rewards`,
       description: `Get a list of all your Twitch rewards.`,
+      version: `0.1.18`,
       tags: [`Channel Rewards`, `Get Rewards`],
       return: `List<TwitchReward>`,
       returnType: `class`,
@@ -429,6 +450,7 @@ export default {
     TwitchGetChannelPointsUsedByUserId: {
       title: `Get channel points used by user id`,
       description: `Get the amount of channel points used by a user's id.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Get Reward Usage`],
       return: `long`,
       fields: [
@@ -499,6 +521,7 @@ export default {
     TwitchRewardGroupEnable: {
       title: `Enable reward group`,
       description: `Enable a Twitch reward group.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Reward Group States`],
       return: `void`,
       fields: [
@@ -511,6 +534,7 @@ export default {
     TwitchRewardGroupDisable: {
       title: `Disable reward group`,
       description: `Disable a Twitch reward group.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Reward Group States`],
       return: `void`,
       fields: [
@@ -523,6 +547,7 @@ export default {
     TwitchRewardGroupToggleEnable: {
       title: `Toggle enable reward group`,
       description: `Toggle enable a Twitch reward group.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Reward Group States`],
       return: `void`,
       fields: [
@@ -535,6 +560,7 @@ export default {
     TwitchRewardGroupPause: {
       title: `Pause reward group`,
       description: `Pause a Twitch reward group.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Reward Group States`],
       return: `void`,
       fields: [
@@ -547,6 +573,7 @@ export default {
     TwitchRewardGroupUnPause: {
       title: `Unpause reward group`,
       description: `Unpause a Twitch reward group.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Reward Group States`],
       return: `void`,
       fields: [
@@ -559,6 +586,7 @@ export default {
     TwitchRewardGroupTogglePause: {
       title: `Toggle pause reward group`,
       description: `Toggle pause a Twitch reward group.`,
+      version: `0.1.17`,
       tags: [`Channel Rewards`, `Reward Group States`],
       return: `void`,
       fields: [
@@ -576,6 +604,13 @@ export default {
     UpdateRewardTitle: {
       title: `Update reward title`,
       description: `Update the title of a Twitch reward.`,
+      version: `0.1.5`,
+      versionChanges: {
+        '0.1.9': {
+          type: `update`,
+          change: `Return changed from \`void\` to \`bool\``
+        }
+      },
       tags: [`Channel Rewards`, `Update Rewards`],
       return: `bool`,
       fields: [
@@ -592,6 +627,13 @@ export default {
     UpdateRewardPrompt: {
       title: `Update reward prompt`,
       description: `Update the prompt of a Twitch reward.`,
+      version: `0.1.5`,
+      versionChanges: {
+        '0.1.9': {
+          type: `update`,
+          change: `Return changed from \`void\` to \`bool\``
+        }
+      },
       tags: [`Channel Rewards`, `Update Rewards`],
       return: `bool`,
       fields: [
@@ -650,6 +692,13 @@ export default {
     UpdateReward: {
       title: `Update reward`,
       description: `Update a Twitch reward.`,
+      version: `0.1.5`,
+      versionChanges: {
+        '0.1.9': {
+          type: `update`,
+          change: `Return changed from \`void\` to \`bool\``
+        }
+      },
       tags: [`Channel Rewards`, `Update Rewards`],
       return: `bool`,
       fields: [
@@ -716,6 +765,67 @@ export default {
     ///////////////////////////
     // Reset Reward Counters //
     ///////////////////////////
+    
+    TwitchResetRewardCounter: {
+      title: `Reset reward counter`,
+      description: `Reset the counter for a reward.`,
+      version: `0.1.17`,
+      tags: [`Channel Rewards`, `Reset Reward Counters`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+      ],
+    },
+    TwitchResetRewardUserCounters: {
+      title: `Reset reward user counters`,
+      description: `Reset the user counter for a reward.`,
+      version: `0.1.17`,
+      tags: [`Channel Rewards`, `Reset Reward Counters`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+      ],
+    },
+    TwitchResetUserRewardCounters: {
+      title: `Reset user reward counters`,
+      description: `Reset the counter on all rewards for a user.`,
+      version: `0.1.17`,
+      tags: [`Channel Rewards`, `Reset Reward Counters`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `userId`,
+        },
+        {
+          datatype: `bool`,
+          name: `persisted`,
+        },
+      ],
+    },
+    TwitchResetUserRewardCounter: {
+      title: `Reset user reward counter`,
+      description: `Reset the counter on a reward for a user.`,
+      version: `0.1.17`,
+      tags: [`Channel Rewards`, `Reset Reward Counters`],
+      return: `void`,
+      fields: [
+        {
+          datatype: `string`,
+          name: `rewardId`,
+        },
+        {
+          datatype: `string`,
+          name: `userId`,
+        },
+      ],
+    },
 
   ///////////
   // Polls //
@@ -724,6 +834,7 @@ export default {
   TwitchPollCreate: {
     title: `Poll create`,
     description: `Create a Twitch poll on your channel.`,
+    version: `0.0.61`,
     tags: [`Polls`],
     return: `bool`,
     fields: [
@@ -750,6 +861,7 @@ export default {
   TwitchPollTerminate: {
     title: `Poll terminate`,
     description: `Terminate a Twitch poll on your channel.`,
+    version: `0.0.61`,
     tags: [`Polls`],
     return: `void`,
     fields: [
@@ -762,6 +874,7 @@ export default {
   TwitchPollArchive: {
     title: `Poll archive`,
     description: `Archive a Twitch poll on your channel.`,
+    version: `0.0.61`,
     tags: [`Polls`],
     return: `void`,
     fields: [
@@ -779,6 +892,13 @@ export default {
   TwitchPredictionCreate: {
     title: `Prediction create`,
     description: `Create a Twitch prediction on your channel.`,
+    version: `0.1.4`,
+    versionChanges: {
+      '0.1.9': {
+        type: `update`,
+        change: `Change options to List<string>`
+      }
+    },
     tags: [`Predictions`],
     return: `string`,
     fields: [
@@ -800,6 +920,7 @@ export default {
   TwitchPredictionCancel: {
     title: `Prediction cancel`,
     description: `Cancel a Twitch prediction on your channel.`,
+    version: `0.1.4`,
     tags: [`Predictions`],
     return: `void`,
     fields: [
@@ -812,6 +933,7 @@ export default {
   TwitchPredictionLock: {
     title: `Prediction lock`,
     description: `Lock a Twitch prediction on your channel.`,
+    version: `0.1.4`,
     tags: [`Predictions`],
     return: `void`,
     fields: [
@@ -824,6 +946,7 @@ export default {
   TwitchPredictionResolve: {
     title: `Prediction resolve`,
     description: `Resolve a Twitch prediction on your channel.`,
+    version: `0.1.4`,
     tags: [`Predictions`],
     return: `void`,
     fields: [
@@ -845,6 +968,7 @@ export default {
   TwitchGetBitsDonatedByUserId: {
     title: `Get bits donated by user id`,
     description: `Get the total amount of bits donated by a user's id.`,
+    version: `0.1.18`,
     tags: [`Bits`],
     return: `long`,
     fields: [
@@ -866,6 +990,7 @@ export default {
     GetAllClips: {
       title: `Get all clips`,
       description: `Get a list of all created clips.`,
+      version: `0.0.56`,
       tags: [`Get Clips`, `Get all clips`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -880,6 +1005,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for username`,
       description: `Get a list of all created clips for a username.`,
+      version: `0.0.56`,
       tags: [`Get Clips`, `Get clips for username`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -894,6 +1020,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for username with count`,
       description: `Get a list of all created clips for a username.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for username`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -912,6 +1039,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for username with date time`,
       description: `Get a list of all created clips for a username.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for username`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -934,6 +1062,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for username with date time and count`,
       description: `Get a list of all created clips for a username.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for username`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -960,6 +1089,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for username with timespan`,
       description: `Get a list of all created clips for a username.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for username`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -978,6 +1108,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for username with timespan and count`,
       description: `Get a list of all created clips for a username.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for username`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1005,6 +1136,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for user id`,
       description: `Get a list of all created clips for a user id.`,
+      version: `0.0.56`,
       tags: [`Get Clips`, `Get clips for user id`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1019,6 +1151,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for user id with count`,
       description: `Get a list of all created clips for a user id.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for user id`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1037,6 +1170,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for user id with date time`,
       description: `Get a list of all created clips for a user id.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for user id`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1059,6 +1193,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for user id with date time and count`,
       description: `Get a list of all created clips for a user id.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for user id`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1085,6 +1220,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for user id with timespan`,
       description: `Get a list of all created clips for a user id.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for user id`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1103,6 +1239,7 @@ export default {
       method: `GetClipsForUser`,
       title: `Get clips for user id with timespan and count`,
       description: `Get a list of all created clips for a user id.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for user id`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1131,6 +1268,7 @@ export default {
       method: `GetClipsForGame`,
       title: `Get clips for game`,
       description: `Get a list of all created clips for a game.`,
+      version: `0.0.56`,
       tags: [`Get Clips`, `Get clips for game`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1145,6 +1283,7 @@ export default {
       method: `GetClipsForGame`,
       title: `Get clips for game with count`,
       description: `Get a list of all created clips for a game.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for game`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1163,6 +1302,7 @@ export default {
       method: `GetClipsForGame`,
       title: `Get clips for game with date time`,
       description: `Get a list of all created clips for a game.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for game`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1185,6 +1325,7 @@ export default {
       method: `GetClipsForGame`,
       title: `Get clips for game with date time and count`,
       description: `Get a list of all created clips for a game.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for game`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1211,6 +1352,7 @@ export default {
       method: `GetClipsForGame`,
       title: `Get clips for game with timespan`,
       description: `Get a list of all created clips for a game.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for game`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1229,6 +1371,7 @@ export default {
       method: `GetClipsForGame`,
       title: `Get clips for game with timespan and count`,
       description: `Get a list of all created clips for a game.`,
+      version: `0.1.5`,
       tags: [`Get Clips`, `Get clips for game`],
       return: `List<ClipData>`,
       returnType: `class`,
@@ -1286,6 +1429,7 @@ export default {
   TwitchRunCommercial: {
     title: `Run commercial`,
     description: `Run a Twitch commercial on your channel.`,
+    version: `0.1.5`,
     tags: [`Run Commercial`],
     return: `void`,
     fields: [
@@ -1303,6 +1447,7 @@ export default {
   SetChannelTitle: {
     title: `Set channel title`,
     description: `Set the title on your Twitch channel.`,
+    version: `0.1.4`,
     tags: [`Stream Information`],
     return: `bool`,
     fields: [
@@ -1315,6 +1460,7 @@ export default {
   SetChannelGame: {
     title: `Set channel game`,
     description: `Set the game on your Twitch channel.`,
+    version: `0.1.4`,
     tags: [`Stream Information`],
     return: `GameInfo`,
     returnType: `class`,
@@ -1328,6 +1474,7 @@ export default {
   SetChannelGameById: {
     title: `Set channel game id`,
     description: `Set the game by id on your Twitch channel.`,
+    version: `0.1.4`,
     tags: [`Stream Information`],
     return: `bool`,
     fields: [
@@ -1345,6 +1492,7 @@ export default {
   TwitchStartRaidById: {
     title: `Start raid by id`,
     description: `Start a raid by a user id.`,
+    version: `0.1.15`,
     tags: [`Raids`],
     return: `bool`,
     fields: [
@@ -1357,6 +1505,7 @@ export default {
   TwitchStartRaidByName: {
     title: `Start raid by name`,
     description: `Start a raid by a user name.`,
+    version: `0.1.15`,
     tags: [`Raids`],
     return: `bool`,
     fields: [
@@ -1369,6 +1518,7 @@ export default {
   TwitchCancelRaid: {
     title: `Cancel raid`,
     description: `Cancel the pending Twitch raid.`,
+    version: `0.1.15`,
     tags: [`Raids`],
     return: `bool`,
     fields: [],
@@ -1381,6 +1531,7 @@ export default {
   TwitchAnnounce: {
     title: `Announce`,
     description: `Send an announcement to your Twitch chat.`,
+    version: `0.1.9`,
     tags: [`Announcement`],
     return: `void`,
     fields: [

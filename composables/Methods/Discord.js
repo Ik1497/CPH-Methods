@@ -2,6 +2,7 @@ export default {
   DiscordPostTextToWebhook: {
     title: `Post Text To Webhook`,
     description: `Post basic text to a Discord webhook.`,
+    version: `0.1.14`,
     tags: [`Webhooks`],
     return: `void`,
     fields: [

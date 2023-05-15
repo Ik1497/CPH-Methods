@@ -57,6 +57,7 @@ export default {
   GetTwitchUserVar: {
     title: `Get Twitch user global variable`,
     description: `Get a Twitch user globale variable.`,
+    version: `0.1.8`,
     tags: [`Twitch`],
     return: `T`,
     fields: [
@@ -78,6 +79,7 @@ export default {
   SetTwitchUserVar: {
     title: `Set Twitch user global variable`,
     description: `Set a Twitch user global variable.`,
+    version: `0.1.8`,
     tags: [`Twitch`],
     return: `void`,
     fields: [
@@ -103,6 +105,7 @@ export default {
   UnsetTwitchUserVar: {
     title: `Unset Twitch user global variable`,
     description: `Unset a Twitch user global variable.`,
+    version: `0.1.8`,
     tags: [`Twitch`],
     return: `void`,
     fields: [
@@ -124,6 +127,7 @@ export default {
   UnsetTwitchUser: {
     title: `Unset Twitch user global variables`,
     description: `Unset a Twitch user's global variables.`,
+    version: `0.1.8`,
     tags: [`Twitch`],
     return: `void`,
     fields: [
@@ -141,6 +145,7 @@ export default {
   GetYouTubeUserVar: {
     title: `Get YouTube user global variable`,
     description: `Get a YouTube user globale variable.`,
+    version: `0.1.8`,
     tags: [`YouTube`],
     return: `T`,
     fields: [
@@ -162,6 +167,7 @@ export default {
   SetYouTubeUserVar: {
     title: `Set YouTube user global variable`,
     description: `Set a YouTube user global variable.`,
+    version: `0.1.8`,
     tags: [`YouTube`],
     return: `void`,
     fields: [
@@ -187,6 +193,7 @@ export default {
   UnsetYouTubeUserVar: {
     title: `Unset YouTube user global variable`,
     description: `Unset a YouTube user global variable.`,
+    version: `0.1.8`,
     tags: [`YouTube`],
     return: `void`,
     fields: [
@@ -208,6 +215,7 @@ export default {
   UnsetYouTubeUser: {
     title: `Unset YouTube user global variables`,
     description: `Unset a YouTube user's global variables.`,
+    version: `0.1.8`,
     tags: [`YouTube`],
     return: `void`,
     fields: [

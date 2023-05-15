@@ -45,6 +45,7 @@ export default {
   ObsGetConnectionByName: {
     title: `Get connection by name`,
     description: `Get an OBS Studio connection by name.`,
+    version: `0.1.5`,
     tags: [`Connection`],
     return: `int`,
     fields: [
@@ -265,6 +266,7 @@ export default {
   ObsGetSceneItemProperties: {
     title: `Get scene item properties`,
     description: `Get the properties of an OBS Studio scene item.`,
+    version: `0.1.5`,
     tags: [`Sources`],
     return: `string`,
     fields: [
@@ -858,6 +860,7 @@ export default {
   ObsHideSourcesFilters: {
     title: `Hide sources filters`,
     description: `Hide all filters on an OBS Studio source.`,
+    version: `0.0.59`,
     tags: [`Hide All Scene/Source Filters`],
     return: `void`,
     fields: [
@@ -879,6 +882,7 @@ export default {
   ObsHideScenesFilters: {
     title: `Hide scenes filters`,
     description: `Hide all filters on an OBS Studio scene.`,
+    version: `0.0.59`,
     tags: [`Hide All Scene/Source Filters`],
     return: `void`,
     fields: [
@@ -901,6 +905,7 @@ export default {
   ObsSetMediaState: {
     title: `Set media state`,
     description: `Set the media state on an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -926,6 +931,7 @@ export default {
   ObsMediaPlay: {
     title: `Media play`,
     description: `Play an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -947,6 +953,7 @@ export default {
   ObsMediaPause: {
     title: `Media pause`,
     description: `Pause an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -968,6 +975,7 @@ export default {
   ObsMediaRestart: {
     title: `Media restart`,
     description: `Restart an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -989,6 +997,7 @@ export default {
   ObsMediaStop: {
     title: `Media stop`,
     description: `Stop an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -1010,6 +1019,7 @@ export default {
   ObsMediaNext: {
     title: `Media next`,
     description: `Next an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -1031,6 +1041,7 @@ export default {
   ObsMediaPrevious: {
     title: `Media previous`,
     description: `Previous an OBS Studio media source.`,
+    version: `0.1.4`,
     tags: [`Media`],
     return: `void`,
     fields: [
@@ -1057,6 +1068,7 @@ export default {
   ObsConvertRgb: {
     title: `Convert RGB`,
     description: `Convert RGB to the OBS Studio color system.`,
+    version: `0.1.5`,
     tags: [`Colors`],
     return: `long`,
     fields: [
@@ -1081,6 +1093,7 @@ export default {
   ObsConvertColorHex: {
     title: `Convert color HEX`,
     description: `Convert HEX to the OBS Studio color system.`,
+    version: `0.1.5`,
     tags: [`Colors`],
     return: `long`,
     fields: [
@@ -1094,6 +1107,7 @@ export default {
     method: `ObsSetColorSourceColor`,
     title: `Set color source RGB color`,
     description: `Set the RGB color on an OBS Studio color source.`,
+    version: `0.1.14`,
     tags: [`Colors`],
     return: `void`,
     fields: [
@@ -1132,6 +1146,7 @@ export default {
     method: `ObsSetColorSourceColor`,
     title: `Set color source HEX color`,
     description: `Set the HEX color on an OBS Studio color source.`,
+    version: `0.1.14`,
     tags: [`Colors`],
     return: `void`,
     fields: [
@@ -1157,6 +1172,7 @@ export default {
   ObsSetColorSourceRandomColor: {
     title: `Set color source random color`,
     description: `Set a random color on an OBS Studio color source.`,
+    version: `0.1.14`,
     tags: [`Colors`],
     return: `void`,
     fields: [
@@ -1183,6 +1199,7 @@ export default {
   ObsSetReplayBufferState: {
     title: `Set replay buffer state`,
     description: `Set the state off the OBS Studio replay buffer.`,
+    version: `0.1.5`,
     tags: [`Replay Buffer`],
     return: `void`,
     fields: [
@@ -1200,6 +1217,7 @@ export default {
   ObsReplayBufferStart: {
     title: `Replay buffer start`,
     description: `Start the OBS Studio replay buffer.`,
+    version: `0.1.5`,
     tags: [`Replay Buffer`],
     return: `void`,
     fields: [
@@ -1213,6 +1231,7 @@ export default {
   ObsReplayBufferStop: {
     title: `Replay buffer stop`,
     description: `Stop the OBS Studio replay buffer.`,
+    version: `0.1.5`,
     tags: [`Replay Buffer`],
     return: `void`,
     fields: [
@@ -1226,6 +1245,7 @@ export default {
   ObsReplayBufferSave: {
     title: `Replay buffer save`,
     description: `Save the OBS Studio replay buffer.`,
+    version: `0.1.5`,
     tags: [`Replay Buffer`],
     return: `void`,
     fields: [
@@ -1244,6 +1264,7 @@ export default {
   ObsSetMediaSourceFile: {
     title: `Set media source file`,
     description: `Set an OBS Studio media source file.`,
+    version: `0.1.5`,
     tags: [`Set Media Source File`],
     return: `void`,
     fields: [
@@ -1274,6 +1295,7 @@ export default {
   ObsSetImageSourceFile: {
     title: `Set image source file`,
     description: `Set an OBS Studio image source file.`,
+    version: `0.1.5`,
     tags: [`Set Image Source File`],
     return: `void`,
     fields: [
@@ -1304,6 +1326,7 @@ export default {
   ObsTakeScreenshot: {
     title: `Take screenshot`,
     description: `Take a screenshot with OBS Studio.`,
+    version: `0.1.14`,
     tags: [`Screenshot`],
     return: `bool`,
     fields: [

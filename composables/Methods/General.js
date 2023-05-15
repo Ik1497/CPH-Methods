@@ -109,6 +109,7 @@ export default {
   RunActionById: {
     title: `Run action by id`,
     description: `Run an action by id.`,
+    version: `0.1.8`,
     tags: [`Actions`],
     return: `bool`,
     fields: [
@@ -126,6 +127,7 @@ export default {
   DisableAction: {
     title: `Disable action`,
     description: `Disable an action.`,
+    version: `0.0.61`,
     tags: [`Actions`],
     return: `void`,
     fields: [
@@ -138,6 +140,7 @@ export default {
   EnableAction: {
     title: `Enable action`,
     description: `Enable an action.`,
+    version: `0.0.61`,
     tags: [`Actions`],
     return: `void`,
     fields: [
@@ -150,6 +153,7 @@ export default {
   ActionExists: {
     title: `Action exists`,
     description: `Check if an action exists.`,
+    version: `0.1.14`,
     tags: [`Actions`],
     return: `bool`,
     fields: [
@@ -337,6 +341,7 @@ export default {
   LogVerbose: {
     title: `Log verbose`,
     description: `Add a verbose log to your log file.`,
+    version: `0.1.14`,
     tags: [`Logging`],
     return: `void`,
     fields: [
@@ -361,6 +366,7 @@ export default {
   LogError: {
     title: `Log error`,
     description: `Add an error log to your log file.`,
+    version: `0.1.20`,
     tags: [`Logging`],
     return: `void`,
     fields: [
@@ -399,6 +405,7 @@ export default {
   ResetCredits: {
     title: `Reset credits`,
     description: `Reset your credits.`,
+    version: `0.0.59`,
     tags: [`Credits & First Words`],
     return: `void`,
     fields: [],
@@ -406,6 +413,7 @@ export default {
   ResetFirstWords: {
     title: `Reset first words`,
     description: `Reset your first words.`,
+    version: `0.0.59`,
     tags: [`Credits & First Words`],
     return: `void`,
     fields: [],
