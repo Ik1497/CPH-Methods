@@ -1,6 +1,9 @@
 <script setup>
 import Prism from '~/plugins/prism'
 
+const route = useRoute()
+console.log(route)
+
 const { method } = defineProps([
   `method`
 ])
@@ -123,6 +126,7 @@ onMounted(() => {
               location="top"
             >{{ editMode ? `Change to preview mode` : `Change to edit mode` }}</v-tooltip>
           </v-btn>
+
           <v-btn
             icon
             variant="text"
@@ -134,6 +138,21 @@ onMounted(() => {
               activator="parent"
               location="top"
             >Copy to clipboard</v-tooltip>
+          </v-btn>
+
+          <v-btn
+            v-if="!route.path.startsWith(`/embed/`)"
+            icon
+            variant="text"
+            density="comfortable"
+            :to="`/embed${method.path}`"
+            target="_blank"
+          >
+            <v-icon>mdi-open-in-new</v-icon>
+            <v-tooltip
+              activator="parent"
+              location="top"
+            >Open embed</v-tooltip>
           </v-btn>
         </div>
       </div>
