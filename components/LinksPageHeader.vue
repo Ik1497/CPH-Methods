@@ -28,8 +28,8 @@ watch(data.value, async (newValue, oldValue) => {
       <MethodAvatar :method="method" style="height: 100%;" full-size />
     </div>
     <div>
-      <h1>{{ title }}</h1>
-      <p class="text-grey-lighten-1">{{ description }}</p>
+      <h1 :style="{background: `#0f0f0f`, zIndex: `1`}">{{ title }}</h1>
+      <p class="text-grey-lighten-1" :style="{background: `#0f0f0f`, zIndex: `1`}">{{ description }}</p>
     </div>
     <div v-show="props.hideCardsView === undefined" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
       <slot name="append-inner">
