@@ -171,8 +171,8 @@ onMounted(() => {
 
       <CPHCodeEditorAlertBox :method="method" />
 
-      <div class="code-fields">
-        <div v-if="editData.length > 0" v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem; padding-bottom: .5rem;">
+      <div v-if="editData.length > 0" class="code-fields">
+        <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem; padding-bottom: .5rem;">
           <DataType :field="editField" v-model="editData[editFieldIndex].value" :default="editField.fieldData.default != undefined ? editField.fieldData.default : ``" />
         </div>
       </div>
