@@ -14,6 +14,9 @@ const editData = ref([])
 const editContent = ref(``)
 const editHtml = ref(``)
 
+if (route.query.view === `edit`) editMode.value = true
+if (route.query.view === `preview`) editMode.value = false
+
 // Main
 
 method.fields.forEach((field, fieldIndex) => {
@@ -115,6 +118,7 @@ onMounted(() => {
         <p>{{ editMode ? `Code Editor` : `Code Preview` }}</p>
         <div>
           <v-btn
+            v-if="route.query.view === undefined"
             icon
             variant="text"
             density="comfortable"

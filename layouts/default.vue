@@ -76,7 +76,7 @@ if (process.client) {
             :style="{
               fontWeight: `500`,
             }"
-          >CPH Methods</span>
+          >CPH Methods Builder</span>
           <v-chip label variant="tonal" size="x-small" color="primary" class="mb-1 ml-2">RC</v-chip>
         </p>
       </div>
@@ -88,14 +88,39 @@ if (process.client) {
         icon
         to="/search"
         size="small"
-      ><v-icon>mdi-magnify</v-icon></v-btn>
+      >
+        <v-icon>mdi-magnify</v-icon>
+        <v-tooltip
+          activator="parent"
+          location="bottom"
+        >Search</v-tooltip>
+      </v-btn>
+
+      <v-btn
+        v-if="route.path != `/changelogs`"
+        icon
+        to="/changelogs"
+        size="small"
+      >
+        <v-icon>mdi-fire</v-icon>
+        <v-tooltip
+          activator="parent"
+          location="bottom"
+        >Changelogs</v-tooltip>
+      </v-btn>
 
       <v-btn
         v-if="route.path != `/about`"
         icon
         to="/about"
         size="small"
-      ><v-icon>mdi-information-outline</v-icon></v-btn>
+      >
+        <v-icon>mdi-information-outline</v-icon>
+        <v-tooltip
+          activator="parent"
+          location="bottom"
+        >About</v-tooltip>
+      </v-btn>
     </v-app-bar>
 
     <v-main style="margin: 1rem; padding-inline: 1rem; max-width: 1200px; margin-inline: auto; width: 100%;">

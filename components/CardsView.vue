@@ -7,7 +7,7 @@ const emits = defineEmits([
   `update:modelValue`
 ])
 
-const activeItem = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__cardsView`) || `grid` : `grid`)
+const activeItem = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__cardsView`) || `compact-list` : `compact-list`)
 
 onMounted(() => {
   if (process.client) {
@@ -39,6 +39,7 @@ watch(activeItem, async (newValue, oldValue) => {
 <template>
   <v-select
     data-items-view-select
+    hide-details
     label="Cards view"
     :items="items"
     item-value="value"

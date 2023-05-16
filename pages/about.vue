@@ -53,11 +53,31 @@ let randomCategory = Object.entries(methodData)[Math.round(Math.random() * Objec
     ></v-list-item>
 
     <v-list-item
+      title="/embed/:category/:method"
+      subtitle="The embed page for each method"
+      :to="`/embed${randomMethod.path}`"
+    ></v-list-item>
+
+    <v-list-item
+      title="/changelogs"
+      subtitle="Here you can see on which version methods where added/changed"
+      to="/changelogs"
+    ></v-list-item>
+
+    <v-list-item
       title="/api/methods"
       subtitle="The JSON API with all the methods"
       to="/api/methods"
     ></v-list-item>
   </v-list>
+
+  <br>
+
+  <h2>:category/:method query reference</h2>
+  <h3>view</h3>
+  <p>Forces a view on the code editor. This is made for the embed but will work on the normal one too.</p>
+  <br>
+  <p>Values: <v-code>edit</v-code>/<v-code>preview</v-code></p>
 </template>
 
 <style scoped lang="scss">

@@ -57,17 +57,6 @@ function isArray(array) {
 </template>
 
 <style scoped lang="scss">
-h2 {
-  background: #202020;
-  width: fit-content;
-  padding-block: .2rem;
-  padding-inline: .5rem;
-  border-radius: 4px;
-  margin-block: .5rem;
-  font-weight: 500;
-  font-family: monospace;
-}
-
 .v-code {
   display: inline;
 }

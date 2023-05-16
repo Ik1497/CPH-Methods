@@ -1,2 +1,25 @@
-:not(pre) > code[class*="language-"], pre[class*="language-"]
+pre[class*="language-"], pre:not([class])
+  padding: 1em
+  margin: 0.5em 0
+  overflow: auto
+
+code[class*="language-"], pre[class*="language-"], pre:not([class])
+  color: #ccc
+  background: none
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace
+  font-size: 1em
+  text-align: left
+  white-space: pre
+  word-spacing: normal
+  word-break: normal
+  word-wrap: normal
+  line-height: 1.5
+  -moz-tab-size: 4
+  -o-tab-size: 4
+  tab-size: 4
+  -webkit-hyphens: none
+  hyphens: none
+
+
+:not(pre) > code[class*="language-"], pre[class*="language-"], pre:not([class])
   background: #191919!important

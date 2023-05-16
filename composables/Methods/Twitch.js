@@ -896,7 +896,7 @@ export default {
     versionChanges: {
       '0.1.9': {
         type: `update`,
-        change: `Change options to List<string>`
+        change: `Changed the options from 2 fields to a List<string>`
       }
     },
     tags: [`Predictions`],
@@ -1531,7 +1531,7 @@ export default {
   TwitchAnnounce: {
     title: `Announce`,
     description: `Send an announcement to your Twitch chat.`,
-    version: `0.1.9`,
+    // version: `0.1.9`,
     tags: [`Announcement`],
     return: `void`,
     fields: [
