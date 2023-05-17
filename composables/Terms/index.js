@@ -61,7 +61,7 @@ export default {
   },
   StreamDeck: {
     title: `Stream Deck`,
-    description: `Manage your Streamer.bot buttons from your StreamDeck.`,
+    description: `Manage your Streamer.bot Stream Deck buttons.`,
     tags: [`Integrations`, `Remote Control`],
     image: `https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2de874ee-0fa4-4ba4-bda6-45d335b504c5/dbaxo06-4f6b5105-f590-4975-882e-8daa2267cb9b.png/v1/fill/w_512,h_512/elgato_gamecapture_hd_new_honeycomb_rainmeter_skin_by_theultimateslime_dbaxo06-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvMmRlODc0ZWUtMGZhNC00YmE0LWJkYTYtNDVkMzM1YjUwNGM1XC9kYmF4bzA2LTRmNmI1MTA1LWY1OTAtNDk3NS04ODJlLThkYWEyMjY3Y2I5Yi5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.03FSOtlDBFzKICN891uOV9uMuuv4K6pUovGKuwV3Zj0`,
   },
