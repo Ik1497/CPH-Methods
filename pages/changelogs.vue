@@ -4,8 +4,6 @@ import Prism from '~/plugins/prism';
 const route = useRoute()
 const router = useRouter()
 
-console.log(route, router)
-
 useHead(BuildMeta(
   `Changelogs`,
   `See all the changes and new methods for each Streamer.bot version`
@@ -15,8 +13,6 @@ let methodData = GetMethods()
 let newMethods = []
 let versions = []
 let methodsFormatted = ``
-
-console.log(route.hash != `` ? route.hash.replace(`#`, ``) : ``)
 
 const version = ref(route.hash != `` ? route.hash.replace(`#`, ``) : ``)
 const methods = ref([])

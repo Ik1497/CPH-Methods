@@ -20,9 +20,6 @@ import Discord from './Discord'
 import LumiaStream from './LumiaStream'
 import VoiceMod from './VoiceMod'
 
-console.log(StreamDeck)
-console.log(Discord)
-
 export default {
   // Core
   General,
