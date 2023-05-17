@@ -15,9 +15,13 @@ import StreamLabsDesktop from './StreamLabsDesktop'
 
 // Integrations
 import Speakerbot from './Speakerbot'
+import StreamDeck from './StreamDeck'
 import Discord from './Discord'
 import LumiaStream from './LumiaStream'
 import VoiceMod from './VoiceMod'
+
+console.log(StreamDeck)
+console.log(Discord)
 
 export default {
   // Core
@@ -37,6 +41,7 @@ export default {
 
   // Integrations
   Speakerbot,
+  StreamDeck,
   Discord,
   LumiaStream,
   VoiceMod,
