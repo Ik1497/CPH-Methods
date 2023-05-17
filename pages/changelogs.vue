@@ -1,6 +1,11 @@
 <script setup>
 import Prism from '~/plugins/prism';
 
+const route = useRoute()
+const router = useRouter()
+
+console.log(route, router)
+
 useHead(BuildMeta(
   `Changelogs`,
   `See all the changes and new methods for each Streamer.bot version`
@@ -11,7 +16,9 @@ let newMethods = []
 let versions = []
 let methodsFormatted = ``
 
-const version = ref()
+console.log(route.hash != `` ? route.hash.replace(`#`, ``) : ``)
+
+const version = ref(route.hash != `` ? route.hash.replace(`#`, ``) : ``)
 const methods = ref([])
 const methodsHtml = ref(``)
 const methodsChanged = ref([])
@@ -30,8 +37,6 @@ newMethods.forEach(method => {
   
   if (method.versionChanges != undefined) {
     Object.keys(method.versionChanges).forEach(version => {
-      console.log(method.versionChanges)
-      console.log(version)
       if (!versions.includes(version)) versions.push(version)
     });
   }
@@ -59,17 +64,20 @@ versions = versions.map(item => {
   }
 })
 
-version.value = versions[0].value
-
 onMounted(() => {
   Prism.highlightAll()
 })
 
 watch(version, async (newVersion, oldVersion) => {
+  router.replace({ path: `/changelogs`, hash: `#${version.value}` })
   update()
 })
 
-update()
+if (version.value === ``) {
+  version.value = versions[0].value
+} else {
+  update()
+}
 
 function update() {
   methods.value = []
