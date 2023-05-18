@@ -69,6 +69,11 @@ watch(version, async (newVersion, oldVersion) => {
   update()
 })
 
+if (process.client) window.addEventListener(`hashchange`, () => {
+  version.value = location.hash != `` ? location.hash.replace(`#`, ``) : ``
+  update()
+})
+
 if (version.value === ``) {
   version.value = versions[0].value
 } else {
