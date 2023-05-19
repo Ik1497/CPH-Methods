@@ -1,5 +1,6 @@
 import Methods from "./Methods/index.js"
 import Terms from "./Terms/index.js"
+import ConvertDatatype from "./ConvertDatatype.js"
 
 export default function () {
   const formattedMethods = {}

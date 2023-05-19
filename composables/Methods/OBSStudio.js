@@ -441,6 +441,7 @@ export default {
     description: `Check if an OBS Studio scene filter is enabled.`,
     tags: [`Filters`],
     return: `bool`,
+    error: `Currently due to a bug this will only return false, use the OBS Raw C# Method instead.`,
     fields: [
       {
         datatype: `string`,
@@ -463,6 +464,7 @@ export default {
     description: `Check if an OBS Studio source filter is enabled.`,
     tags: [`Filters`],
     return: `bool`,
+    error: `Currently due to a bug this will only return false, use the OBS Raw C# Method instead.`,
     fields: [
       {
         datatype: `string`,

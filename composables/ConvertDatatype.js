@@ -11,6 +11,8 @@ export default function (datatype, text) {
       return text
     case `float`:
       return `${text}f`
+    case `int`:
+      return `${parseInt(text)}`
     default:
       return text
   }
