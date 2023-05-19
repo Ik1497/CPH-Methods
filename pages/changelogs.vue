@@ -27,7 +27,7 @@ Object.entries(methodData).forEach(([methodCategoryId, methodCategoryData]) => {
 });
 
 newMethods.forEach(method => {
-  if (method.version != undefined && !versions.includes(method.version)) {
+  if (method.version != undefined && !versions.includes(method.version) && method.version != `N/A`) {
     versions.push(method.version)
   }
   

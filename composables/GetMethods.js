@@ -25,6 +25,7 @@ export default function () {
         category: method[0],
         categoryName: formattedMethods[method[0]].title,
         path: `/${method[0]}/${methodName[0]}`,
+        version: formattedMethods[method[0]].version || `N/A`,
         formatted: {
           CPH: ``,
           CSharp: ``
