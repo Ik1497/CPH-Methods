@@ -2,7 +2,12 @@ export default function () {
   return [
     `string`,
     `int`,
-    `bool`,
+    `double`,
     `float`,
+    `void`,
+    `bool`,
+    `object`,
+    `DateTime`,
+    `TimeSpan`,
   ]
 }

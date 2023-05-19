@@ -21,6 +21,8 @@ methodList.forEach(method => {
   methods.push(method.formatted.CSharp)
 });
 
+console.log(methodList)
+
 methodsFormatted = methods.join(`\n`)
 
 onMounted(() => {

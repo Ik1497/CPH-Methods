@@ -37,14 +37,17 @@ export default function () {
       if (Terms[method[0]]?.image != undefined) methodData[methodName[0]].image = Terms[method[0]]?.image
       if (Terms[method[0]]?.icon != undefined) methodData[methodName[0]].icon = Terms[method[0]]?.icon
 
-      let fields = methodData[methodName[0]].fields.map((field) => {
-        return `${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`
-      })
-      
-      fields = fields.join(`, `)
+      methodData[methodName[0]].formatted.CPH = `CPH.${methodData[methodName[0]].method}(${methodData[methodName[0]].fields.map(field => {
+        return ConvertDatatype(field.name)
+      }).join(`,`)});`
 
-      methodData[methodName[0]].formatted.CSharp = `${methodData[methodName[0]].return} ${methodData[methodName[0]].method}(${fields});`
-      methodData[methodName[0]].formatted.CPH = `CPH.${methodData[methodName[0]].method}(${fields});`
+      if (methodData[methodName[0]].type === `property`) {
+        methodData[methodName[0]].formatted.CSharp = `${methodData[methodName[0]].return} ${methodData[methodName[0]].method};`
+      } else {
+        methodData[methodName[0]].formatted.CSharp = `${methodData[methodName[0]].return} ${methodData[methodName[0]].method}${methodData[methodName[0]].return === `T` ? `<T>` : ``}(${methodData[methodName[0]].fields.map((field) => {
+          return `${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field?.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`
+        }).join(`, `)});`
+      }
     });
 
     let methodsArray = Object.entries(methodData)

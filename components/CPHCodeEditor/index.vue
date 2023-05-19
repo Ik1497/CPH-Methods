@@ -13,6 +13,14 @@ const editMode = ref(process.client ? localStorage.getItem(`StreambotCPHMethods_
 const editData = ref([])
 const editContent = ref(``)
 const editHtml = ref(``)
+const returnType = ref({
+  fieldData: {
+    datatype: `string`,
+    name: `Type`,
+    suggestedItems: GetTypes()
+  },
+  value: `T`
+})
 
 if (route.query.view === `edit`) editMode.value = true
 if (route.query.view === `preview`) editMode.value = false
@@ -22,32 +30,31 @@ if (route.query.view === `preview`) editMode.value = false
 method.fields.forEach((field, fieldIndex) => {
   editData.value[fieldIndex] = {
     fieldData: {...field},
-    value: ``,
+    value: {
+      value: `T`,
+      enabled: true
+    },
   }
 });
 
 editContent.value = convertDataToCPH()
 editHtml.value = convertToCode(convertDataToCPH())
 
-watch(editData.value, async (newValue, oldValue) => {
+watch(editData.value, async () => update())
+watch(returnType.value, async () => update())
+
+function update() {
   editContent.value = convertDataToCPH()
   editHtml.value = convertToCode(convertDataToCPH())
+  console.log(returnType)
 
   Prism.highlightAll()
-})
+}
 
 // Helper
 
 function convertMethodToCPHTemplate() {
-  if (method.type === `property`) return `${method.return} ${method.method};`
-
-  let fields = []
-
-  method.fields.forEach(field => {
-    fields.push(`${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field?.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`)
-  });
-
-  return `${method.return} ${method.method}(${fields.join(`, `)});`
+  return method.formatted.CSharp
 }
 
 function convertDataToCPH() {
@@ -72,7 +79,7 @@ function convertDataToCPH() {
     fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value.value === `` ? `null` : editField.value.value))
   });
 
-  return `CPH.${method.method}(${fields.join(`, `)});`
+  return `CPH.${method.method}${method.return === `T` ? `<${returnType.value.value.value}>` : ``}(${fields.join(`, `)});`
 }
 
 function clipboardClick() {
@@ -171,10 +178,14 @@ onMounted(() => {
 
       <CPHCodeEditorAlertBox :method="method" />
 
-      <div v-if="editData.length > 0" class="code-fields">
-        <div v-for="(editField, editFieldIndex) in editData" style="padding-inline: 1rem; padding-bottom: .5rem;">
-          <DataType :field="editField" v-model="editData[editFieldIndex].value" :default="editField.fieldData.default != undefined ? editField.fieldData.default : ``" />
-        </div>
+      <div class="code-fields">
+        <DataType v-if="method.return === `T`" :field="returnType" v-model="returnType.value" default="T" />
+
+        <template v-if="editData.length > 0">
+          <div v-for="(editField, editFieldIndex) in editData" style="padding-bottom: .5rem;">
+            <DataType :field="editField" v-model="editData[editFieldIndex].value" :default="editField.fieldData.default != undefined ? editField.fieldData.default : ``" />
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -221,6 +232,7 @@ onMounted(() => {
     
     .code-fields {
       padding-top: 1.5rem;
+      padding-inline: 1rem;
       border-top: $border;
     }
   }
