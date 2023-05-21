@@ -2,6 +2,12 @@
 const route = useRoute()
 const router = useRouter()
 
+let admin = false
+
+if (process.client) {
+  if (localStorage.getItem(`CPH_METHODS_GITHUB_AUTH_KEY`) != null) admin = true
+}
+
 let prevRoute = ref(``)
 
 handleRoute(route)
@@ -74,14 +80,6 @@ if (process.client) {
             }"
             >CPH Methods Builder</span
           >
-          <v-chip
-            label
-            variant="tonal"
-            size="x-small"
-            color="primary"
-            class="mb-1 ml-2"
-            >RC</v-chip
-          >
         </p>
       </div>
 
@@ -104,6 +102,15 @@ if (process.client) {
       <v-btn v-if="route.path != `/about`" icon to="/about" size="small">
         <v-icon>mdi-information-outline</v-icon>
         <v-tooltip activator="parent" location="bottom">About</v-tooltip>
+      </v-btn>
+
+      <v-btn
+        v-if="route.path != `/admin` && admin"
+        icon
+        to="/admin"
+        size="small">
+        <v-icon>mdi-security</v-icon>
+        <v-tooltip activator="parent" location="bottom">Admin</v-tooltip>
       </v-btn>
     </v-app-bar>
 

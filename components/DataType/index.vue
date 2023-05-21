@@ -1,10 +1,15 @@
 <script setup>
-const props = defineProps([`field`, `model-value`, `default`, `autofocus`])
+const {field, modelValue, defaultValue, autofocus} = defineProps([
+  `field`,
+  `model-value`,
+  `default`,
+  `autofocus`,
+])
 
 const emits = defineEmits([`update:modelValue`])
 
 const checkbox = ref(true)
-const value = ref(props.default ?? ``)
+const value = ref(defaultValue ?? ``)
 
 const data = computed(() => {
   return {
@@ -37,116 +42,131 @@ function validateInt(e) {
 </script>
 
 <template>
-  <div style="display: flex; gap: 1rem; width: 100%">
-    <div v-if="props.field.fieldData.default != undefined">
-      <v-checkbox v-model="checkbox">
-        <v-tooltip activator="parent" location="top">{{
-          checkbox ? `Remove this option` : `Bring this option back`
-        }}</v-tooltip>
-      </v-checkbox>
-    </div>
-
-    <div
-      :style="{
-        width: `100%`,
-        opacity: `${checkbox ? `100%` : `40%`}`,
-      }">
-      <!-- Special Types -->
-
-      <DataTypeList
-        v-if="props.field.fieldData.datatype.match(/List<([\S\s]*?)>/g)"
-        :field="{
-          ...props.field.fieldData,
-          datatype: props.field.fieldData.datatype.replace(
-            /List<([\S\s]*?)>/g,
-            `$1`
-          ),
-        }"
-        v-model="value" />
-
-      <DataTypeTimeSpan
-        v-else-if="props.field.fieldData.datatype === `TimeSpan`"
-        :field="{
-          ...props.field.fieldData,
-          datatype: props.field.fieldData.datatype.replace(
-            /List<([\S\s]*?)>/g,
-            `$1`
-          ),
-        }"
-        v-model="value" />
-
-      <DataTypeDateTime
-        v-else-if="props.field.fieldData.datatype === `DateTime`"
-        :field="{
-          ...props.field.fieldData,
-          datatype: props.field.fieldData.datatype.replace(
-            /List<([\S\s]*?)>/g,
-            `$1`
-          ),
-        }"
-        v-model="value" />
-
-      <!-- Special Options -->
-      <v-combobox
-        v-else-if="props.field.fieldData.suggestedItems != undefined"
-        v-model="value"
-        clearable
-        :label="props.field.fieldData.name"
-        :items="props.field.fieldData.suggestedItems"
-        :autofocus="props.autofocus"></v-combobox>
-
-      <!-- Default Types -->
-      <v-text-field
-        v-else-if="props.field.fieldData.datatype === `string`"
-        clearable
-        :label="props.field.fieldData.name"
-        :autofocus="props.autofocus"
-        v-model="value"></v-text-field>
-
-      <v-text-field
-        v-if="props.field.fieldData.datatype === `object`"
-        clearable
-        hint='insert any type, make sure to include "" with strings'
-        :label="props.field.fieldData.name"
-        :autofocus="props.autofocus"
-        v-model="value"></v-text-field>
-
-      <v-text-field
-        v-else-if="props.field.fieldData.datatype === `int`"
-        clearable
-        type="number"
-        inputmode="numeric"
-        :label="props.field.fieldData.name"
-        :autofocus="props.autofocus"
-        :rules="[validateInt]"
-        v-model="value"></v-text-field>
-
-      <v-text-field
-        v-else-if="
-          props.field.fieldData.datatype === `byte[]` ||
-          props.field.fieldData.datatype === `float` ||
-          props.field.fieldData.datatype === `double` ||
-          props.field.fieldData.datatype === `decimal`
-        "
-        type="number"
-        :label="props.field.fieldData.name"
-        :autofocus="props.autofocus"
-        clearable
-        v-model="value"></v-text-field>
-
-      <v-select
-        v-else-if="props.field.fieldData.datatype === `bool`"
-        :label="props.field.fieldData.name"
-        :items="
-          props.field.fieldData.nullable
-            ? [`null`, `true`, `false`]
-            : [`true`, `false`]
-        "
-        :autofocus="props.autofocus"
-        clearable
-        v-model="value"></v-select>
-    </div>
-  </div>
+  <v-hover>
+    <template v-slot:default="{isHovering, props}">
+      <div
+        v-bind="props"
+        :style="{
+          position: `relative`,
+          display: `flex`,
+          gap: `1rem`,
+          width: `100%`,
+        }">
+        <TransitionSlideFromTop>
+          <div
+            v-if="isHovering"
+            :style="{
+              position: `absolute`,
+              top: `.5rem`,
+              right: `.5rem`,
+              color: `#555`,
+              fontFamily: `Poppins`,
+              fontSize: `0.9rem`,
+            }">
+            {{ field.fieldData.datatype }}
+          </div>
+        </TransitionSlideFromTop>
+        <div v-if="field.fieldData.default != undefined">
+          <v-checkbox v-model="checkbox">
+            <v-tooltip activator="parent" location="top">{{
+              checkbox ? `Remove this option` : `Bring this option back`
+            }}</v-tooltip>
+          </v-checkbox>
+        </div>
+        <div
+          :style="{
+            width: `100%`,
+            opacity: `${checkbox ? `100%` : `40%`}`,
+          }">
+          <!-- Special Types -->
+          <DataTypeList
+            v-if="field.fieldData.datatype.match(/List<([\S\s]*?)>/g)"
+            :field="{
+              ...field.fieldData,
+              datatype: field.fieldData.datatype.replace(
+                /List<([\S\s]*?)>/g,
+                `$1`
+              ),
+            }"
+            v-model="value" />
+          <DataTypeTimeSpan
+            v-else-if="field.fieldData.datatype === `TimeSpan`"
+            :field="{
+              ...field.fieldData,
+              datatype: field.fieldData.datatype.replace(
+                /List<([\S\s]*?)>/g,
+                `$1`
+              ),
+            }"
+            v-model="value" />
+          <DataTypeDateTime
+            v-else-if="field.fieldData.datatype === `DateTime`"
+            :field="{
+              ...field.fieldData,
+              datatype: field.fieldData.datatype.replace(
+                /List<([\S\s]*?)>/g,
+                `$1`
+              ),
+            }"
+            v-model="value" />
+          <!-- Special Options -->
+          <v-combobox
+            v-else-if="field.fieldData.suggestedItems != undefined"
+            v-model="value"
+            clearable
+            :label="field.fieldData.name"
+            :items="field.fieldData.suggestedItems"
+            :autofocus="autofocus"></v-combobox>
+          <!-- Default Types -->
+          <v-text-field
+            v-else-if="field.fieldData.datatype === `string`"
+            clearable
+            :label="field.fieldData.name"
+            :autofocus="autofocus"
+            v-model="value"></v-text-field>
+          <v-text-field
+            v-if="field.fieldData.datatype === `object`"
+            clearable
+            hint='insert any type, make sure to include "" with strings'
+            :label="field.fieldData.name"
+            :autofocus="autofocus"
+            v-model="value"></v-text-field>
+          <v-text-field
+            v-else-if="field.fieldData.datatype === `int`"
+            clearable
+            type="number"
+            inputmode="numeric"
+            :label="field.fieldData.name"
+            :autofocus="autofocus"
+            :rules="[validateInt]"
+            v-model="value"></v-text-field>
+          <v-text-field
+            v-else-if="
+              field.fieldData.datatype === `byte[]` ||
+              field.fieldData.datatype === `float` ||
+              field.fieldData.datatype === `double` ||
+              field.fieldData.datatype === `decimal`
+            "
+            type="number"
+            :label="field.fieldData.name"
+            :autofocus="autofocus"
+            clearable
+            v-model="value"></v-text-field>
+          <v-select
+            v-else-if="field.fieldData.datatype === `bool`"
+            :label="field.fieldData.name"
+            :items="
+              field.fieldData.nullable
+                ? [`null`, `true`, `false`]
+                : [`true`, `false`]
+            "
+            :autofocus="autofocus"
+            clearable
+            v-model="value"></v-select>
+        </div>
+      </div>
+    </template>
+  </v-hover>
 </template>
 
 <style scoped lang="scss"></style>

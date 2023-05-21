@@ -48,8 +48,6 @@ Object.entries(methodsData).forEach((methodData) => {
     path: `/admin/method/${methodData[0]}`,
   }
 
-  console.log(methodData[1])
-
   methods.push(data)
 })
 
@@ -71,8 +69,6 @@ async function createNew() {
       content: btoa(fileTemplate),
     })
   )
-  console.log(file)
-
   createNewFileName.value = ``
 }
 

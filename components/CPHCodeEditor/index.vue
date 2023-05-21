@@ -50,7 +50,6 @@ watch(returnType.value, async () => update())
 function update() {
   editContent.value = convertDataToCPH()
   editHtml.value = convertToCode(convertDataToCPH())
-  console.log(returnType)
 
   Prism.highlightAll()
 }
