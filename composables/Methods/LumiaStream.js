@@ -1,7 +1,7 @@
 export default {
   LumiaSetToDefault: {
     title: `Set to default`,
-    description: `Set your lights to default.`,
+    description: `Set your lights to default Lumia Stream configuration.`,
     version: `0.1.14`,
     tags: [`Lights`],
     return: `void`,
