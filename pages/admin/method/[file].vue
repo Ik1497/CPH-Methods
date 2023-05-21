@@ -31,7 +31,6 @@ function change() {
 }
 
 function commit() {
-  console.log(`Committing`)
   if (process.client) {
     setTimeout(async () => {
       const editor = document.querySelector(`[data-file-editor]`)

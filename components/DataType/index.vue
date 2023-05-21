@@ -42,7 +42,7 @@ function validateInt(e) {
 </script>
 
 <template>
-  <v-hover>
+  <v-hover close-delay="500">
     <template v-slot:default="{isHovering, props}">
       <div
         v-bind="props"
@@ -52,7 +52,7 @@ function validateInt(e) {
           gap: `1rem`,
           width: `100%`,
         }">
-        <TransitionSlideFromTop>
+        <Transition>
           <div
             v-if="isHovering"
             :style="{
@@ -65,7 +65,7 @@ function validateInt(e) {
             }">
             {{ field.fieldData.datatype }}
           </div>
-        </TransitionSlideFromTop>
+        </Transition>
         <div v-if="field.fieldData.default != undefined">
           <v-checkbox v-model="checkbox">
             <v-tooltip activator="parent" location="top">{{

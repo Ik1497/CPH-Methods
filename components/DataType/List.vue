@@ -82,7 +82,6 @@ function keydown(e) {
           :autofocus="
             `${itemIndex}` === `${value.length - 1}` && value.length != 1
           "
-          @keydown="keydown"
           v-model="value[itemIndex]"
           :field="{
             fieldData: {
