@@ -37,6 +37,7 @@ function handleSearch(searchTerm) {
     cards.value = []
 
     props.cards.forEach((card) => {
+      console.log(card)
       if (
         searchText(card.title).includes(searchTerm) ||
         searchText(card.description).includes(searchTerm) ||

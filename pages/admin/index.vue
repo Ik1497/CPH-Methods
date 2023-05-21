@@ -1,24 +1,57 @@
 <script setup>
+// Page
 useHead(BuildMeta(`CPH Methods Admin`, `Manage the CPH Methods`))
 
+// Vars
+const createNewFileName = ref(``)
+const connectApiKeyText = ref(``)
+const user = ref({
+  avatar_url: `https://avatars.githubusercontent.com/u/93563568?v=4`,
+  name: `User`,
+})
+
+if (process.client) window.$user = user.value
+
+// Main
+
 const methodsData = GetMethods()
-let methods = []
+let methods = [
+  {
+    title: `Methods`,
+    description: `Change the methods that are public.`,
+    tags: [`Core`, `Methods`],
+    icon: `mdi-language-csharp`,
+    path: `/admin/methods`,
+    category: `Methods`,
+    method: {
+      icon: `mdi-language-csharp`,
+    },
+  },
+  {
+    title: `Terms`,
+    description: `Edit the terms.`,
+    tags: [`Core`, `Terms`],
+    icon: `mdi-console-line`,
+    path: `/admin/terms`,
+    category: `Methods`,
+    method: {
+      icon: `mdi-console-line`,
+    },
+  },
+]
 
 Object.entries(methodsData).forEach((methodData) => {
   let data = {
     ...methodData[1],
-    subtitle: `Reference for all ${methodData[1].title} CPH Methods Admin`,
+    subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
     method: methodData[1],
-    path: `/admin/${methodData[0]}`,
+    path: `/admin/method/${methodData[0]}`,
   }
 
   console.log(methodData[1])
 
   methods.push(data)
 })
-
-const createNewFileName = ref(``)
-const connectApiKeyText = ref(``)
 
 if (process.client) {
   connectApiKeyText.value =
@@ -43,13 +76,27 @@ async function createNew() {
   createNewFileName.value = ``
 }
 
+async function getUser() {
+  let userData = await GitFetch(`/user`, `GET`)
+  if (process.client) {
+    window.$user = userData
+    user.value = userData
+  }
+}
+
+getUser()
+
 function connectApiKey() {
   localStorage.setItem(`CPH_METHODS_GITHUB_AUTH_KEY`, connectApiKeyText.value)
 }
 </script>
 
 <template lang="pug">
-LinksPageHeader(hide-cards-view title="CPH Methods Admin" description="Manage the CPH Methods" :method="{icon: `mdi-security`}")
+LinksPageHeader(title="CPH Methods Admin" description="Manage the CPH Methods" :method="{icon: `mdi-security`}")
+  template(#append-inner)
+    div(:style="{display: `flex`, gap: `1rem`, alignItems: `center`, justifyContent: `center`}")
+      p(:style="{fontSize: `1.5rem`, fontFamily: `Poppins`}") {{ user.name }}
+      img(:src="user.avatar_url" :style="{width: `4rem`, borderRadius: `50%`}")
 
 CardGrid(:key="client" cards-view="compact-list" :cards="methods")
 
