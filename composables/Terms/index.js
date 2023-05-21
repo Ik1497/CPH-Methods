@@ -1,7 +1,7 @@
 export default {
   General: {
     title: `General`,
-    description: `Interaction with all things solely related to the application.`,
+    description: `Interaction with the core application.`,
     tags: [`Core`, `Misc`],
     icon: `mdi-application-brackets`,
   },
