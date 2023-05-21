@@ -43,7 +43,7 @@ export default {
   },
   OBSStudio: {
     title: `OBS Studio`,
-    description: `Take your OBS to the next level.`,
+    description: `Take your OBS Studio to the next level.`,
     tags: [`Stream Apps`, `Broadcasting Software`],
     image: `https://streamer.bot/img/integrations/obs.svg`,
   },
