@@ -1,8 +1,5 @@
 <script setup>
-const props = defineProps([
-  `cards-view`,
-  `cards`
-])
+const props = defineProps([`cards-view`, `cards`])
 
 const cards = ref([])
 
@@ -12,11 +9,11 @@ const style = {
     gridTemplateColumns: `1fr 1fr`,
     gap: `.5rem`,
   },
-  'compact-list': {
+  "compact-list": {
     display: `flex`,
     flexDirection: `column`,
     gap: `.5rem`,
-  }
+  },
 }
 
 const search = ref(``)
@@ -34,29 +31,27 @@ onMounted(() => {
 function handleSearch(searchTerm) {
   if (process.client) {
     if (searchTerm === null) searchTerm = ``
-  
+
     searchTerm = searchText(searchTerm)
-  
+
     cards.value = []
-  
-    props.cards.forEach(card => {
+
+    props.cards.forEach((card) => {
       if (
         searchText(card.title).includes(searchTerm) ||
         searchText(card.description).includes(searchTerm) ||
         searchText(card.subtitle).includes(searchTerm)
       ) {
         cards.value.push({
-          ...card
+          ...card,
         })
       }
-    });
+    })
   }
 }
 
 function searchText(text) {
-  return text
-    .toLowerCase()
-    .replaceAll(` `, ``)
+  return text.toLowerCase().replaceAll(` `, ``)
 }
 </script>
 
@@ -66,29 +61,27 @@ function searchText(text) {
     clearable
     label="Search"
     :hint="`${cards.length} ${cards.length === 1 ? `Result` : `Results`}`"
-    v-model="search"
-  ></v-text-field>
+    v-model="search"></v-text-field>
 
-  <br>
+  <br />
 
   <div>
-    <TransitionGroupSlideFromTop :style="{
-      ...style[props.cardsView],
-    }">
+    <TransitionGroupSlideFromTop
+      :style="{
+        ...style[props.cardsView],
+      }">
       <Card
-        v-for="card in cards"
+        v-for="(card, cardIndex) in cards"
+        :key="cardIndex"
         :cards-view="props.cardsView"
         :title="card.title"
         :subtitle="card.subtitle"
         :description="card.description"
         :tags="card.tags"
         :method="card.method"
-        :path="card.path"
-      />
+        :path="card.path" />
     </TransitionGroupSlideFromTop>
   </div>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

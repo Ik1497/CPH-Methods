@@ -1,5 +1,5 @@
 <script setup>
-const { error } = defineProps([`error`])
+const {error} = defineProps([`error`])
 
 const formatted = JSON.stringify(error, null, 2)
 
@@ -11,7 +11,10 @@ onMounted(() => {
 <template>
   <h1>500</h1>
 
-  <Prism v-model="formatted" lang="csharp" style="max-width: calc(100% - 2rem);" />
+  <Prism
+    v-model="formatted"
+    lang="csharp"
+    style="max-width: calc(100% - 2rem)" />
 </template>
 
 <style scoped lang="scss">

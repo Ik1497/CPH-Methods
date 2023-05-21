@@ -1,12 +1,7 @@
 <script setup>
-const { modelValue, lang } = defineProps([
-  `modelValue`,
-  `lang`,
-])
+const {modelValue, lang} = defineProps([`modelValue`, `lang`])
 
-const emits = defineEmits([
-  `update:modelValue`
-])
+const emits = defineEmits([`update:modelValue`])
 
 if (lang === undefined) lang = `csharp`
 
@@ -19,8 +14,9 @@ watch(modelValue, async (newValue, oldValue) => {
 })
 </script>
 
-<template>
-  <pre :class="`language-${lang}`" style="max-width: calc(100% - 2rem);"><code class="language-json">{{ modelValue }}</code></pre>
+<template lang="pug">
+pre(:class="`language-${lang}`" :style="{maxWidth: `calc(100% - 2rem)`}")
+  code(:class="`language-${lang}`") {{ modelValue }}
 </template>
 
 <style scoped lang="scss">

@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
   <TransitionGroup tag="div" name="slide-from-top" class="container">

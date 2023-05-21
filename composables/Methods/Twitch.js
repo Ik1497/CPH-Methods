@@ -167,7 +167,6 @@ export default {
   // Vip //
   /////////
 
-  
   TwitchAddVip: {
     title: `Add vip`,
     description: `Add a vip to your channel.`,
@@ -269,7 +268,7 @@ export default {
   //////////////////
   // Channel Tags //
   //////////////////
-  
+
   TwitchClearChannelTags: {
     title: `Clear channel tags`,
     description: `Clear all the channel tags from your channel.`,
@@ -429,403 +428,403 @@ export default {
   // Channel Rewards //
   /////////////////////
 
-    /////////////////
-    // Get Rewards //
-    /////////////////
+  /////////////////
+  // Get Rewards //
+  /////////////////
 
-    TwitchGetRewards: {
-      title: `Get rewards`,
-      description: `Get a list of all your Twitch rewards.`,
-      version: `0.1.18`,
-      tags: [`Channel Rewards`, `Get Rewards`],
-      return: `List<TwitchReward>`,
-      returnType: `class`,
-      fields: [],
-    },
+  TwitchGetRewards: {
+    title: `Get rewards`,
+    description: `Get a list of all your Twitch rewards.`,
+    version: `0.1.18`,
+    tags: [`Channel Rewards`, `Get Rewards`],
+    return: `List<TwitchReward>`,
+    returnType: `class`,
+    fields: [],
+  },
 
-    //////////////////////
-    // Get Reward Usage //
-    //////////////////////
+  //////////////////////
+  // Get Reward Usage //
+  //////////////////////
 
-    TwitchGetChannelPointsUsedByUserId: {
-      title: `Get channel points used by user id`,
-      description: `Get the amount of channel points used by a user's id.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Get Reward Usage`],
-      return: `long`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userId`,
-        },
-      ],
-    },
-
-    ///////////////////
-    // Reward States //
-    ///////////////////
-
-    DisableReward: {
-      title: `Disable reward`,
-      description: `Disable a Twitch reward.`,
-      tags: [`Channel Rewards`, `Reward States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-      ],
-    },
-    EnableReward: {
-      title: `Enable reward`,
-      description: `Enable a Twitch reward.`,
-      tags: [`Channel Rewards`, `Reward States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-      ],
-    },
-    PauseReward: {
-      title: `Pause reward`,
-      description: `Pause a Twitch reward.`,
-      tags: [`Channel Rewards`, `Reward States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-      ],
-    },
-    UnPauseReward: {
-      title: `Unpause reward`,
-      description: `Unpause a Twitch reward.`,
-      tags: [`Channel Rewards`, `Reward States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-      ],
-    },
-
-    /////////////////////////
-    // Reward Group States //
-    /////////////////////////
-
-    TwitchRewardGroupEnable: {
-      title: `Enable reward group`,
-      description: `Enable a Twitch reward group.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reward Group States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `groupName`,
-        },
-      ],
-    },
-    TwitchRewardGroupDisable: {
-      title: `Disable reward group`,
-      description: `Disable a Twitch reward group.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reward Group States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `groupName`,
-        },
-      ],
-    },
-    TwitchRewardGroupToggleEnable: {
-      title: `Toggle enable reward group`,
-      description: `Toggle enable a Twitch reward group.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reward Group States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `groupName`,
-        },
-      ],
-    },
-    TwitchRewardGroupPause: {
-      title: `Pause reward group`,
-      description: `Pause a Twitch reward group.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reward Group States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `groupName`,
-        },
-      ],
-    },
-    TwitchRewardGroupUnPause: {
-      title: `Unpause reward group`,
-      description: `Unpause a Twitch reward group.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reward Group States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `groupName`,
-        },
-      ],
-    },
-    TwitchRewardGroupTogglePause: {
-      title: `Toggle pause reward group`,
-      description: `Toggle pause a Twitch reward group.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reward Group States`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `groupName`,
-        },
-      ],
-    },
-
-    ////////////////////
-    // Update Rewards //
-    ////////////////////
-
-    UpdateRewardTitle: {
-      title: `Update reward title`,
-      description: `Update the title of a Twitch reward.`,
-      version: `0.1.5`,
-      versionChanges: {
-        '0.1.9': {
-          type: `update`,
-          change: `Return changed from \`void\` to \`bool\``
-        }
+  TwitchGetChannelPointsUsedByUserId: {
+    title: `Get channel points used by user id`,
+    description: `Get the amount of channel points used by a user's id.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Get Reward Usage`],
+    return: `long`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userId`,
       },
-      tags: [`Channel Rewards`, `Update Rewards`],
-      return: `bool`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `string`,
-          name: `title`,
-        },
-      ],
-    },
-    UpdateRewardPrompt: {
-      title: `Update reward prompt`,
-      description: `Update the prompt of a Twitch reward.`,
-      version: `0.1.5`,
-      versionChanges: {
-        '0.1.9': {
-          type: `update`,
-          change: `Return changed from \`void\` to \`bool\``
-        }
+    ],
+  },
+
+  ///////////////////
+  // Reward States //
+  ///////////////////
+
+  DisableReward: {
+    title: `Disable reward`,
+    description: `Disable a Twitch reward.`,
+    tags: [`Channel Rewards`, `Reward States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
       },
-      tags: [`Channel Rewards`, `Update Rewards`],
-      return: `bool`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `string`,
-          name: `prompt`,
-        },
-      ],
-    },
-    UpdateRewardCost: {
-      title: `Update reward cost`,
-      description: `Update the cost of a Twitch reward.`,
-      tags: [`Channel Rewards`, `Update Rewards`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `int`,
-          name: `cost`,
-        },
-        {
-          datatype: `bool`,
-          name: `additive`,
-          default: `null`,
-        },
-      ],
-    },
-    UpdateRewardCooldown: {
-      title: `Update reward cooldown`,
-      description: `Update the cooldown of a Twitch reward.`,
-      tags: [`Channel Rewards`, `Update Rewards`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `int`,
-          name: `cooldown`,
-        },
-        {
-          datatype: `bool`,
-          name: `additive`,
-          default: `null`,
-        },
-      ],
-    },
-    UpdateReward: {
-      title: `Update reward`,
-      description: `Update a Twitch reward.`,
-      version: `0.1.5`,
-      versionChanges: {
-        '0.1.9': {
-          type: `update`,
-          change: `Return changed from \`void\` to \`bool\``
-        }
+    ],
+  },
+  EnableReward: {
+    title: `Enable reward`,
+    description: `Enable a Twitch reward.`,
+    tags: [`Channel Rewards`, `Reward States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
       },
-      tags: [`Channel Rewards`, `Update Rewards`],
-      return: `bool`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `string`,
-          name: `title`,
-          default: `null`,
-        },
-        {
-          datatype: `string`,
-          name: `prompt`,
-          default: `null`,
-        },
-        {
-          datatype: `int`,
-          nullable: true,
-          name: `cost`,
-          default: `null`,
-        },
-      ],
-    },
+    ],
+  },
+  PauseReward: {
+    title: `Pause reward`,
+    description: `Pause a Twitch reward.`,
+    tags: [`Channel Rewards`, `Reward States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+    ],
+  },
+  UnPauseReward: {
+    title: `Unpause reward`,
+    description: `Unpause a Twitch reward.`,
+    tags: [`Channel Rewards`, `Reward States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+    ],
+  },
 
-    ////////////////////
-    // Fulfill/Cancel //
-    ////////////////////
+  /////////////////////////
+  // Reward Group States //
+  /////////////////////////
 
-    TwitchRedemptionFulfill: {
-      title: `Redemption fulfill`,
-      description: `Fulfill a Twitch reward redemption.`,
-      tags: [`Channel Rewards`, `Fulfill/Cancel`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `string`,
-          name: `redemptionId`,
-        },
-      ],
-    },
-    TwitchRedemptionCancel: {
-      title: `Redemption Cancel`,
-      description: `Cancel a Twitch reward redemption.`,
-      tags: [`Channel Rewards`, `Fulfill/Cancel`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `string`,
-          name: `redemptionId`,
-        },
-      ],
-    },
+  TwitchRewardGroupEnable: {
+    title: `Enable reward group`,
+    description: `Enable a Twitch reward group.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reward Group States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  TwitchRewardGroupDisable: {
+    title: `Disable reward group`,
+    description: `Disable a Twitch reward group.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reward Group States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  TwitchRewardGroupToggleEnable: {
+    title: `Toggle enable reward group`,
+    description: `Toggle enable a Twitch reward group.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reward Group States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  TwitchRewardGroupPause: {
+    title: `Pause reward group`,
+    description: `Pause a Twitch reward group.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reward Group States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  TwitchRewardGroupUnPause: {
+    title: `Unpause reward group`,
+    description: `Unpause a Twitch reward group.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reward Group States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
+  TwitchRewardGroupTogglePause: {
+    title: `Toggle pause reward group`,
+    description: `Toggle pause a Twitch reward group.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reward Group States`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `groupName`,
+      },
+    ],
+  },
 
-    ///////////////////////////
-    // Reset Reward Counters //
-    ///////////////////////////
-    
-    TwitchResetRewardCounter: {
-      title: `Reset reward counter`,
-      description: `Reset the counter for a reward.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reset Reward Counters`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-      ],
+  ////////////////////
+  // Update Rewards //
+  ////////////////////
+
+  UpdateRewardTitle: {
+    title: `Update reward title`,
+    description: `Update the title of a Twitch reward.`,
+    version: `0.1.5`,
+    versionChanges: {
+      "0.1.9": {
+        type: `update`,
+        change: `Return changed from \`void\` to \`bool\``,
+      },
     },
-    TwitchResetRewardUserCounters: {
-      title: `Reset reward user counters`,
-      description: `Reset the user counter for a reward.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reset Reward Counters`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-      ],
+    tags: [`Channel Rewards`, `Update Rewards`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `title`,
+      },
+    ],
+  },
+  UpdateRewardPrompt: {
+    title: `Update reward prompt`,
+    description: `Update the prompt of a Twitch reward.`,
+    version: `0.1.5`,
+    versionChanges: {
+      "0.1.9": {
+        type: `update`,
+        change: `Return changed from \`void\` to \`bool\``,
+      },
     },
-    TwitchResetUserRewardCounters: {
-      title: `Reset user reward counters`,
-      description: `Reset the counter on all rewards for a user.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reset Reward Counters`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userId`,
-        },
-        {
-          datatype: `bool`,
-          name: `persisted`,
-        },
-      ],
+    tags: [`Channel Rewards`, `Update Rewards`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `prompt`,
+      },
+    ],
+  },
+  UpdateRewardCost: {
+    title: `Update reward cost`,
+    description: `Update the cost of a Twitch reward.`,
+    tags: [`Channel Rewards`, `Update Rewards`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `int`,
+        name: `cost`,
+      },
+      {
+        datatype: `bool`,
+        name: `additive`,
+        default: `null`,
+      },
+    ],
+  },
+  UpdateRewardCooldown: {
+    title: `Update reward cooldown`,
+    description: `Update the cooldown of a Twitch reward.`,
+    tags: [`Channel Rewards`, `Update Rewards`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `int`,
+        name: `cooldown`,
+      },
+      {
+        datatype: `bool`,
+        name: `additive`,
+        default: `null`,
+      },
+    ],
+  },
+  UpdateReward: {
+    title: `Update reward`,
+    description: `Update a Twitch reward.`,
+    version: `0.1.5`,
+    versionChanges: {
+      "0.1.9": {
+        type: `update`,
+        change: `Return changed from \`void\` to \`bool\``,
+      },
     },
-    TwitchResetUserRewardCounter: {
-      title: `Reset user reward counter`,
-      description: `Reset the counter on a reward for a user.`,
-      version: `0.1.17`,
-      tags: [`Channel Rewards`, `Reset Reward Counters`],
-      return: `void`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `rewardId`,
-        },
-        {
-          datatype: `string`,
-          name: `userId`,
-        },
-      ],
-    },
+    tags: [`Channel Rewards`, `Update Rewards`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `title`,
+        default: `null`,
+      },
+      {
+        datatype: `string`,
+        name: `prompt`,
+        default: `null`,
+      },
+      {
+        datatype: `int`,
+        nullable: true,
+        name: `cost`,
+        default: `null`,
+      },
+    ],
+  },
+
+  ////////////////////
+  // Fulfill/Cancel //
+  ////////////////////
+
+  TwitchRedemptionFulfill: {
+    title: `Redemption fulfill`,
+    description: `Fulfill a Twitch reward redemption.`,
+    tags: [`Channel Rewards`, `Fulfill/Cancel`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `redemptionId`,
+      },
+    ],
+  },
+  TwitchRedemptionCancel: {
+    title: `Redemption Cancel`,
+    description: `Cancel a Twitch reward redemption.`,
+    tags: [`Channel Rewards`, `Fulfill/Cancel`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `redemptionId`,
+      },
+    ],
+  },
+
+  ///////////////////////////
+  // Reset Reward Counters //
+  ///////////////////////////
+
+  TwitchResetRewardCounter: {
+    title: `Reset reward counter`,
+    description: `Reset the counter for a reward.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reset Reward Counters`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+    ],
+  },
+  TwitchResetRewardUserCounters: {
+    title: `Reset reward user counters`,
+    description: `Reset the user counter for a reward.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reset Reward Counters`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+    ],
+  },
+  TwitchResetUserRewardCounters: {
+    title: `Reset user reward counters`,
+    description: `Reset the counter on all rewards for a user.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reset Reward Counters`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userId`,
+      },
+      {
+        datatype: `bool`,
+        name: `persisted`,
+      },
+    ],
+  },
+  TwitchResetUserRewardCounter: {
+    title: `Reset user reward counter`,
+    description: `Reset the counter on a reward for a user.`,
+    version: `0.1.17`,
+    tags: [`Channel Rewards`, `Reset Reward Counters`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `userId`,
+      },
+    ],
+  },
 
   ///////////
   // Polls //
@@ -894,10 +893,10 @@ export default {
     description: `Create a Twitch prediction on your channel.`,
     version: `0.1.4`,
     versionChanges: {
-      '0.1.9': {
+      "0.1.9": {
         type: `update`,
-        change: `Changed the options from 2 fields to a List<string>`
-      }
+        change: `Changed the options from 2 fields to a List<string>`,
+      },
     },
     tags: [`Predictions`],
     return: `string`,
@@ -983,413 +982,412 @@ export default {
   // Clips //
   ///////////
 
-    ///////////////////
-    // Get all clips //
-    ///////////////////
+  ///////////////////
+  // Get all clips //
+  ///////////////////
 
-    GetAllClips: {
-      title: `Get all clips`,
-      description: `Get a list of all created clips.`,
-      version: `0.0.56`,
-      tags: [`Get Clips`, `Get all clips`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [],
-    },
+  GetAllClips: {
+    title: `Get all clips`,
+    description: `Get a list of all created clips.`,
+    version: `0.0.56`,
+    tags: [`Get Clips`, `Get all clips`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [],
+  },
 
-    /////////////////////////////
-    // Get clips for user name //
-    /////////////////////////////
+  /////////////////////////////
+  // Get clips for user name //
+  /////////////////////////////
 
-    GetClipsForUserName: {
-      method: `GetClipsForUser`,
-      title: `Get clips for username`,
-      description: `Get a list of all created clips for a username.`,
-      version: `0.0.56`,
-      tags: [`Get Clips`, `Get clips for username`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `username`,
-        },
-      ],
-    },
-    GetClipsForUserNameWithCount: {
-      method: `GetClipsForUser`,
-      title: `Get clips for username with count`,
-      description: `Get a list of all created clips for a username.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for username`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userName`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
-    GetClipsForUserNameWithDateTime: {
-      method: `GetClipsForUser`,
-      title: `Get clips for username with date time`,
-      description: `Get a list of all created clips for a username.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for username`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userName`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `start`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `end`,
-        },
-      ],
-    },
-    GetClipsForUserNameWithDateTimeAndCount: {
-      method: `GetClipsForUser`,
-      title: `Get clips for username with date time and count`,
-      description: `Get a list of all created clips for a username.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for username`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userName`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `start`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `end`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
-    GetClipsForUserNameWithTimespan: {
-      method: `GetClipsForUser`,
-      title: `Get clips for username with timespan`,
-      description: `Get a list of all created clips for a username.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for username`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userName`,
-        },
-        {
-          datatype: `TimeSpan`,
-          name: `duration`,
-        },
-      ],
-    },
-    GetClipsForUserNameWithTimespanAndCount: {
-      method: `GetClipsForUser`,
-      title: `Get clips for username with timespan and count`,
-      description: `Get a list of all created clips for a username.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for username`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `string`,
-          name: `userName`,
-        },
-        {
-          datatype: `TimeSpan`,
-          name: `duration`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
+  GetClipsForUserName: {
+    method: `GetClipsForUser`,
+    title: `Get clips for username`,
+    description: `Get a list of all created clips for a username.`,
+    version: `0.0.56`,
+    tags: [`Get Clips`, `Get clips for username`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `username`,
+      },
+    ],
+  },
+  GetClipsForUserNameWithCount: {
+    method: `GetClipsForUser`,
+    title: `Get clips for username with count`,
+    description: `Get a list of all created clips for a username.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for username`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userName`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
+  GetClipsForUserNameWithDateTime: {
+    method: `GetClipsForUser`,
+    title: `Get clips for username with date time`,
+    description: `Get a list of all created clips for a username.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for username`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userName`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `start`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `end`,
+      },
+    ],
+  },
+  GetClipsForUserNameWithDateTimeAndCount: {
+    method: `GetClipsForUser`,
+    title: `Get clips for username with date time and count`,
+    description: `Get a list of all created clips for a username.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for username`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userName`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `start`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `end`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
+  GetClipsForUserNameWithTimespan: {
+    method: `GetClipsForUser`,
+    title: `Get clips for username with timespan`,
+    description: `Get a list of all created clips for a username.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for username`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userName`,
+      },
+      {
+        datatype: `TimeSpan`,
+        name: `duration`,
+      },
+    ],
+  },
+  GetClipsForUserNameWithTimespanAndCount: {
+    method: `GetClipsForUser`,
+    title: `Get clips for username with timespan and count`,
+    description: `Get a list of all created clips for a username.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for username`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userName`,
+      },
+      {
+        datatype: `TimeSpan`,
+        name: `duration`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
 
-    ///////////////////////////
-    // Get clips for user id //
-    ///////////////////////////
+  ///////////////////////////
+  // Get clips for user id //
+  ///////////////////////////
 
-    GetClipsForUserId: {
-      method: `GetClipsForUser`,
-      title: `Get clips for user id`,
-      description: `Get a list of all created clips for a user id.`,
-      version: `0.0.56`,
-      tags: [`Get Clips`, `Get clips for user id`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `userId`,
-        },
-      ],
-    },
-    GetClipsForUserIdWithCount: {
-      method: `GetClipsForUser`,
-      title: `Get clips for user id with count`,
-      description: `Get a list of all created clips for a user id.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for user id`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `userId`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
-    GetClipsForUserIdWithDateTime: {
-      method: `GetClipsForUser`,
-      title: `Get clips for user id with date time`,
-      description: `Get a list of all created clips for a user id.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for user id`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `userId`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `start`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `end`,
-        },
-      ],
-    },
-    GetClipsForUserIdWithDateTimeAndCount: {
-      method: `GetClipsForUser`,
-      title: `Get clips for user id with date time and count`,
-      description: `Get a list of all created clips for a user id.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for user id`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `userId`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `start`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `end`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
-    GetClipsForUserIdWithTimespan: {
-      method: `GetClipsForUser`,
-      title: `Get clips for user id with timespan`,
-      description: `Get a list of all created clips for a user id.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for user id`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `userId`,
-        },
-        {
-          datatype: `TimeSpan`,
-          name: `duration`,
-        },
-      ],
-    },
-    GetClipsForUserIdWithTimespanAndCount: {
-      method: `GetClipsForUser`,
-      title: `Get clips for user id with timespan and count`,
-      description: `Get a list of all created clips for a user id.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for user id`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `userId`,
-        },
-        {
-          datatype: `TimeSpan`,
-          name: `duration`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
+  GetClipsForUserId: {
+    method: `GetClipsForUser`,
+    title: `Get clips for user id`,
+    description: `Get a list of all created clips for a user id.`,
+    version: `0.0.56`,
+    tags: [`Get Clips`, `Get clips for user id`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+    ],
+  },
+  GetClipsForUserIdWithCount: {
+    method: `GetClipsForUser`,
+    title: `Get clips for user id with count`,
+    description: `Get a list of all created clips for a user id.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for user id`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
+  GetClipsForUserIdWithDateTime: {
+    method: `GetClipsForUser`,
+    title: `Get clips for user id with date time`,
+    description: `Get a list of all created clips for a user id.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for user id`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `start`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `end`,
+      },
+    ],
+  },
+  GetClipsForUserIdWithDateTimeAndCount: {
+    method: `GetClipsForUser`,
+    title: `Get clips for user id with date time and count`,
+    description: `Get a list of all created clips for a user id.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for user id`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `start`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `end`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
+  GetClipsForUserIdWithTimespan: {
+    method: `GetClipsForUser`,
+    title: `Get clips for user id with timespan`,
+    description: `Get a list of all created clips for a user id.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for user id`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+      {
+        datatype: `TimeSpan`,
+        name: `duration`,
+      },
+    ],
+  },
+  GetClipsForUserIdWithTimespanAndCount: {
+    method: `GetClipsForUser`,
+    title: `Get clips for user id with timespan and count`,
+    description: `Get a list of all created clips for a user id.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for user id`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `userId`,
+      },
+      {
+        datatype: `TimeSpan`,
+        name: `duration`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
 
+  ////////////////////////
+  // Get clips for game //
+  ////////////////////////
 
-    ////////////////////////
-    // Get clips for game //
-    ////////////////////////
-
-    GetClipsForGame: {
-      method: `GetClipsForGame`,
-      title: `Get clips for game`,
-      description: `Get a list of all created clips for a game.`,
-      version: `0.0.56`,
-      tags: [`Get Clips`, `Get clips for game`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `gameId`,
-        },
-      ],
-    },
-    GetClipsForGameWithCount: {
-      method: `GetClipsForGame`,
-      title: `Get clips for game with count`,
-      description: `Get a list of all created clips for a game.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for game`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `gameId`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
-    GetClipsForGameWithDateTime: {
-      method: `GetClipsForGame`,
-      title: `Get clips for game with date time`,
-      description: `Get a list of all created clips for a game.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for game`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `gameId`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `start`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `end`,
-        },
-      ],
-    },
-    GetClipsForGameWithDateTimeAndCount: {
-      method: `GetClipsForGame`,
-      title: `Get clips for game with date time and count`,
-      description: `Get a list of all created clips for a game.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for game`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `gameId`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `start`,
-        },
-        {
-          datatype: `DateTime`,
-          name: `end`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
-    GetClipsForGameWithTimespan: {
-      method: `GetClipsForGame`,
-      title: `Get clips for game with timespan`,
-      description: `Get a list of all created clips for a game.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for game`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `gameId`,
-        },
-        {
-          datatype: `TimeSpan`,
-          name: `duration`,
-        },
-      ],
-    },
-    GetClipsForGameWithTimespanAndCount: {
-      method: `GetClipsForGame`,
-      title: `Get clips for game with timespan and count`,
-      description: `Get a list of all created clips for a game.`,
-      version: `0.1.5`,
-      tags: [`Get Clips`, `Get clips for game`],
-      return: `List<ClipData>`,
-      returnType: `class`,
-      fields: [
-        {
-          datatype: `int`,
-          name: `gameId`,
-        },
-        {
-          datatype: `TimeSpan`,
-          name: `duration`,
-        },
-        {
-          datatype: `int`,
-          name: `count`,
-        },
-      ],
-    },
+  GetClipsForGame: {
+    method: `GetClipsForGame`,
+    title: `Get clips for game`,
+    description: `Get a list of all created clips for a game.`,
+    version: `0.0.56`,
+    tags: [`Get Clips`, `Get clips for game`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `gameId`,
+      },
+    ],
+  },
+  GetClipsForGameWithCount: {
+    method: `GetClipsForGame`,
+    title: `Get clips for game with count`,
+    description: `Get a list of all created clips for a game.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for game`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `gameId`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
+  GetClipsForGameWithDateTime: {
+    method: `GetClipsForGame`,
+    title: `Get clips for game with date time`,
+    description: `Get a list of all created clips for a game.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for game`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `gameId`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `start`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `end`,
+      },
+    ],
+  },
+  GetClipsForGameWithDateTimeAndCount: {
+    method: `GetClipsForGame`,
+    title: `Get clips for game with date time and count`,
+    description: `Get a list of all created clips for a game.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for game`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `gameId`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `start`,
+      },
+      {
+        datatype: `DateTime`,
+        name: `end`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
+  GetClipsForGameWithTimespan: {
+    method: `GetClipsForGame`,
+    title: `Get clips for game with timespan`,
+    description: `Get a list of all created clips for a game.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for game`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `gameId`,
+      },
+      {
+        datatype: `TimeSpan`,
+        name: `duration`,
+      },
+    ],
+  },
+  GetClipsForGameWithTimespanAndCount: {
+    method: `GetClipsForGame`,
+    title: `Get clips for game with timespan and count`,
+    description: `Get a list of all created clips for a game.`,
+    version: `0.1.5`,
+    tags: [`Get Clips`, `Get clips for game`],
+    return: `List<ClipData>`,
+    returnType: `class`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `gameId`,
+      },
+      {
+        datatype: `TimeSpan`,
+        name: `duration`,
+      },
+      {
+        datatype: `int`,
+        name: `count`,
+      },
+    ],
+  },
 
   /////////////////
   // Create Clip //
@@ -1524,6 +1522,208 @@ export default {
     fields: [],
   },
 
+  ////////////////
+  // Guest Star //
+  ////////////////
+
+  TwitchUpdateChannelGuestStarSettings: {
+    title: `Start raid by name`,
+    description: `Start a raid by a user name.`,
+    version: `0.1.21`,
+    tags: [`Raids`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `bool`,
+        nullable: true,
+        name: `isModeratorSendLiveEnabled`,
+        default: `null`,
+      },
+      {
+        datatype: `int`,
+        nullable: true,
+        name: `slotCount`,
+        default: `null`,
+      },
+      {
+        datatype: `bool`,
+        nullable: true,
+        name: `isBrowserSourceAudioEnabled`,
+        default: `null`,
+      },
+      {
+        datatype: `string`,
+        name: `groupLayout`,
+        default: `null`,
+      },
+      {
+        datatype: `bool`,
+        nullable: true,
+        name: `regenerateBrowserSource`,
+        default: `null`,
+      },
+    ],
+  },
+  TwitchUpdateGuestStarSlotSettings: {
+    title: `Update guest star slot settings`,
+    description: `Update the guest star slot settings.`,
+    version: `0.1.21`,
+    tags: [`Raids`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `slotId`,
+      },
+      {
+        datatype: `bool`,
+        nullable: true,
+        name: `isAudioEnabled`,
+        default: `null`,
+      },
+      {
+        datatype: `bool`,
+        nullable: true,
+        name: `isVideoEnabled`,
+        default: `null`,
+      },
+      {
+        datatype: `bool`,
+        nullable: true,
+        name: `isLive`,
+        default: `null`,
+      },
+      {
+        datatype: `int`,
+        nullable: true,
+        name: `volume`,
+        default: `null`,
+      },
+    ],
+  },
+  TwitchGetChannelGuestStarSettings: {
+    title: `Get channel guest star settings`,
+    description: `Get the guest star settings off your channel.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `GuestStarSettings`,
+    returnType: `class`,
+    fields: [],
+  },
+  TwitchGetGuestStarSession: {
+    title: `Get guest star session`,
+    description: `Get the current guest star session.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `GuestSession`,
+    returnType: `class`,
+    fields: [],
+  },
+  TwitchCreateGuestStarSession: {
+    title: `Create guest star session`,
+    description: `Create a new guest star session.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `GuestSession`,
+    returnType: `class`,
+    fields: [],
+  },
+  TwitchEndGuestStarSession: {
+    title: `End guest star session`,
+    description: `End the current guest star session.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `GuestSession`,
+    returnType: `class`,
+    fields: [],
+  },
+  TwitchGetGuestStarInvites: {
+    title: `Get guest star invites`,
+    description: `Get all the guest star invites.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `List<GuestStarInvite>`,
+    returnType: `class`,
+    fields: [],
+  },
+  TwitchSendGuestStarInvite: {
+    title: `Send guest star invite`,
+    description: `Send a guest star invite.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userLogin`,
+      },
+    ],
+  },
+  TwitchDeleteGuestStarInvite: {
+    title: `Delete guest star invite`,
+    description: `Delete a guest star invite.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userLogin`,
+      },
+    ],
+  },
+  TwitchAssignGuestStarSlot: {
+    title: `Assign guest star slot`,
+    description: `Assign a guest star slot.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userLogin`,
+      },
+      {
+        datatype: `int`,
+        name: `slot`,
+      },
+    ],
+  },
+  TwitchDeleteGuestStarSlot: {
+    title: `Delete guest star slot`,
+    description: `Delete a guest star slot.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `userLogin`,
+      },
+      {
+        datatype: `int`,
+        name: `slot`,
+      },
+    ],
+  },
+  TwitchUpdateGuestStarSlot: {
+    title: `Update guest star slot`,
+    description: `Update a guest star slot.`,
+    version: `0.1.21`,
+    tags: [`Guest Star`],
+    return: `bool`,
+    fields: [
+      {
+        datatype: `int`,
+        name: `sourceSlot`,
+      },
+      {
+        datatype: `int`,
+        name: `destinationSlot`,
+      },
+    ],
+  },
+
   //////////////////
   // Announcement //
   //////////////////
@@ -1531,7 +1731,7 @@ export default {
   TwitchAnnounce: {
     title: `Announce`,
     description: `Send an announcement to your Twitch chat.`,
-    // version: `0.1.9`,
+    version: `0.1.9`,
     tags: [`Announcement`],
     return: `void`,
     fields: [
@@ -1548,13 +1748,7 @@ export default {
         datatype: `string`,
         name: `color`,
         default: `null`,
-        suggestedItems: [
-          `blue`,
-          `orange`,
-          `green`,
-          `purple`,
-          `null`
-        ]
+        suggestedItems: [`blue`, `orange`, `green`, `purple`, `null`],
       },
     ],
   },

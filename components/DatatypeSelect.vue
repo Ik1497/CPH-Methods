@@ -1,11 +1,7 @@
 <script setup>
-const props = defineProps([
-  `model-value`
-])
+const props = defineProps([`model-value`])
 
-const emits = defineEmits([
-  `update:modelValue`
-])
+const emits = defineEmits([`update:modelValue`])
 
 const types = GetTypes()
 
@@ -17,13 +13,7 @@ watch(datatype, async (newValue, oldValue) => {
 </script>
 
 <template>
-  <v-select
-    label="Datatype"
-    :items="types"
-    v-model="datatype"
-  ></v-select>
+  <v-select label="Datatype" :items="types" v-model="datatype"></v-select>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

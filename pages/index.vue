@@ -4,15 +4,15 @@ useHead(BuildMeta())
 const methodsData = GetMethods()
 let methods = []
 
-Object.entries(methodsData).forEach(methodData => {
+Object.entries(methodsData).forEach((methodData) => {
   let data = {
     ...methodData[1],
     subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
-    method: methodData[1]
+    method: methodData[1],
   }
 
   methods.push(data)
-});
+})
 
 console.log(methods)
 
@@ -25,18 +25,10 @@ function updateLayout(e) {
 }
 </script>
 
-<template>
-  <LinksPageHeader
-    title="CPH Methods"
-    description="See a list of all Streamer.bot CPH Methods"
-    :method="{icon: `mdi-language-csharp`}"
-    :model-value="linksPageHeaderData"
-    @update:modelValue="updateLayout"
-  />
+<template lang="pug">
+LinksPageHeader(title="CPH Methods" description="See a list of all Streamer.bot CPH Methods" :method="{icon: `mdi-language-csharp`}" :model-value="linksPageHeaderData" @update:modelValue="updateLayout")
 
-  <CardGrid :key="client" :cards-view="cardsView" :cards="methods"></CardGrid>
+CardGrid(:key="client" :cards-view="cardsView" :cards="methods")
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

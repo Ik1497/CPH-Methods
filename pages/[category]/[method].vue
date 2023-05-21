@@ -3,8 +3,10 @@ const route = useRoute()
 
 definePageMeta({
   validate: (route) => {
-    return GetMethod(route?.params?.category, route?.params?.method) != undefined
-  }
+    return (
+      GetMethod(route?.params?.category, route?.params?.method) != undefined
+    )
+  },
 })
 
 const method = GetMethod(route?.params?.category, route?.params?.method)
@@ -25,34 +27,44 @@ function isArray(array) {
 </script>
 
 <template>
-  <!-- <OgImageStatic
-    component="CPHMethod"
-    :method="method"
-  /> -->
-
   <LinksPageHeader
     hide-cards-view
     :title="method.title"
     :description="method.description"
-    :method="method"
-  />
-  
-  <CPHCodeEditor
-    :method="method"
-  ></CPHCodeEditor>
+    :method="method" />
 
-  <br>
+  <CPHCodeEditor :method="method"></CPHCodeEditor>
 
-  <template v-for="field in method.fields">
+  <br />
+
+  <template v-for="field in method.fields" :key="field">
     <h2>{{ isArray(field.name) ? field.name.join(` | `) : field.name }}</h2>
     <template v-if="field.information != undefined">
       <p v-html="convertFieldText(field.information)"></p>
-      <br>
+      <br />
     </template>
-    <p>Type: <v-code>{{ isArray(field.datatype) ? field.datatype.join(` | `) : field.datatype }}</v-code></p>
-    <p v-if="field.default != undefined">Default: <v-code>{{ field.default }}</v-code></p>
-    <p v-if="field.suggestedItems != undefined">Suggested: <template v-for="(suggestedItem, suggestedItemIndex) in field.suggestedItems"><v-code>{{ suggestedItem }}</v-code><template v-if="suggestedItemIndex != field.suggestedItems.length - 1">, </template></template></p>
-    <br>
+    <p>
+      Type:
+      <v-code>{{
+        isArray(field.datatype) ? field.datatype.join(` | `) : field.datatype
+      }}</v-code>
+    </p>
+    <p v-if="field.default != undefined">
+      Default: <v-code>{{ field.default }}</v-code>
+    </p>
+    <p v-if="field.nullable === true">Nullable: <v-code>true</v-code></p>
+    <p v-if="field.suggestedItems != undefined">
+      Suggested:
+      <template
+        v-for="(suggestedItem, suggestedItemIndex) in field.suggestedItems"
+        :key="suggestedItemIndex"
+        ><v-code>{{ suggestedItem }}</v-code
+        ><template v-if="suggestedItemIndex != field.suggestedItems.length - 1"
+          >,
+        </template></template
+      >
+    </p>
+    <br />
   </template>
 </template>
 

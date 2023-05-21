@@ -4,30 +4,32 @@ const route = useRoute()
 definePageMeta({
   validate: (route) => {
     return GetMethodsFromCategory(route?.params?.category) != undefined
-  }
+  },
 })
 
 const methodsData = GetMethods()
 const method = methodsData[route?.params?.category]
 let methods = []
 
-useHead(BuildMeta(
-  `${method.title} CPH Methods`,
-  `Reference of all ${method.title} CPH Methods.`,
-  {
-    keywords: method.tags
-  }
-))
+useHead(
+  BuildMeta(
+    `${method.title} CPH Methods`,
+    `Reference of all ${method.title} CPH Methods.`,
+    {
+      keywords: method.tags,
+    }
+  )
+)
 
-Object.entries(method.methods).forEach(methodData => {
+Object.entries(method.methods).forEach((methodData) => {
   let data = {
     ...methodData[1],
     subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
-    method: methodData[1]
+    method: methodData[1],
   }
 
   methods.push(data)
-});
+})
 
 console.log(methods)
 console.log(method)
@@ -47,12 +49,9 @@ function updateLayout(e) {
     :description="method.description"
     :method="Object.entries(method.methods)[0][1]"
     :model-value="linksPageHeaderData"
-    @update:modelValue="updateLayout"
-  />
+    @update:modelValue="updateLayout" />
 
   <CardGrid :cards-view="cardsView" :cards="methods"></CardGrid>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

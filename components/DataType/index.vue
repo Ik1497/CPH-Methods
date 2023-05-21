@@ -1,14 +1,7 @@
 <script setup>
-const props = defineProps([
-  `field`,
-  `model-value`,
-  `default`,
-  `autofocus`
-])
+const props = defineProps([`field`, `model-value`, `default`, `autofocus`])
 
-const emits = defineEmits([
-  `update:modelValue`
-])
+const emits = defineEmits([`update:modelValue`])
 
 const checkbox = ref(true)
 const value = ref(props.default ?? ``)
@@ -16,7 +9,7 @@ const value = ref(props.default ?? ``)
 const data = computed(() => {
   return {
     enabled: checkbox.value,
-    value: value.value
+    value: value.value,
   }
 })
 
@@ -35,10 +28,8 @@ watch(checkbox, async (newValue, oldValue) => {
 function validateInt(e) {
   if (e === `` || e === undefined || e === null) {
     return true
-    
   } else if (!Number.isInteger(parseFloat(e))) {
     return `Value must be an integer`
-    
   } else {
     return true
   }
@@ -46,50 +37,55 @@ function validateInt(e) {
 </script>
 
 <template>
-  <div style="display: flex; gap: 1rem; width: 100%;">
+  <div style="display: flex; gap: 1rem; width: 100%">
     <div v-if="props.field.fieldData.default != undefined">
       <v-checkbox v-model="checkbox">
-        <v-tooltip
-          activator="parent"
-          location="top"
-        >{{ checkbox ? `Remove this option` : `Bring this option back` }}</v-tooltip>
+        <v-tooltip activator="parent" location="top">{{
+          checkbox ? `Remove this option` : `Bring this option back`
+        }}</v-tooltip>
       </v-checkbox>
     </div>
-    
-    <div :style="{
-      width: `100%`,
-      opacity: `${checkbox ? `100%` : `40%`}`,
-    }">
 
+    <div
+      :style="{
+        width: `100%`,
+        opacity: `${checkbox ? `100%` : `40%`}`,
+      }">
       <!-- Special Types -->
-    
+
       <DataTypeList
         v-if="props.field.fieldData.datatype.match(/List<([\S\s]*?)>/g)"
         :field="{
           ...props.field.fieldData,
-          datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)
+          datatype: props.field.fieldData.datatype.replace(
+            /List<([\S\s]*?)>/g,
+            `$1`
+          ),
         }"
-        v-model="value"
-      />
+        v-model="value" />
 
       <DataTypeTimeSpan
         v-else-if="props.field.fieldData.datatype === `TimeSpan`"
         :field="{
           ...props.field.fieldData,
-          datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)
+          datatype: props.field.fieldData.datatype.replace(
+            /List<([\S\s]*?)>/g,
+            `$1`
+          ),
         }"
-        v-model="value"
-      />
+        v-model="value" />
 
       <DataTypeDateTime
         v-else-if="props.field.fieldData.datatype === `DateTime`"
         :field="{
           ...props.field.fieldData,
-          datatype: props.field.fieldData.datatype.replace(/List<([\S\s]*?)>/g, `$1`)
+          datatype: props.field.fieldData.datatype.replace(
+            /List<([\S\s]*?)>/g,
+            `$1`
+          ),
         }"
-        v-model="value"
-      />
-    
+        v-model="value" />
+
       <!-- Special Options -->
       <v-combobox
         v-else-if="props.field.fieldData.suggestedItems != undefined"
@@ -97,8 +93,7 @@ function validateInt(e) {
         clearable
         :label="props.field.fieldData.name"
         :items="props.field.fieldData.suggestedItems"
-        :autofocus="props.autofocus"
-      ></v-combobox>
+        :autofocus="props.autofocus"></v-combobox>
 
       <!-- Default Types -->
       <v-text-field
@@ -106,8 +101,7 @@ function validateInt(e) {
         clearable
         :label="props.field.fieldData.name"
         :autofocus="props.autofocus"
-        v-model="value"
-      ></v-text-field>
+        v-model="value"></v-text-field>
 
       <v-text-field
         v-if="props.field.fieldData.datatype === `object`"
@@ -115,8 +109,7 @@ function validateInt(e) {
         hint='insert any type, make sure to include "" with strings'
         :label="props.field.fieldData.name"
         :autofocus="props.autofocus"
-        v-model="value"
-      ></v-text-field>
+        v-model="value"></v-text-field>
 
       <v-text-field
         v-else-if="props.field.fieldData.datatype === `int`"
@@ -126,30 +119,34 @@ function validateInt(e) {
         :label="props.field.fieldData.name"
         :autofocus="props.autofocus"
         :rules="[validateInt]"
-        v-model="value"
-      ></v-text-field>
+        v-model="value"></v-text-field>
 
       <v-text-field
-        v-else-if="props.field.fieldData.datatype === `byte[]` || props.field.fieldData.datatype === `float` || props.field.fieldData.datatype === `double` || props.field.fieldData.datatype === `decimal`"
+        v-else-if="
+          props.field.fieldData.datatype === `byte[]` ||
+          props.field.fieldData.datatype === `float` ||
+          props.field.fieldData.datatype === `double` ||
+          props.field.fieldData.datatype === `decimal`
+        "
         type="number"
         :label="props.field.fieldData.name"
         :autofocus="props.autofocus"
         clearable
-        v-model="value"
-      ></v-text-field>
+        v-model="value"></v-text-field>
 
       <v-select
         v-else-if="props.field.fieldData.datatype === `bool`"
         :label="props.field.fieldData.name"
-        :items="[`true`, `false`]"
+        :items="
+          props.field.fieldData.nullable
+            ? [`null`, `true`, `false`]
+            : [`true`, `false`]
+        "
         :autofocus="props.autofocus"
         clearable
-        v-model="value"
-      ></v-select>
+        v-model="value"></v-select>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

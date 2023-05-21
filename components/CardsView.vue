@@ -1,27 +1,30 @@
 <script setup>
-const props = defineProps([
-  `model-value`
-])
+const props = defineProps([`model-value`])
 
-const emits = defineEmits([
-  `update:modelValue`
-])
+const emits = defineEmits([`update:modelValue`])
 
-const activeItem = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__cardsView`) || `compact-list` : `compact-list`)
+const activeItem = ref(
+  process.client
+    ? localStorage.getItem(`StreambotCPHMethods__cardsView`) || `compact-list`
+    : `compact-list`
+)
 
 onMounted(() => {
   if (process.client) {
-    emits(`update:modelValue`, localStorage.getItem(`StreambotCPHMethods__cardsView`) || `grid`)
+    emits(
+      `update:modelValue`,
+      localStorage.getItem(`StreambotCPHMethods__cardsView`) || `grid`
+    )
   } else {
     emits(`update:modelValue`, `grid`)
   }
 })
-  
+
 const items = [
   {
     title: `Grid View`,
     value: `grid`,
-    icon: `mdi-view-grid` 
+    icon: `mdi-view-grid`,
   },
   {
     title: `Compact List View`,
@@ -31,7 +34,8 @@ const items = [
 ]
 
 watch(activeItem, async (newValue, oldValue) => {
-  if (process.client) localStorage.setItem(`StreambotCPHMethods__cardsView`, newValue)
+  if (process.client)
+    localStorage.setItem(`StreambotCPHMethods__cardsView`, newValue)
   emits(`update:modelValue`, newValue)
 })
 </script>
@@ -45,17 +49,17 @@ watch(activeItem, async (newValue, oldValue) => {
     item-value="value"
     variant="outlined"
     v-model="activeItem"
-    style="max-width: fit-content; max-height: fit-content;"
-  >
-    <template #prepend-inner="{ props, item }">
-      {{ item?.raw?.icon }}
+    style="max-width: fit-content; max-height: fit-content">
+    <template #prepend-inner="{props, item}">
+      <template v-bind="props">
+        {{ item?.raw?.icon }}
+      </template>
     </template>
-    <template #item="{ props, item }">
+    <template #item="{props, item}">
       <v-list-item
         v-bind="props"
         :prepend-icon="item?.raw?.icon"
-        :title="item?.raw?.title"
-      ></v-list-item>
+        :title="item?.raw?.title"></v-list-item>
     </template>
   </v-select>
 </template>

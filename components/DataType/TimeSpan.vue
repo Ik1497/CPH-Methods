@@ -1,12 +1,7 @@
 <script setup>
-const { field, modelValue } = defineProps([
-  `field`,
-  `model-value`
-])
+const {field, modelValue} = defineProps([`field`, `model-value`])
 
-const emits = defineEmits([
-  `update:modelValue`
-])
+const emits = defineEmits([`update:modelValue`])
 
 let value = ref(``)
 
@@ -21,13 +16,7 @@ watch(value, async (newValue, oldValue) => {
 </script>
 
 <template>
-  <v-text-field
-    clearable
-    :label="field.name"
-    v-model="value"
-  ></v-text-field>
+  <v-text-field clearable :label="field.name" v-model="value"></v-text-field>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

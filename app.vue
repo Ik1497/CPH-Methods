@@ -1,13 +1,8 @@
-<script setup>
+<script setup></script>
 
-</script>
-
-<template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+<template lang="pug">
+NuxtLayout
+  NuxtPage
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -15,13 +15,15 @@ function handleRoute(routeEvent) {
     prevRoute.value = `/`
   } else if (routeEvent.path.split(`/`).length === 2) {
     prevRoute.value = `/`
+  } else if (routeEvent.path.split(`/`)[1] === `admin`) {
+    prevRoute.value = `/admin`
   } else {
     prevRoute.value = `/Methods/${routeEvent.path.split(`/`)[1]}`
   }
 }
 
 if (process.client) {
-  window.addEventListener(`keydown`, e => {
+  window.addEventListener(`keydown`, (e) => {
     if (e.target === document.body) {
       if (e.key === `/`) {
         e.preventDefault()
@@ -42,15 +44,11 @@ if (process.client) {
       density="comfortable"
       elevation="0"
       :style="{
-        borderBottom: `var(--application-border)`
-      }"
-    >
-      <v-btn
-        v-if="route.path != `/`"
-        icon
-        size="small"
-        :to="prevRoute"
-      ><v-icon>mdi-chevron-left</v-icon></v-btn>
+        borderBottom: `var(--application-border)`,
+      }">
+      <v-btn v-if="route.path != `/`" icon size="small" :to="prevRoute"
+        ><v-icon>mdi-chevron-left</v-icon></v-btn
+      >
 
       <div
         :style="{
@@ -61,74 +59,65 @@ if (process.client) {
           display: `flex`,
           alignItems: `center`,
           gap: `.25rem`,
-        }"
-      >
+        }">
         <img
           src="https://streamer.bot/logo-transparent.svg"
           alt="favicon"
           :style="{
             height: `2rem`,
-          }"
-        >
+          }" />
         <p>
           Streamer.bot
           <span
             :style="{
               fontWeight: `500`,
             }"
-          >CPH Methods Builder</span>
-          <v-chip label variant="tonal" size="x-small" color="primary" class="mb-1 ml-2">RC</v-chip>
+            >CPH Methods Builder</span
+          >
+          <v-chip
+            label
+            variant="tonal"
+            size="x-small"
+            color="primary"
+            class="mb-1 ml-2"
+            >RC</v-chip
+          >
         </p>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        v-if="route.path != `/search`"
-        icon
-        to="/search"
-        size="small"
-      >
+      <v-btn v-if="route.path != `/search`" icon to="/search" size="small">
         <v-icon>mdi-magnify</v-icon>
-        <v-tooltip
-          activator="parent"
-          location="bottom"
-        >Search</v-tooltip>
+        <v-tooltip activator="parent" location="bottom">Search</v-tooltip>
       </v-btn>
 
       <v-btn
         v-if="route.path != `/changelogs`"
         icon
         to="/changelogs"
-        size="small"
-      >
+        size="small">
         <v-icon>mdi-fire</v-icon>
-        <v-tooltip
-          activator="parent"
-          location="bottom"
-        >Changelogs</v-tooltip>
+        <v-tooltip activator="parent" location="bottom">Changelogs</v-tooltip>
       </v-btn>
 
-      <v-btn
-        v-if="route.path != `/about`"
-        icon
-        to="/about"
-        size="small"
-      >
+      <v-btn v-if="route.path != `/about`" icon to="/about" size="small">
         <v-icon>mdi-information-outline</v-icon>
-        <v-tooltip
-          activator="parent"
-          location="bottom"
-        >About</v-tooltip>
+        <v-tooltip activator="parent" location="bottom">About</v-tooltip>
       </v-btn>
     </v-app-bar>
 
-    <v-main style="margin: 1rem; padding-inline: 1rem; max-width: 1200px; margin-inline: auto; width: 100%;">
+    <v-main
+      style="
+        margin: 1rem;
+        padding-inline: 1rem;
+        max-width: 1200px;
+        margin-inline: auto;
+        width: 100%;
+      ">
       <slot></slot>
     </v-main>
   </v-app>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

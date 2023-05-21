@@ -1,5 +1,5 @@
 <script setup>
-const { error } = defineProps([`error`])
+const {error} = defineProps([`error`])
 </script>
 
 <template>

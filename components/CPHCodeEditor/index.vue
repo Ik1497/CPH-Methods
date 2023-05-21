@@ -1,15 +1,19 @@
 <script setup>
-import Prism from '~/plugins/prism'
+import Prism from "~/plugins/prism"
 
 const route = useRoute()
 console.log(route)
 
-const { method } = defineProps([
-  `method`
-])
+const {method} = defineProps([`method`])
 
 const clipboardClicked = ref(false)
-const editMode = ref(process.client ? localStorage.getItem(`StreambotCPHMethods__editMode`) === `true` ? true : false : false)
+const editMode = ref(
+  process.client
+    ? localStorage.getItem(`StreambotCPHMethods__editMode`) === `true`
+      ? true
+      : false
+    : false
+)
 const editData = ref([])
 const editContent = ref(``)
 const editHtml = ref(``)
@@ -17,9 +21,9 @@ const returnType = ref({
   fieldData: {
     datatype: `string`,
     name: `Type`,
-    suggestedItems: GetTypes()
+    suggestedItems: GetTypes(),
   },
-  value: `T`
+  value: `T`,
 })
 
 if (route.query.view === `edit`) editMode.value = true
@@ -32,10 +36,10 @@ method.fields.forEach((field, fieldIndex) => {
     fieldData: {...field},
     value: {
       value: `T`,
-      enabled: true
+      enabled: true,
     },
   }
-});
+})
 
 editContent.value = convertDataToCPH()
 editHtml.value = convertToCode(convertDataToCPH())
@@ -65,41 +69,55 @@ function convertDataToCPH() {
   let indexStopped = editData.value.length
   let indexDontCancel = true
 
-  Array.from(([...editData.value]).reverse()).forEach((editfield, editFieldIndex) => {
-    if (editfield.fieldData.default != undefined && editfield.value.enabled === false && indexDontCancel) {
-      indexStopped--
-    } else {
-      indexDontCancel = false
+  Array.from([...editData.value].reverse()).forEach(
+    (editfield, editFieldIndex) => {
+      if (
+        editfield.fieldData.default != undefined &&
+        editfield.value.enabled === false &&
+        indexDontCancel
+      ) {
+        indexStopped--
+      } else {
+        indexDontCancel = false
+      }
     }
-  });
+  )
 
   editData.value.forEach((editField, editFieldIndex) => {
     if (editFieldIndex >= indexStopped) return
 
-    fields.push(ConvertDatatype(editField.fieldData.datatype, editField.value.value === `` ? `null` : editField.value.value))
-  });
+    fields.push(
+      ConvertDatatype(
+        editField.fieldData.datatype,
+        editField.value.value === `` ? `null` : editField.value.value
+      )
+    )
+  })
 
-  return `CPH.${method.method}${method.return === `T` ? `<${returnType.value.value.value}>` : ``}(${fields.join(`, `)});`
+  return `CPH.${method.method}${
+    method.return === `T` ? `<${returnType.value.value.value}>` : ``
+  }(${fields.join(`, `)});`
 }
 
 function clipboardClick() {
   clipboardClicked.value = true
-  
+
   if (editMode.value) {
     navigator.clipboard.writeText(editContent.value)
   } else {
     navigator.clipboard.writeText(convertMethodToCPHTemplate())
   }
-  
+
   setTimeout(() => {
     clipboardClicked.value = false
-  }, 2000);
+  }, 2000)
 }
 
 function toggleEditMode() {
   editMode.value = !editMode.value
 
-  if (process.client) localStorage.setItem(`StreambotCPHMethods__editMode`, `${editMode.value}`)
+  if (process.client)
+    localStorage.setItem(`StreambotCPHMethods__editMode`, `${editMode.value}`)
 }
 
 function convertToCode(code) {
@@ -129,26 +147,24 @@ onMounted(() => {
             icon
             variant="text"
             density="comfortable"
-            @click="toggleEditMode"
-          >
+            @click="toggleEditMode">
             <v-icon>{{ editMode ? `mdi-eye` : `mdi-pencil` }}</v-icon>
-            <v-tooltip
-              activator="parent"
-              location="top"
-            >{{ editMode ? `Change to preview mode` : `Change to edit mode` }}</v-tooltip>
+            <v-tooltip activator="parent" location="top">{{
+              editMode ? `Change to preview mode` : `Change to edit mode`
+            }}</v-tooltip>
           </v-btn>
 
           <v-btn
             icon
             variant="text"
             density="comfortable"
-            @click="clipboardClick"
-          >
-            <v-icon>{{ clipboardClicked ? `mdi-check` : `mdi-clipboard-text-outline` }}</v-icon>
-            <v-tooltip
-              activator="parent"
-              location="top"
-            >Copy to clipboard</v-tooltip>
+            @click="clipboardClick">
+            <v-icon>{{
+              clipboardClicked ? `mdi-check` : `mdi-clipboard-text-outline`
+            }}</v-icon>
+            <v-tooltip activator="parent" location="top"
+              >Copy to clipboard</v-tooltip
+            >
           </v-btn>
 
           <v-btn
@@ -157,33 +173,45 @@ onMounted(() => {
             variant="text"
             density="comfortable"
             :to="`/embed${method.path}`"
-            target="_blank"
-          >
+            target="_blank">
             <v-icon>mdi-open-in-new</v-icon>
-            <v-tooltip
-              activator="parent"
-              location="top"
-            >Open embed</v-tooltip>
+            <v-tooltip activator="parent" location="top">Open embed</v-tooltip>
           </v-btn>
         </div>
       </div>
     </div>
     <div class="code" v-show="editMode === false">
-      <pre class="language-csharp"><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
+      <pre
+        class="language-csharp"><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
 
       <CPHCodeEditorAlertBox :method="method" end />
     </div>
     <div class="code edit-mode" v-show="editMode === true">
-      <pre class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
+      <pre
+        class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
 
       <CPHCodeEditorAlertBox :method="method" />
 
       <div class="code-fields">
-        <DataType v-if="method.return === `T`" :field="returnType" v-model="returnType.value" default="T" />
+        <DataType
+          v-if="method.return === `T`"
+          :field="returnType"
+          v-model="returnType.value"
+          default="T" />
 
         <template v-if="editData.length > 0">
-          <div v-for="(editField, editFieldIndex) in editData" style="padding-bottom: .5rem;">
-            <DataType :field="editField" v-model="editData[editFieldIndex].value" :default="editField.fieldData.default != undefined ? editField.fieldData.default : ``" />
+          <div
+            v-for="(editField, editFieldIndex) in editData"
+            :key="editFieldIndex"
+            style="padding-bottom: 0.5rem">
+            <DataType
+              :field="editField"
+              v-model="editData[editFieldIndex].value"
+              :default="
+                editField.fieldData.default != undefined
+                  ? editField.fieldData.default
+                  : ``
+              " />
           </div>
         </template>
       </div>
@@ -192,7 +220,8 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
   background: transparent;
 }
 
@@ -211,8 +240,8 @@ onMounted(() => {
     right: 0;
 
     .toolbar-content {
-      padding: .25rem;
-      padding-inline: .5rem;
+      padding: 0.25rem;
+      padding-inline: 0.5rem;
 
       display: flex;
       justify-content: space-between;
@@ -221,15 +250,15 @@ onMounted(() => {
       p {
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: .75rem;
+        font-size: 0.75rem;
         font-weight: 700;
       }
     }
   }
-  
+
   .code {
     padding-top: 2.5rem;
-    
+
     .code-fields {
       padding-top: 1.5rem;
       padding-inline: 1rem;
