@@ -2,7 +2,7 @@ export default {
   //////////////////////
   // Websocket Server //
   //////////////////////
-  
+
   WebsocketBroadcastString: {
     title: `Websocket broadcast string`,
     description: `Broadcast a string to the Streamer.bot websocket server.`,
@@ -28,11 +28,11 @@ export default {
       },
     ]
   },
-  
+
   ///////////////////////
   // Websocket Clients //
   ///////////////////////
-  
+
   WebsocketConnect: {
     title: `Websocket connect`,
     description: `Connect a websocket client.`,
@@ -107,11 +107,11 @@ export default {
       },
     ]
   },
-  
+
   //////////////////////////////
   // Custom Websocket Servers //
   //////////////////////////////
-  
+
   WebsocketCustomServerStart: {
     title: `Start custom websocket server`,
     description: `Start a custom websocket server.`,
@@ -222,11 +222,11 @@ export default {
       },
     ]
   },
-  
+
   ///////////////////
   // UDP Broadcast //
   ///////////////////
-  
+
   BroadcastUdp: {
     title: `UDP Broadcast`,
     description: `Broadcast a message to a UDP server.`,
