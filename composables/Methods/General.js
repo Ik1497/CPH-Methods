@@ -453,7 +453,7 @@ export default {
 
   SetArgument: {
     title: `Set argument`,
-    description: `Set an argument.`,
+    description: `Set an argument to use in the upcoming Sub-Actions.`,
     tags: [`Variables`],
     return: `void`,
     fields: [
