@@ -28,7 +28,7 @@ export default {
   ServersAndClients,
   Commands,
 
-  // Playforms
+  // Platforms
   Twitch,
   YouTube,
 
