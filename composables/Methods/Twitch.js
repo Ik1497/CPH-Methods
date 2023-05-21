@@ -1791,7 +1791,7 @@ export default {
   TwitchOAuthToken: {
     type: `property`,
     title: `OAuth token`,
-    description: `Get the Twitch OAuth token.`,
+    description: `Get OAuth token for your Twitch account.`,
     tags: [`OAuth & Client Id`],
     return: `string`,
     fields: [],
@@ -1799,7 +1799,7 @@ export default {
   TwitchClientId: {
     type: `property`,
     title: `Client id`,
-    description: `Get the Twitch client id.`,
+    description: `Get the client id for your Twitch account.`,
     tags: [`OAuth & Client Id`],
     return: `string`,
     fields: [],
