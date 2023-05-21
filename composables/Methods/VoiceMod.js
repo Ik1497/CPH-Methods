@@ -70,7 +70,7 @@ export default {
   },
   VoiceModCensorOn: {
     title: `Censor on`,
-    description: `Turn censor on.`,
+    description: `Turn the voice censor on.`,
     version: `0.1.8`,
     tags: [`Censor`],
     return: `void`,
@@ -78,7 +78,7 @@ export default {
   },
   VoiceModCensorOff: {
     title: `Censor off`,
-    description: `Turn censor off.`,
+    description: `Turn the voice censor off.`,
     version: `0.1.8`,
     tags: [`Censor`],
     return: `void`,
