@@ -7,20 +7,20 @@ export default {
   },
   Commands: {
     title: `Commands`,
-    description: `Change the state of commands.`,
+    description: `Manage your Streamer.bot commands.`,
     tags: [`Core`, `Commands`],
     icon: `mdi-apple-keyboard-command`,
   },
   Groups: {
     title: `Groups`,
-    description: `Change user groups.`,
+    description: `Change your user groups.`,
     tags: [`Core`, `Users`],
     icon: `mdi-folder`,
   },
   ServersAndClients: {
     title: `Servers and Clients`,
-    description: `Connect Streamer.bot to servers and clients.`,
-    tags: [`Core`, `Servers`, `Clients`],
+    description: `Manage the internal websocket server, websocket servers, websocket clients, the internal HTTP server and UDP Servers.`,
+    tags: [`Core`, `Servers`, `Clients`, `WebSocket`, `UDP`],
     icon: `mdi-server`,
   },
   GlobalVariables: {
