@@ -1068,7 +1068,7 @@ export default {
   ////////////
 
   ObsConvertArgb: {
-    method: `ObsConvertRgb`
+    method: `ObsConvertRgb`,
     title: `Convert ARGB`,
     description: `Convert ARGB to the OBS Studio color system.`,
     version: `0.1.5`,
