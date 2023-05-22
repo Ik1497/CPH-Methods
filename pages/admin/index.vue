@@ -38,6 +38,17 @@ let methods = [
       icon: `mdi-console-line`,
     },
   },
+  {
+    title: `Visual Studio Code`,
+    description: `Update the snippets from the visual studio code plugin.`,
+    tags: [`Core`, `Snippets`],
+    icon: `mdi-microsoft-visual-studio-code`,
+    path: `/admin/visual-studio-code`,
+    category: `Methods`,
+    method: {
+      icon: `mdi-microsoft-visual-studio-code`,
+    },
+  },
 ]
 
 Object.entries(methodsData).forEach((methodData) => {

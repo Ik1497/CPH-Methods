@@ -9,10 +9,7 @@ definePageMeta({
 // Vars
 const route = useRoute()
 
-const text = ref(``)
-const html = ref(`Loading...`)
-
-// Helper
+const text = ref(`Loading...`)
 
 // Main Functions
 
@@ -20,27 +17,20 @@ async function loadContent() {
   let page = await GitFetch(
     `/repos/Ik1497/CPH-Methods/contents/composables/Methods/${route?.params?.file}.js`
   )
+
   if (process.client) window.$currentPage = page
   update(atob(page.content))
-}
-
-function change() {
-  setTimeout(() => {
-    const editor = document.querySelector(`[data-file-editor]`)
-  })
 }
 
 function commit() {
   if (process.client) {
     setTimeout(async () => {
-      const editor = document.querySelector(`[data-file-editor]`)
-
       let content = await GitFetch(
         `/repos/Ik1497/CPH-Methods/contents/composables/Methods/${route?.params?.file}.js`,
         `PUT`,
         JSON.stringify({
           message: `Update ${window.$currentPage.name}`,
-          content: btoa(AdminInject(editor.innerText)),
+          content: btoa(AdminInject(text.value)),
           sha: window.$currentPage.sha,
         })
       )
@@ -51,11 +41,6 @@ function commit() {
 
 function update(content) {
   text.value = AdminExtract(content)
-  html.value = Prism.highlight(
-    AdminExtract(content),
-    Prism.languages.javascript,
-    `js`
-  )
 }
 
 // Main
@@ -67,8 +52,8 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-pre(class="language-js" contenteditable="true" data-file-editor v-html="html" @keydown="change")
-v-btn(block color="primary" variant="tonal" @click="commit") Commit
+v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`}") Commit
+CodeEditorJavaScript(v-model="text")
 </template>
 
 <style scoped lang="scss"></style>

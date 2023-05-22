@@ -8,61 +8,7 @@ useHead(
   )
 )
 
-let methodData = GetMethods()
-let methodList = []
-let methods = {}
-let methodsFormatted = ``
-
-Object.entries(methodData).forEach(([methodCategoryId, methodCategoryData]) => {
-  Object.entries(methodCategoryData.methods).forEach(
-    ([methodItemName, methodItemData]) => {
-      methodList.push(methodItemData)
-    }
-  )
-})
-
-methodList.forEach((method) => {
-  let fields = ``
-  let fieldsWithOptions = ``
-
-  method.fields.forEach((field, fieldIndex) => {
-    if (fieldIndex != method.fields.length - 1) {
-      fields += `${field.datatype} ${field.name}${
-        field?.default != undefined ? ` = ${field.default}` : ``
-      }, `
-      fieldsWithOptions += `\$\{${fieldIndex + 1}:${field.datatype}${
-        field.nullable === true ? `?` : ``
-      } ${field.name}${
-        field?.default != undefined ? ` = ${field.default}` : ``
-      }\}, `
-    } else {
-      fields += `${field.datatype} ${field.name}${
-        field?.default != undefined ? ` = ${field.default}` : ``
-      }`
-      fieldsWithOptions += `\$\{${fieldIndex + 1}:${field.datatype}${
-        field.nullable === true ? `?` : ``
-      } ${field.name}${
-        field?.default != undefined ? ` = ${field.default}` : ``
-      }\}`
-    }
-  })
-
-  if (method.type === `method`) {
-    methods[`${method.return} ${method.method}(${fields});`] = {
-      prefix: `CPH${method.methodName}`,
-      description: method.description,
-      body: [`CPH.${method.method}(${fieldsWithOptions});`],
-    }
-  } else if (method.type === `property`) {
-    methods[`${method.return} ${method.method};`] = {
-      prefix: `CPH${method.methodName}`,
-      description: method.description,
-      body: [`CPH.${method.method};`],
-    }
-  }
-})
-
-methodsFormatted = JSON.stringify(methods, null, 2)
+let methodsFormatted = JSON.stringify(PageGetVisualStudioCode(), null, 2)
 
 onMounted(() => {
   Prism.highlightAll()
