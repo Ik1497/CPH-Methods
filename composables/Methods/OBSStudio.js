@@ -1067,9 +1067,10 @@ export default {
   // Colors //
   ////////////
 
-  ObsConvertRgb: {
-    title: `Convert RGB`,
-    description: `Convert RGB to the OBS Studio color system.`,
+  ObsConvertArgb: {
+    method: `ObsConvertRgb`
+    title: `Convert ARGB`,
+    description: `Convert ARGB to the OBS Studio color system.`,
     version: `0.1.5`,
     tags: [`Colors`],
     return: `long`,
@@ -1105,10 +1106,10 @@ export default {
       },
     ],
   },
-  ObsSetColorSourceRgbColor: {
+  ObsSetColorSourceArgbColor: {
     method: `ObsSetColorSourceColor`,
-    title: `Set color source RGB color`,
-    description: `Set the RGB color on an OBS Studio color source.`,
+    title: `Set color source ARGB color`,
+    description: `Set the ARGB color on an OBS Studio color source.`,
     version: `0.1.14`,
     tags: [`Colors`],
     return: `void`,
@@ -1324,7 +1325,7 @@ export default {
   ////////////////
   // Screenshot //
   ////////////////
-  
+
   ObsTakeScreenshot: {
     title: `Take screenshot`,
     description: `Take a screenshot with OBS Studio.`,
