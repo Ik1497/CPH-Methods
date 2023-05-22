@@ -33,7 +33,7 @@ export default {
   ////////////////////////////
   // Set Commands Cooldowns //
   ////////////////////////////
-  
+
   CommandSetGlobalCooldownDuration: {
     title: `Set global cooldown duration`,
     description: `Set the global cooldown duration on a command.`,
@@ -70,7 +70,7 @@ export default {
   ///////////////////////////////
   // Add to Commands Cooldowns //
   ///////////////////////////////
-  
+
   CommandAddToGlobalCooldown: {
     title: `Add to global cooldown`,
     description: `Add to the global command cooldown.`,
@@ -130,10 +130,10 @@ export default {
   /////////////////////////////
   // Reset Command Cooldowns //
   /////////////////////////////
-  
+
   CommandResetGlobalCooldown: {
     title: `Reset global cooldown`,
-    description: `Reset the command global cooldown.`,
+    description: `Reset the global cooldown on a command.`,
     version: `0.1.5`,
     tags: [`Reset Command Cooldowns`],
     return: `void`,
@@ -146,7 +146,7 @@ export default {
   },
   CommandResetUserCooldown: {
     title: `Reset user cooldown`,
-    description: `Reset the command user cooldown.`,
+    description: `Reset the user cooldown on a command.`,
     version: `0.1.5`,
     tags: [`Reset Command Cooldowns`],
     return: `void`,
@@ -163,7 +163,7 @@ export default {
   },
   CommandResetAllUserCooldowns: {
     title: `Reset all user cooldowns`,
-    description: `Reset all the command user cooldowns.`,
+    description: `Reset all the user cooldowns on a command.`,
     version: `0.1.5`,
     tags: [`Reset Command Cooldowns`],
     return: `void`,
