@@ -1297,7 +1297,7 @@ export default {
 
   ObsSetImageSourceFile: {
     title: `Set image source file`,
-    description: `Set an OBS Studio image source file.`,
+    description: `Set the source file for an OBS Studio image source.`,
     version: `0.1.5`,
     tags: [`Set Image Source File`],
     return: `void`,
