@@ -7,7 +7,7 @@ loadContent()
 
 async function loadContent() {
   let page = await GitFetch(
-    `/repos/Ik1497/Streamerbot-VSCode-Plugin/contents/snippets/csharp.code-snippet`
+    `/repos/Ik1497/Streamerbot-VSCode-Plugin/contents/snippets/csharp.code-snippets`
   )
   if (process.client) window.$currentPage = page
 }
