@@ -2,6 +2,10 @@ export default function (datatype, text) {
   switch (text) {
     case `null`:
       return `null`
+    case `true`:
+      return `true`
+    case `false`:
+      return `false`
   }
 
   switch (datatype) {
