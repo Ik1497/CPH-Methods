@@ -8,7 +8,7 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `message`
+        name: `message`,
       },
     ]
   }
