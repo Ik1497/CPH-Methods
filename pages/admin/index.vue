@@ -18,7 +18,7 @@ const methodsData = GetMethods()
 let methods = [
   {
     title: `Methods`,
-    description: `Change the methods that are public.`,
+    description: `Change the methods order and their visibility.`,
     tags: [`Core`, `Methods`],
     icon: `mdi-language-csharp`,
     path: `/admin/methods`,

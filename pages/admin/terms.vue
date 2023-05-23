@@ -2,6 +2,9 @@
 // Vars
 const text = ref(``)
 
+// Meta
+useHead(BuildMeta(`Manage the terms`, `Edit the terms.`))
+
 // Main Functions
 
 async function loadContent() {
@@ -44,6 +47,8 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
+LinksPageHeader(hide-cards-view title="Manage the terms" description="Edit the terms" :method="{icon: `mdi-console-line`}")
+
 v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`, zIndex: `1`}") Commit
 CodeEditorJavaScript(v-model="text")
 </template>

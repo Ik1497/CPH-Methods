@@ -8,8 +8,12 @@ definePageMeta({
 
 // Vars
 const route = useRoute()
-
+const category = GetMethodsFromCategory(route?.params?.file)
+console.log(category)
 const text = ref(`Loading...`)
+
+// Meta
+useHead(BuildMeta(`Manage ${category.title} methods`, category.description))
 
 // Main Functions
 
@@ -52,6 +56,8 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
+LinksPageHeader(hide-cards-view :title="`Manage ${category.title} methods`" :description="category.description" :method="Object.values(category.methods)[0]")
+
 v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`, zIndex: `1`}") Commit
 CodeEditorJavaScript(v-model="text")
 </template>

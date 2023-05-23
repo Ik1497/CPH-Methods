@@ -1,4 +1,12 @@
 <script setup>
+// Meta
+useHead(
+  BuildMeta(
+    `Manage the Visual Studio Code plugin`,
+    `Update the snippets from the visual studio code plugin.`
+  )
+)
+
 // Main Functions
 
 if (process.client) window.$currentPage = {}
@@ -32,6 +40,8 @@ function commit() {
 </script>
 
 <template lang="pug">
+LinksPageHeader(hide-cards-view title="Manage the Visual Studio Code plugin" description="Update the snippets from the visual studio code plugin" :method="{icon: `mdi-microsoft-visual-studio-code`}")
+
 v-btn(block color="primary" variant="tonal" @click="commit") Update the Visual Studio Code plugin
 </template>
 

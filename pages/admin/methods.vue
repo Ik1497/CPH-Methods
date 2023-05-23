@@ -1,8 +1,14 @@
 <script setup>
 // Vars
-const route = useRoute()
-
 const text = ref(``)
+
+// Meta
+useHead(
+  BuildMeta(
+    `Manage the methods`,
+    `Change the methods order and their visibility.`
+  )
+)
 
 // Main Functions
 
@@ -45,6 +51,8 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
+LinksPageHeader(hide-cards-view title="Manage the methods" description="Change the methods order and their visibility." :method="{icon: `mdi-language-csharp`}")
+
 v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`, zIndex: `1`}") Commit
 CodeEditorJavaScript(v-model="text")
 </template>
