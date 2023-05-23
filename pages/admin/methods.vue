@@ -45,7 +45,7 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`}") Commit
+v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`, zIndex: `1`}") Commit
 CodeEditorJavaScript(v-model="text")
 </template>
 
