@@ -39,6 +39,17 @@ let methods = [
     },
   },
   {
+    title: `Global Data`,
+    description: `Edit the global data on this website.`,
+    tags: [`Core`, `Global data`],
+    icon: `mdi-earth`,
+    path: `/admin/global-data`,
+    category: `Methods`,
+    method: {
+      icon: `mdi-earth`,
+    },
+  },
+  {
     title: `Visual Studio Code`,
     description: `Update the snippets from the visual studio code plugin.`,
     tags: [`Core`, `Snippets`],
