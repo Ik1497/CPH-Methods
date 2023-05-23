@@ -17,7 +17,7 @@ Object.entries(methodsData).forEach((methodData) => {
 console.log(methods)
 
 const linksPageHeaderData = ref({})
-const cardsView = ref(`grid`)
+const cardsView = ref(`compact-list`)
 
 function updateLayout(e) {
   linksPageHeaderData.value = e

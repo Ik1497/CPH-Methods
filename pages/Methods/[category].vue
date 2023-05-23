@@ -35,7 +35,7 @@ console.log(methods)
 console.log(method)
 
 const linksPageHeaderData = ref({})
-const cardsView = ref(`grid`)
+const cardsView = ref(`compact-list`)
 
 function updateLayout(e) {
   linksPageHeaderData.value = e

@@ -163,6 +163,7 @@ function convertToCode(code) {
   <template v-if="methodsChangedHtml != ``">
     <h2 :style="{background: `#3f2f20`}">Methods Changed</h2>
     <pre
+      class="language-csharp"
       v-for="method in methodsChangedHtml"
       :key="method"><code v-html="method" class="language-csharp"></code></pre>
   </template>
