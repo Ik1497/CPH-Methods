@@ -740,7 +740,7 @@ export default {
 
   ObsSetSourceMuteState: {
     title: `Set source mute state`,
-    description: `Set an OBS Studio source mute state.`,
+    description: `Set the mute state of an OBS Studio source.`,
     tags: [`Mute`],
     return: `void`,
     fields: [
@@ -836,7 +836,7 @@ export default {
     description: `Send a raw request to the OBS Studio websocket.`,
     tags: [`Raw`],
     return: `string`,
-    success: `Use the <a href="https://obs-raw.streamer.bot" target="_blank">OBS raw generator</a> for this method.`,
+    success: `The <a href="https://obs-raw.streamer.bot" target="_blank">OBS raw generator</a> is recommended for this method.`,
     fields: [
       {
         datatype: `string`,
