@@ -1527,8 +1527,8 @@ export default {
   ////////////////
 
   TwitchUpdateChannelGuestStarSettings: {
-    title: `Start raid by name`,
-    description: `Start a raid by a user name.`,
+    title: `Update channel guest star settings`,
+    description: `Update the guest star settings of this channel.`,
     version: `0.1.21`,
     tags: [`Raids`],
     return: `bool`,
