@@ -16,6 +16,7 @@ async function loadContent() {
   let page = await GitFetch(
     `/repos/Ik1497/CPH-Methods/contents/composables/GlobalData.js`
   )
+
   if (process.client) window.$currentPage = page
   update(atob(page.content))
 }
@@ -28,7 +29,7 @@ function commit() {
         `PUT`,
         JSON.stringify({
           message: `Update GlobalData.js`,
-          content: btoa(text.value),
+          content: btoa(AdminInject(text.value)),
           sha: window.$currentPage.sha,
         })
       )
@@ -39,7 +40,7 @@ function commit() {
 }
 
 function update(content) {
-  text.value = content
+  text.value = AdminExtract(content)
 }
 
 // Main
@@ -51,7 +52,7 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-LinksPageHeader(hide-cards-view title="Manage the website's global data" description="Edit the global data on this website." :method="{icon: `mdi-language-csharp`}")
+LinksPageHeader(hide-cards-view title="Manage the website's global data" description="Edit the global data on this website." :method="{icon: `mdi-earth`}")
 
 v-btn(color="primary" size="x-large" variant="tonal" @click="commit" :style="{position: `fixed`, bottom: `2rem`, right: `3rem`, paddingInline: `3rem`, zIndex: `1`}") Commit
 CodeEditorJavaScript(v-model="text")
