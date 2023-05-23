@@ -10,6 +10,6 @@ export default {
         datatype: `string`,
         name: `message`,
       },
-    ]
-  }
+    ],
+  },
 }
