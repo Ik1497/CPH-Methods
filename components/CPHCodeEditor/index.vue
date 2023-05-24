@@ -21,6 +21,7 @@ const returnType = ref({
   fieldData: {
     datatype: `string`,
     name: `Type`,
+    default: `T`,
     suggestedItems: GetTypes(),
   },
   value: `T`,
@@ -205,12 +206,7 @@ onMounted(() => {
             style="padding-bottom: 0.5rem">
             <DataType
               :field="editField"
-              v-model="editData[editFieldIndex].value"
-              :default="
-                editField.fieldData.default != undefined
-                  ? editField.fieldData.default
-                  : ``
-              " />
+              v-model="editData[editFieldIndex].value" />
           </div>
         </template>
       </div>

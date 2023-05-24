@@ -1,15 +1,14 @@
 <script setup>
-const {field, modelValue, defaultValue, autofocus} = defineProps([
+const {field, modelValue, autofocus} = defineProps([
   `field`,
   `model-value`,
-  `default`,
   `autofocus`,
 ])
 
 const emits = defineEmits([`update:modelValue`])
 
 const checkbox = ref(true)
-const value = ref(defaultValue ?? ``)
+const value = ref(field.fieldData.default || ``)
 
 const data = computed(() => {
   return {
