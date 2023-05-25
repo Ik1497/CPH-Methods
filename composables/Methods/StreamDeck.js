@@ -298,7 +298,7 @@ export default {
   },
   StreamDeckToggleState: {
     title: `Toggle state`,
-    description: `Set the state of a button.`,
+    description: `Toggle the state of a button.`,
     version: `0.1.21`,
     tags: [`State`],
     return: `void`,
