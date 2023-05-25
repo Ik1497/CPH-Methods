@@ -338,7 +338,7 @@ export default {
 
   StreamDeckShowAlert: {
     title: `Show alert`,
-    description: `Show an error notification on a button.`,
+    description: `Show an error alert on a button.`,
     version: `0.1.21`,
     tags: [`Alert`],
     return: `void`,
@@ -356,7 +356,7 @@ export default {
 
   StreamDeckShowOk: {
     title: `Show ok`,
-    description: `Show a success notification on a button.`,
+    description: `Show a success alert on a button.`,
     version: `0.1.21`,
     tags: [`Ok`],
     return: `void`,
