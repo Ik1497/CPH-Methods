@@ -1408,7 +1408,7 @@ export default {
 
   CreateStreamMarker: {
     title: `Create stream marker`,
-    description: `Create a stream marker at the current poiny in your stream.`,
+    description: `Create a stream marker at the current point in your stream.`,
     tags: [`Markers`],
     return: `StreamMarker`,
     returnType: `class`,
