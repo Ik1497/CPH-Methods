@@ -39,6 +39,17 @@ let methods = [
     },
   },
   {
+    title: `Classes`,
+    description: `Edit the classes being used in methods.`,
+    tags: [`Core`, `Terms`],
+    icon: `mdi-account-group`,
+    path: `/admin/classes`,
+    category: `Methods`,
+    method: {
+      icon: `mdi-account-group`,
+    },
+  },
+  {
     title: `Global Data`,
     description: `Edit the global data on this website.`,
     tags: [`Core`, `Global data`],
