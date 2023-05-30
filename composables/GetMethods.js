@@ -5,7 +5,7 @@ import ConvertDatatype from "./ConvertDatatype.js"
 export default function () {
   const formattedMethods = {}
 
-  Object.entries(Methods).forEach(method => {
+  Object.entries(Methods).forEach((method) => {
     let methodData = {}
 
     // Catgories
@@ -17,7 +17,7 @@ export default function () {
     }
 
     // Method
-    Object.entries(method[1]).forEach(methodName => {
+    Object.entries(method[1]).forEach((methodName) => {
       methodData[methodName[0]] = {
         type: `method`,
         method: methodName[0],
@@ -28,39 +28,64 @@ export default function () {
         version: formattedMethods[method[0]].version || `N/A`,
         formatted: {
           CPH: ``,
-          CSharp: ``
+          CSharp: ``,
         },
         ...methodName[1],
       }
 
-      if (Terms[method[0]]?.initials != undefined) methodData[methodName[0]].initials = Terms[method[0]]?.initials
-      if (Terms[method[0]]?.image != undefined) methodData[methodName[0]].image = Terms[method[0]]?.image
-      if (Terms[method[0]]?.icon != undefined) methodData[methodName[0]].icon = Terms[method[0]]?.icon
+      if (Terms[method[0]]?.initials != undefined)
+        methodData[methodName[0]].initials = Terms[method[0]]?.initials
+      if (Terms[method[0]]?.image != undefined)
+        methodData[methodName[0]].image = Terms[method[0]]?.image
+      if (Terms[method[0]]?.icon != undefined)
+        methodData[methodName[0]].icon = Terms[method[0]]?.icon
 
-      methodData[methodName[0]].formatted.CPH = `CPH.${methodData[methodName[0]].method}(${methodData[methodName[0]].fields.map(field => {
-        return ConvertDatatype(field.name)
-      }).join(`,`)});`
+      methodData[methodName[0]].returnClass = GetReturnClass(
+        methodData[methodName[0]].return
+      )
+
+      methodData[methodName[0]].formatted.CPH = `CPH.${
+        methodData[methodName[0]].method
+      }(${methodData[methodName[0]].fields
+        .map((field) => {
+          return ConvertDatatype(field.name)
+        })
+        .join(`,`)});`
 
       if (methodData[methodName[0]].type === `property`) {
-        methodData[methodName[0]].formatted.CSharp = `${methodData[methodName[0]].return} ${methodData[methodName[0]].method};`
+        methodData[methodName[0]].formatted.CSharp = `${
+          methodData[methodName[0]].return
+        } ${methodData[methodName[0]].method};`
       } else {
-        methodData[methodName[0]].formatted.CSharp = `${methodData[methodName[0]].return} ${methodData[methodName[0]].method}${methodData[methodName[0]].return === `T` ? `<T>` : ``}(${methodData[methodName[0]].fields.map((field) => {
-          return `${field.datatype}${field.nullable === true ? `?` : ``} ${field.name}${field?.default != undefined ? ` = ${ConvertDatatype(field.datatype, field.default)}` : ``}`
-        }).join(`, `)});`
+        methodData[methodName[0]].formatted.CSharp = `${
+          methodData[methodName[0]].return
+        } ${methodData[methodName[0]].method}${
+          methodData[methodName[0]].return === `T` ? `<T>` : ``
+        }(${methodData[methodName[0]].fields
+          .map((field) => {
+            return `${field.datatype}${field.nullable === true ? `?` : ``} ${
+              field.name
+            }${
+              field?.default != undefined
+                ? ` = ${ConvertDatatype(field.datatype, field.default)}`
+                : ``
+            }`
+          })
+          .join(`, `)});`
       }
-    });
+    })
 
     let methodsArray = Object.entries(methodData)
 
     methodsArray.sort((a, b) => {
       if (a.tags < b.tags) {
-        return -1;
+        return -1
       }
       if (a.tags > b.tags) {
-        return 1;
+        return 1
       }
-      
-      return 0;
+
+      return 0
     })
 
     methodData = Object.fromEntries(methodsArray)
@@ -71,7 +96,7 @@ export default function () {
       methods: methodData,
       path: `/Methods/${method[0]}`,
     }
-  });
+  })
 
   return formattedMethods
 }

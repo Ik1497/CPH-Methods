@@ -185,6 +185,11 @@ onMounted(() => {
         class="language-csharp"><code class="language-csharp">{{ convertMethodToCPHTemplate() }}</code></pre>
 
       <CPHCodeEditorAlertBox :method="method" end />
+
+      <div v-if="method.returnClass.exists === true" class="return-class">
+        <pre
+          class="language-csharp"><code class="language-csharp" v-html="method.returnClass.formatted.CSharp"></code></pre>
+      </div>
     </div>
     <div class="code edit-mode" v-show="editMode === true">
       <pre
@@ -192,7 +197,7 @@ onMounted(() => {
 
       <CPHCodeEditorAlertBox :method="method" />
 
-      <div class="code-fields">
+      <div :class="`code-fields ${editData.length > 0 ? `has-fields` : ``}`">
         <DataType
           v-if="method.return === `T`"
           :field="returnType"
@@ -254,9 +259,13 @@ pre[class*="language-"] {
   .code {
     padding-top: 2.5rem;
 
-    .code-fields {
+    .code-fields.has-fields {
       padding-top: 1.5rem;
       padding-inline: 1rem;
+      border-top: $border;
+    }
+
+    .return-class {
       border-top: $border;
     }
   }
