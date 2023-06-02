@@ -69,9 +69,19 @@ versions.sort((a, b) => {
   return 0
 })
 
+function CreateVersionTitle(version) {
+  let title = `v${version}`
+
+  if (GetGlobalData()?.version?.stable === version) title += ` (Latest)`
+  if (GetGlobalData()?.version?.beta === version) title += ` (Beta)`
+  if (GetGlobalData()?.version?.alpha === version) title += ` (Alpha)`
+
+  return title
+}
+
 versions = versions.map((item) => {
   return {
-    title: `v${item}`,
+    title: CreateVersionTitle(item),
     value: item,
   }
 })
@@ -137,7 +147,7 @@ function convertToCode(code) {
 <template>
   <LinksPageHeader
     :key="version"
-    :title="`Changelogs v${version}`"
+    :title="`Changelogs ${CreateVersionTitle(version)}`"
     description="See all the changes and new methods for each Streamer.bot version"
     :method="{icon: `mdi-fire`}">
     <template #append-inner>

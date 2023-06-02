@@ -22,7 +22,7 @@ const returnType = ref({
     datatype: `string`,
     name: `Type`,
     default: `T`,
-    suggestedItems: GetTypes(),
+    suggestedItems: [...GetTypes(), ...Object.keys(GetClasses())],
   },
   value: `T`,
 })

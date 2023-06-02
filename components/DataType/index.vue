@@ -32,7 +32,7 @@ watch(checkbox, async (newValue, oldValue) => {
 function validateInt(e) {
   if (e === `` || e === undefined || e === null) {
     return true
-  } else if (!Number.isInteger(parseFloat(e))) {
+  } else if (!Number.isInteger(Number(e))) {
     return `Value must be an integer`
   } else {
     return true
