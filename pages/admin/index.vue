@@ -42,11 +42,11 @@ let methods = [
     title: `Classes`,
     description: `Edit the classes being used in methods.`,
     tags: [`Core`, `Terms`],
-    icon: `mdi-account-group`,
+    icon: `mdi-code-json`,
     path: `/admin/classes`,
     category: `Methods`,
     method: {
-      icon: `mdi-account-group`,
+      icon: `mdi-code-json`,
     },
   },
   {
@@ -62,7 +62,7 @@ let methods = [
   },
   {
     title: `Visual Studio Code`,
-    description: `Update the snippets from the visual studio code plugin.`,
+    description: `Update the snippets for the visual studio code plugin.`,
     tags: [`Core`, `Snippets`],
     icon: `mdi-microsoft-visual-studio-code`,
     path: `/admin/visual-studio-code`,

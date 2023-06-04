@@ -186,9 +186,11 @@ onMounted(() => {
 
       <CPHCodeEditorAlertBox :method="method" end />
 
-      <div v-if="method.returnClass.exists === true" class="return-class">
+      <div v-if="method.classes.length > 0" class="return-class">
         <pre
-          class="language-csharp"><code class="language-csharp" v-html="method.returnClass.formatted.CSharp"></code></pre>
+          v-for="methodClass in method.classes"
+          :key="methodClass"
+          class="language-csharp"><code class="language-csharp" v-html="methodClass?.formatted?.CSharp"></code></pre>
       </div>
     </div>
     <div class="code edit-mode" v-show="editMode === true">

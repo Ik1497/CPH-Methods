@@ -40,9 +40,21 @@ export default function () {
       if (Terms[method[0]]?.icon != undefined)
         methodData[methodName[0]].icon = Terms[method[0]]?.icon
 
-      methodData[methodName[0]].returnClass = GetReturnClass(
-        methodData[methodName[0]].return
-      )
+      methodData[methodName[0]].classes = []
+
+      if (GetReturnClass(methodData[methodName[0]].return) != undefined) {
+        methodData[methodName[0]].classes.push(
+          ...GetReturnClass(methodData[methodName[0]].return)
+        )
+      }
+
+      methodData[methodName[0]].fields.forEach((field) => {
+        if (GetReturnClass(field.datatype) != undefined) {
+          methodData[methodName[0]].classes.push(
+            ...GetReturnClass(field.datatype)
+          )
+        }
+      })
 
       methodData[methodName[0]].formatted.CPH = `CPH.${
         methodData[methodName[0]].method

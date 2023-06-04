@@ -1,13 +1,14 @@
 import Classes from "./Classes/index.js"
 
 export default function (returnValue) {
-  let returnClass = {
-    exists: false,
+  let returnClass = {}
+
+  if (returnValue.match(/List<([\S\s]*?)>/g)) {
+    returnValue = returnValue.replace(/List<([\S\s]*?)>/g, `$1`)
   }
 
   if (Classes[returnValue] != undefined) {
     returnClass.data = Classes[returnValue]
-    returnClass.exists = true
     returnClass.formatted = {
       CSharp: `public class ${returnValue}
 {
@@ -20,5 +21,9 @@ ${Classes[returnValue].variables
     }
   }
 
-  return returnClass
+  if (JSON.stringify(returnClass) === `{}`) {
+    return undefined
+  } else {
+    return [returnClass]
+  }
 }
