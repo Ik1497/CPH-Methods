@@ -211,7 +211,6 @@ export default {
   WebsocketCustomServerGetConnectionByName: {
     title: `Get custom websocket server connection by name`,
     description: `Get the name of a custom websocket server by name.`,
-    version: `0.1.8`,
     version: `0.0.59`,
     tags: [`Custom Websocket Servers`],
     return: `int`,
