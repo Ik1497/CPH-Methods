@@ -895,7 +895,7 @@ export default {
     versionChanges: {
       "0.1.9": {
         type: `update`,
-        change: `Changed the options from 2 fields to a List<string>`,
+        change: `Changed the \`options\` from 2 fields to a \`List<string>\``,
       },
     },
     tags: [`Predictions`],
