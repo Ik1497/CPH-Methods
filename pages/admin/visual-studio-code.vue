@@ -80,11 +80,13 @@ function commit() {
               sha: window.$currentPage.readme.sha,
             })
           )
+
+          setTimeout(async () => {
+            loadContent()
+          }, 1000)
         }, 1000)
       }, 1000)
     }, 100)
-
-    loadContent()
   }
 }
 </script>
