@@ -2,6 +2,7 @@ import Classes from "./Classes/index.js"
 
 export default function (returnValue) {
   let returnClass = {}
+  let classList = []
 
   if (returnValue.match(/List<([\S\s]*?)>/g)) {
     returnValue = returnValue.replace(/List<([\S\s]*?)>/g, `$1`)
@@ -19,11 +20,17 @@ ${Classes[returnValue].variables
   .join(`\n`)}
 }`,
     }
+
+    // Classes[returnValue].variables.forEach((variable) => {
+    //   if (GetReturnClass(variable) != undefined) {
+    //     classList.push(GetReturnClass(variable))
+    //   }
+    // })
   }
 
   if (JSON.stringify(returnClass) === `{}`) {
     return undefined
   } else {
-    return [returnClass]
+    return [returnClass, ...classList]
   }
 }

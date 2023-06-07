@@ -21,7 +21,6 @@ const returnType = ref({
   fieldData: {
     datatype: `string`,
     name: `Type`,
-    default: `T`,
     suggestedItems: [...GetTypes(), ...Object.keys(GetClasses())],
   },
   value: `T`,
