@@ -21,7 +21,7 @@ const returnType = ref({
   fieldData: {
     datatype: `string`,
     name: `Type`,
-    suggestedItems: [...GetTypes(), ...Object.keys(GetClasses())],
+    suggestedItems: GetTypes(),
   },
   value: `T`,
 })
@@ -193,6 +193,11 @@ onMounted(() => {
       </div>
     </div>
     <div class="code edit-mode" v-show="editMode === true">
+      <pre
+        v-if="method.usingDirectives.length > 0"
+        class="language-csharp"><code class="language-csharp"><template v-for="(usingDirective, usingDirectiveIndex) in method.usingDirectives" :key="usingDirective">using {{ usingDirective }};<p v-if="usingDirectiveIndex != method.usingDirectives.length - 1">
+</p></template></code></pre>
+
       <pre
         class="language-csharp"><code class="language-csharp" v-html="editHtml"></code></pre>
 

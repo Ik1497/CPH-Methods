@@ -45,7 +45,7 @@ let randomCategory =
       to="/search"></v-list-item>
 
     <v-list-item
-      title="/Methods/:category"
+      title="/:category"
       subtitle="The page for each category"
       :to="randomCategory.path"></v-list-item>
 

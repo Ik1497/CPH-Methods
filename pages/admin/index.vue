@@ -134,11 +134,13 @@ br
 div(:style="{display: `flex`, gap: `.5rem`}")
   Dialog(title="Create new")
     v-text-field(label="File Name" v-model="createNewFileName")
-    v-btn(variant="tonal" @click="createNew") Submit
+    template(#actions)
+      v-btn(variant="text" color="green-darken-1" @click="createNew") Create
 
   Dialog(title="New? Connect to GitHub")
     v-password-field(label="API Key" hint="Get this API Key from a project maintainer" v-model="connectApiKeyText")
-    v-btn(variant="tonal" @click="connectApiKey") Connect
+    template(#actions)
+      v-btn(variant="text" color="green-darken-1" @click="connectApiKey") Connect
 </template>
 
 <style scoped lang="scss"></style>

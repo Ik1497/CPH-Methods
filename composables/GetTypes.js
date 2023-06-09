@@ -9,5 +9,6 @@ export default function () {
     `object`,
     `DateTime`,
     `TimeSpan`,
+    ...Object.keys(GetClasses()),
   ]
 }

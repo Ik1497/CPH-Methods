@@ -12,6 +12,7 @@ v-dialog(transition="dialog-bottom-transition" width="500px")
       v-card-text
         slot
       v-card-actions.justify-end
+        slot(name="actions")
         v-btn(variant="text" @click="isActive.value = false") Close
 </template>
 

@@ -23,8 +23,10 @@ function handleRoute(routeEvent) {
     prevRoute.value = `/`
   } else if (routeEvent.path.split(`/`)[1] === `admin`) {
     prevRoute.value = `/admin`
+  } else if (routeEvent.path.split(`/`).length === 3) {
+    prevRoute.value = `/${routeEvent.path.split(`/`).splice(1, 1)}`
   } else {
-    prevRoute.value = `/Methods/${routeEvent.path.split(`/`)[1]}`
+    prevRoute.value = `/`
   }
 }
 

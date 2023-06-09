@@ -27,12 +27,25 @@ export default function () {
         categoryName: formattedMethods[method[0]].title,
         path: `/${method[0]}/${methodName[0]}`,
         version: formattedMethods[method[0]].version || `N/A`,
+        usingDirectives: [],
         formatted: {
           CPH: ``,
           CSharp: ``,
         },
         ...methodName[1],
       }
+
+      methodData[methodName[0]].fields.forEach((item) => {
+        if (item.datatype.match(/List<([\S\s]*?)>/g)) {
+          methodData[methodName[0]].usingDirectives.push(
+            `System.Collections.Generic`
+          )
+        }
+      })
+
+      methodData[methodName[0]].usingDirectives = [
+        ...new Set(methodData[methodName[0]].usingDirectives),
+      ]
 
       if (Terms[method[0]]?.initials != undefined)
         methodData[methodName[0]].initials = Terms[method[0]]?.initials
@@ -91,7 +104,7 @@ export default function () {
     formattedMethods[method[0]] = {
       ...formattedMethods[method[0]],
       methods: methodData,
-      path: `/Methods/${method[0]}`,
+      path: `/${method[0]}`,
     }
   })
 
