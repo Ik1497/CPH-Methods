@@ -258,6 +258,7 @@ pre[class*="language-"] {
         letter-spacing: 1px;
         font-size: 0.75rem;
         font-weight: 700;
+        padding-block: 0.5rem;
       }
     }
   }
