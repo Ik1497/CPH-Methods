@@ -24,7 +24,7 @@ useHead(
 Object.entries(method.methods).forEach((methodData) => {
   let data = {
     ...methodData[1],
-    subtitle: `Reference for all ${methodData[1].title} CPH Methods`,
+    subtitle: `Reference for the ${methodData[1].title} CPH Method`,
     method: methodData[1],
   }
 

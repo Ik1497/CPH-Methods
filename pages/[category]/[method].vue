@@ -12,10 +12,11 @@ definePageMeta({
 const method = GetMethod(route?.params?.category, route?.params?.method)
 console.log(method)
 
-useSeoMeta({
-  title: `${method.categoryName} - ${method.title}`,
-  description: `${method.categoryName} CPH Methods reference`,
-})
+useHead(
+  BuildMeta(method.title, `${method.categoryName} CPH Methods reference`, {
+    keywords: method.tags,
+  })
+)
 
 function convertFieldText(text) {
   return text.replaceAll(`\n`, `<br>`)
