@@ -299,4 +299,20 @@ export default {
       },
     ],
   },
+  GameInfo: {
+    variables: [
+      {
+        datatype: `int`,
+        name: `Id`,
+      },
+      {
+        datatype: `string`,
+        name: `Name`,
+      },
+      {
+        datatype: `string`,
+        name: `BoxArtUrl`,
+      },
+    ],
+  },
 }
