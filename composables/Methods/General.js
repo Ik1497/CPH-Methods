@@ -84,6 +84,69 @@ export default {
     fields: [],
   },
 
+  //////////////
+  // Triggers //
+  //////////////
+
+  RegisterCustomTrigger: {
+    method: `TriggerCodeEvent`,
+    title: `Trigger code event`,
+    description: `Trigger a custom event.`,
+    version: `0.2.0`,
+    tags: [`Triggers`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `triggerName`,
+      },
+      {
+        datatype: `string`,
+        name: `eventName`,
+      },
+      {
+        datatype: `string[]`,
+        name: `categories`,
+      },
+    ],
+  },
+  TriggerCodeEvent: {
+    title: `Trigger code event`,
+    description: `Trigger a custom event.`,
+    version: `0.2.0`,
+    tags: [`Triggers`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `eventName`,
+      },
+      {
+        datatype: `bool`,
+        name: `useArgs`,
+        default: `true`,
+      },
+    ],
+  },
+  TriggerCodeEventWithCustomArgs: {
+    method: `TriggerCodeEvent`,
+    title: `Trigger code event`,
+    description: `Trigger a custom event.`,
+    version: `0.2.0`,
+    tags: [`Triggers`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `eventName`,
+      },
+      {
+        datatype: `Dictionary<string, object>`,
+        name: `args`,
+      },
+    ],
+  },
+
   /////////////
   // Actions //
   /////////////
@@ -379,7 +442,7 @@ export default {
   ///////////////////////////
   // Credits & First Words //
   ///////////////////////////
-  
+
   AddToCredits: {
     title: `Add to credits`,
     description: `Add data to your credits.`,
