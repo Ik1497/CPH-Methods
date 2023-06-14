@@ -265,6 +265,33 @@ export default {
     ],
   },
 
+  /////////////
+  // Replies //
+  /////////////
+
+  TwitchReplyToMessage: {
+    title: `Reply to message`,
+    description: `Reply to a Twitch message.`,
+    version: `0.2.0`,
+    tags: [`Repplies`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `message`,
+      },
+      {
+        datatype: `string`,
+        name: `replyId`,
+      },
+      {
+        datatype: `bool`,
+        name: `bot`,
+        default: `true`,
+      },
+    ],
+  },
+
   //////////////////
   // Channel Tags //
   //////////////////
@@ -667,6 +694,23 @@ export default {
       },
     ],
   },
+  UpdateRewardBackgroundColor: {
+    title: `Update reward background color`,
+    description: `Update the background color of a Twitch reward.`,
+    version: `0.2.0`,
+    tags: [`Channel Rewards`, `Update Rewards`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `rewardId`,
+      },
+      {
+        datatype: `string`,
+        name: `backgroundColor`,
+      },
+    ],
+  },
   UpdateRewardCooldown: {
     title: `Update reward cooldown`,
     description: `Update the cooldown of a Twitch reward.`,
@@ -697,6 +741,10 @@ export default {
         type: `update`,
         change: `Return changed from \`void\` to \`bool\``,
       },
+      "0.2.0": {
+        type: `update`,
+        change: `Add the backroundColor field`,
+      },
     },
     tags: [`Channel Rewards`, `Update Rewards`],
     return: `bool`,
@@ -719,6 +767,11 @@ export default {
         datatype: `int`,
         nullable: true,
         name: `cost`,
+        default: `null`,
+      },
+      {
+        datatype: `string`,
+        name: `backroundColor`,
         default: `null`,
       },
     ],
