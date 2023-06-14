@@ -89,9 +89,8 @@ export default {
   //////////////
 
   RegisterCustomTrigger: {
-    method: `TriggerCodeEvent`,
-    title: `Trigger code event`,
-    description: `Trigger a custom event.`,
+    title: `Register custom trigger`,
+    description: `Register a custom trigger.`,
     version: `0.2.0`,
     tags: [`Triggers`],
     return: `void`,
@@ -130,8 +129,8 @@ export default {
   },
   TriggerCodeEventWithCustomArgs: {
     method: `TriggerCodeEvent`,
-    title: `Trigger code event`,
-    description: `Trigger a custom event.`,
+    title: `Trigger code event with custom args`,
+    description: `Trigger a custom event with custom args.`,
     version: `0.2.0`,
     tags: [`Triggers`],
     return: `void`,
