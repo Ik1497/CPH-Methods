@@ -8,6 +8,12 @@ const props = defineProps([
   `method`,
   `path`,
 ])
+
+const GlobalData = GetGlobalData()
+
+const version = computed(() => {
+  return props.method?.version || `N/A`
+})
 </script>
 
 <template>
@@ -32,7 +38,14 @@ const props = defineProps([
   </v-card>
 
   <v-card v-else-if="props.cardsView === `compact-list`" :to="props.path">
-    <div style="display: flex; gap: 0.5rem; padding: 0.5rem">
+    <div
+      style="
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+      ">
       <div>
         <MethodAvatar :method="props.method" />
       </div>
@@ -43,6 +56,21 @@ const props = defineProps([
         <v-list-item-subtitle style="padding: 0">{{
           props.description
         }}</v-list-item-subtitle>
+      </div>
+      <div
+        style="position: absolute; right: 0.5rem"
+        v-if="
+          version === GlobalData.version.stable ||
+          version === GlobalData.version.beta ||
+          version === GlobalData.version.alpha
+        ">
+        <v-chip label color="primary">{{
+          version === GlobalData.version.beta
+            ? `Beta`
+            : version === GlobalData.version.alpha
+            ? `Alpha`
+            : `New`
+        }}</v-chip>
       </div>
     </div>
   </v-card>

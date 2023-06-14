@@ -10,6 +10,7 @@ definePageMeta({
 })
 
 const method = GetMethod(route?.params?.category, route?.params?.method)
+const GlobalData = GetGlobalData()
 console.log(method)
 
 useHead(
@@ -29,10 +30,25 @@ function isArray(array) {
 
 <template>
   <LinksPageHeader
-    hide-cards-view
     :title="method.title"
     :description="method.description"
-    :method="method" />
+    :method="method">
+    <template
+      #append-inner
+      v-if="
+        method?.version === GlobalData.version.stable ||
+        method?.version === GlobalData.version.beta ||
+        method?.version === GlobalData.version.alpha
+      ">
+      <v-chip size="large" label color="primary">{{
+        method?.version === GlobalData.version.beta
+          ? `Beta`
+          : method?.version === GlobalData.version.alpha
+          ? `Alpha`
+          : `New`
+      }}</v-chip>
+    </template>
+  </LinksPageHeader>
 
   <CPHCodeEditor :method="method"></CPHCodeEditor>
 
