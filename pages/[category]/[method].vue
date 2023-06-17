@@ -33,20 +33,22 @@ function isArray(array) {
     :title="method.title"
     :description="method.description"
     :method="method">
-    <template
-      #append-inner
-      v-if="
-        method?.version === GlobalData.version.stable ||
-        method?.version === GlobalData.version.beta ||
-        method?.version === GlobalData.version.alpha
-      ">
-      <v-chip size="large" label color="primary">{{
-        method?.version === GlobalData.version.beta
-          ? `Beta`
-          : method?.version === GlobalData.version.alpha
-          ? `Alpha`
-          : `New`
-      }}</v-chip>
+    <template #append-inner>
+      <div 
+        v-if="
+          method?.version === GlobalData.version.stable ||
+          method?.version === GlobalData.version.beta ||
+          method?.version === GlobalData.version.alpha
+        "
+      >
+        <v-chip size="large" label color="primary">{{
+          method?.version === GlobalData.version.beta
+            ? `Beta`
+            : method?.version === GlobalData.version.alpha
+            ? `Alpha`
+            : `New`
+        }}</v-chip>
+      </div>
     </template>
   </LinksPageHeader>
 
