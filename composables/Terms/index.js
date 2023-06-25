@@ -83,4 +83,10 @@ export default {
     tags: [`Integrations`, `Voice`],
     image: `https://streamer.bot/img/integrations/voicemod.png`,
   },
+  VTubeStudio: {
+    title: `VTube Studio`,
+    description: `Control your VTube Studio models and hotkeys.`,
+    tags: [`Integrations`, `VTube`],
+    image: `https://play-lh.googleusercontent.com/vg93vbBq2kmK3KAl3UxP2VyTa0ty-ehCpHsiUGBHuYoTwazYnJT9Lni6zx76odbDOsA`,
+  },
 }
