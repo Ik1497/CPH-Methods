@@ -12,9 +12,9 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `modelId`
+        name: `modelId`,
       },
-    ]
+    ],
   },
   VTubeStudioLoadModelByName: {
     title: `Load model by name`,
@@ -25,9 +25,9 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `modelName`
+        name: `modelName`,
       },
-    ]
+    ],
   },
   VTubeStudioMoveModel: {
     title: `Move model`,
@@ -38,37 +38,37 @@ export default {
     fields: [
       {
         datatype: `double`,
-        name: `seconds`
+        name: `seconds`,
       },
       {
         datatype: `bool`,
-        name: `relative`
+        name: `relative`,
       },
       {
         datatype: `double`,
         nullable: true,
-        name: `posX`
+        name: `posX`,
         default: `null`,
       },
       {
         datatype: `double`,
         nullable: true,
-        name: `posY`
+        name: `posY`,
         default: `null`,
       },
       {
         datatype: `double`,
         nullable: true,
-        name: `rotation`
+        name: `rotation`,
         default: `null`,
       },
       {
         datatype: `double`,
         nullable: true,
-        name: `size`
+        name: `size`,
         default: `null`,
       },
-    ]
+    ],
   },
 
   /////////////
@@ -84,9 +84,9 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `hotkeyId`
+        name: `hotkeyId`,
       },
-    ]
+    ],
   },
   VTubeStudioTriggerHotkeyByName: {
     title: `Trigger hotkey by name`,
@@ -97,8 +97,8 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `hotkeyName`
+        name: `hotkeyName`,
       },
-    ]
+    ],
   },
 }
