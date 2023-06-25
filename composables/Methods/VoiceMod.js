@@ -8,9 +8,9 @@ export default {
     fields: [
       {
         datatype: `string`,
-        name: `voiceId`
+        name: `voiceId`,
       },
-    ]
+    ],
   },
   VoiceModGetCurrentVoice: {
     title: `Get current voice`,
@@ -18,7 +18,7 @@ export default {
     version: `0.1.8`,
     tags: [`Voice`],
     return: `string`,
-    fields: []
+    fields: [],
   },
   VoiceModVoiceChangerOn: {
     title: `Voice changer on`,
@@ -26,7 +26,7 @@ export default {
     version: `0.1.8`,
     tags: [`Voice Changer`],
     return: `bool`,
-    fields: []
+    fields: [],
   },
   VoiceModVoiceChangerOff: {
     title: `Voice changer off`,
@@ -34,7 +34,7 @@ export default {
     version: `0.1.8`,
     tags: [`Voice Changer`],
     return: `bool`,
-    fields: []
+    fields: [],
   },
   VoiceModGetVoiceChangerStatus: {
     title: `Get voice changer status`,
@@ -42,7 +42,7 @@ export default {
     version: `0.1.8`,
     tags: [`Voice Changer`],
     return: `bool`,
-    fields: []
+    fields: [],
   },
   VoiceModHearMyVoiceOn: {
     title: `Hear my voice on`,
@@ -50,7 +50,7 @@ export default {
     version: `0.1.8`,
     tags: [`Hear my voice`],
     return: `bool`,
-    fields: []
+    fields: [],
   },
   VoiceModHearMyVoiceOff: {
     title: `Hear my voice off`,
@@ -58,7 +58,7 @@ export default {
     version: `0.1.8`,
     tags: [`Hear my voice`],
     return: `bool`,
-    fields: []
+    fields: [],
   },
   VoiceModGetHearMyselfStatus: {
     title: `Get hear myself status`,
@@ -66,7 +66,7 @@ export default {
     version: `0.1.8`,
     tags: [`Hear my voice`],
     return: `bool`,
-    fields: []
+    fields: [],
   },
   VoiceModCensorOn: {
     title: `Censor on`,
@@ -74,7 +74,7 @@ export default {
     version: `0.1.8`,
     tags: [`Censor`],
     return: `void`,
-    fields: []
+    fields: [],
   },
   VoiceModCensorOff: {
     title: `Censor off`,
@@ -82,6 +82,6 @@ export default {
     version: `0.1.8`,
     tags: [`Censor`],
     return: `void`,
-    fields: []
+    fields: [],
   },
 }
