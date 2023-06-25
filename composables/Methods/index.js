@@ -19,6 +19,7 @@ import StreamDeck from './StreamDeck'
 import Discord from './Discord'
 import LumiaStream from './LumiaStream'
 import VoiceMod from './VoiceMod'
+import VTubeStudio from './VTubeStudio'
 
 export default {
   // Core
@@ -42,4 +43,5 @@ export default {
   Discord,
   LumiaStream,
   VoiceMod,
+  VTubeStudio,
 }
