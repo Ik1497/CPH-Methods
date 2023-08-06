@@ -64,7 +64,7 @@ export default {
     title: `Is streaming`,
     description: `Check if OBS Studio is streaming.`,
     tags: [`Stream`],
-    return: `void`,
+    return: `bool`,
     fields: [
       {
         datatype: `int`,
