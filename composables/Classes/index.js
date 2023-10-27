@@ -315,4 +315,24 @@ export default {
       },
     ],
   },
+  VTSModelPosition: {
+    variables: [
+      {
+        datatype: `double`,
+        name: `PositionX`,
+      },
+      {
+        datatype: `double`,
+        name: `PositionY`,
+      },
+      {
+        datatype: `double`,
+        name: `Rotation`,
+      },
+      {
+        datatype: `double`,
+        name: `Size`,
+      },
+    ],
+  },
 }
