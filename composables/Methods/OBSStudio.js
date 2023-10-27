@@ -854,6 +854,36 @@ export default {
       },
     ],
   },
+  ObsSendBatchRaw: {
+    title: `Send send batch raw`,
+    description: `Send a batch of raw requests to the OBS Studio websocket.`,
+    version: `0.2.0`,
+    tags: [`Raw`],
+    return: `string`,
+    success: `The <a href="https://obs-raw.streamer.bot" target="_blank">OBS raw generator</a> is recommended for this method.`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `data`,
+        type: `json`,
+      },
+      {
+        datatype: `bool`,
+        name: `haltOnFailure`,
+        default: `false`,
+      },
+      {
+        datatype: `int`,
+        name: `executionType`,
+        default: `0`,
+      },
+      {
+        datatype: `int`,
+        name: `connectionIdx`,
+        default: `0`,
+      },
+    ],
+  },
 
   ///////////////////////////////////
   // Hide All Scene/Source Filters //
