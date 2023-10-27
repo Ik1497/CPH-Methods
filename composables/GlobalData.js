@@ -1,7 +1,7 @@
 export default {
   version: {
-    stable: `0.1.22`,
-    beta: `0.2.0`,
+    stable: `0.2.1`,
+    beta: `0.2.2`,
     alpha: undefined,
   },
 }
