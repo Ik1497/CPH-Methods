@@ -85,7 +85,7 @@ export default {
   },
   VTubeStudio: {
     title: `VTube Studio`,
-    description: `Control your VTube Studio models and hotkeys.`,
+    description: `Control your VTube Studio instance.`,
     tags: [`Integrations`, `VTube`],
     image: `https://docs.streamer.bot/img/icons/vtube-studio.png`,
   },
