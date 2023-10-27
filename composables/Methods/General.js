@@ -529,4 +529,65 @@ export default {
       },
     ],
   },
+
+  ///////////
+  // Toast //
+  ///////////
+
+  ShowToastNotification: {
+    title: `Show toast notification`,
+    description: `Show a toast notification.`,
+    tags: [`Toast`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `title`,
+      },
+      {
+        datatype: `string`,
+        name: `message`,
+      },
+      {
+        datatype: `string`,
+        name: `attribution`,
+        default: `null`,
+      },
+      {
+        datatype: `string`,
+        name: `iconPath`,
+        default: `null`,
+      },
+    ],
+  },
+  ShowToastNotificationWithId: {
+    title: `Show toast notification with id`,
+    description: `Show a toast notification with an id.`,
+    tags: [`Toast`],
+    return: `void`,
+    fields: [
+      {
+        datatype: `string`,
+        name: `id`,
+      },
+      {
+        datatype: `string`,
+        name: `title`,
+      },
+      {
+        datatype: `string`,
+        name: `message`,
+      },
+      {
+        datatype: `string`,
+        name: `attribution`,
+        default: `null`,
+      },
+      {
+        datatype: `string`,
+        name: `iconPath`,
+        default: `null`,
+      },
+    ],
+  },
 }
